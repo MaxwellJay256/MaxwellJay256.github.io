@@ -3,10 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://maxwelljay256.github.io/</loc>
-    <lastmod>2023-11-17T16:22:12+08:00</lastmod>
+    <lastmod>2023-11-24T20:56:12+08:00</lastmod>
+  </url><url>
+    <loc>https://maxwelljay256.github.io/tags/esp32/</loc>
+    <lastmod>2023-11-24T20:56:12+08:00</lastmod>
+  </url><url>
+    <loc>https://maxwelljay256.github.io/tags/linux/</loc>
+    <lastmod>2023-11-24T20:56:12+08:00</lastmod>
   </url><url>
     <loc>https://maxwelljay256.github.io/post/</loc>
-    <lastmod>2023-11-17T16:22:12+08:00</lastmod>
+    <lastmod>2023-11-24T20:56:12+08:00</lastmod>
+  </url><url>
+    <loc>https://maxwelljay256.github.io/tags/</loc>
+    <lastmod>2023-11-24T20:56:12+08:00</lastmod>
+  </url><url>
+    <loc>https://maxwelljay256.github.io/post/wsl-connect-usb/</loc>
+    <lastmod>2023-11-24T20:56:12+08:00</lastmod>
   </url><url>
     <loc>https://maxwelljay256.github.io/post/hello-world/</loc>
     <lastmod>2023-11-17T16:22:12+08:00</lastmod>
@@ -29,8 +41,6 @@
     <loc>https://maxwelljay256.github.io/categories/music/</loc>
   </url><url>
     <loc>https://maxwelljay256.github.io/page/search/</loc>
-  </url><url>
-    <loc>https://maxwelljay256.github.io/tags/</loc>
   </url><url>
     <loc>https://maxwelljay256.github.io/categories/dev/dev/</loc>
   </url><url>
