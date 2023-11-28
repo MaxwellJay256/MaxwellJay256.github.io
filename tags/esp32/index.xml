@@ -8,12 +8,12 @@
         <language>zh-cn</language>
         <copyright>MaxwellJay256</copyright>
         <lastBuildDate>Fri, 24 Nov 2023 20:56:12 +0800</lastBuildDate><atom:link href="https://maxwelljay256.github.io/tags/esp32/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>笔记：将 USB 设备连接到 WSL</title>
+        <title>将 USB 设备连接到 WSL</title>
         <link>https://maxwelljay256.github.io/posts/wsl-connect-usb/</link>
         <pubDate>Fri, 24 Nov 2023 20:56:12 +0800</pubDate>
         
         <guid>https://maxwelljay256.github.io/posts/wsl-connect-usb/</guid>
-        <description>&lt;img src="https://maxwelljay256.github.io/posts/wsl-connect-usb/ESP32-Devkit.jpg" alt="Featured image of post 笔记：将 USB 设备连接到 WSL" /&gt;&lt;p&gt;最近在尝试使用 WSL 2 作为开发 &lt;code&gt;ESP-32&lt;/code&gt; 的工具，但是 WSL 不像 VMWare 虚拟机那样可以直接访问硬件，而是一个纯虚拟环境，无法直接访问 USB 设备，所以需要一些额外的工具来实现 USB 设备的共享。&lt;/p&gt;
+        <description>&lt;img src="https://maxwelljay256.github.io/posts/wsl-connect-usb/ESP32-Devkit.jpg" alt="Featured image of post 将 USB 设备连接到 WSL" /&gt;&lt;p&gt;最近在尝试使用 WSL 2 作为开发 &lt;code&gt;ESP-32&lt;/code&gt; 的工具，但是 WSL 不像 VMWare 虚拟机那样可以直接访问硬件，而是一个纯虚拟环境，无法直接访问 USB 设备，所以需要一些额外的工具来实现 USB 设备的共享。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;参考资料：&lt;a class=&#34;link&#34; href=&#34;https://learn.microsoft.com/zh-cn/windows/wsl/connect-usb&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;WSL/连接 USB 设备 - Microsoft Learn&lt;/a&gt;&lt;/p&gt;
