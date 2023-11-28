@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://maxwelljay256.github.io/post/wsl-connect-usb/'>
 
-<link rel="stylesheet" href="/scss/style.min.abbd69b2908fdfcd5179898beaafd374514a86538d81639ddd2c58c06ae54e40.css"><meta property='og:title' content='笔记：将 USB 设备连接到 WSL'>
+<link rel="stylesheet" href="/scss/style.min.24ef1cc321916467896e8c70c10c0ad7b98c2a8df14298032fb637216e397f50.css"><meta property='og:title' content='笔记：将 USB 设备连接到 WSL'>
 <meta property='og:description' content='使用 WSL 2 进行嵌入式开发时，如何将 USB 连接从 Windows 转移到 WSL 上？'>
 <meta property='og:url' content='https://maxwelljay256.github.io/post/wsl-connect-usb/'>
 <meta property='og:site_name' content='JayLab256'>
@@ -308,14 +308,18 @@
 <p>通过管理员模式打开 PowerShell 并运行以下命令，列出所有连接到 Windows 的 USB 设备：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>usbipd wsl list
 </span></span></code></pre></div><p>本次实验连接的是一个 <code>ESP-32 Devkit-M</code>，输出如下：</p>
-<p><img src="/usbipd-wsl-list.png"
-	
-	
-	
+<p><img src="/post/wsl-connect-usb/usbipd-wsl-list.png"
+	width="1368"
+	height="706"
+	srcset="/post/wsl-connect-usb/usbipd-wsl-list_hu078912b644f920f0a8ea1af2b02a52d8_1123671_480x0_resize_box_3.png 480w, /post/wsl-connect-usb/usbipd-wsl-list_hu078912b644f920f0a8ea1af2b02a52d8_1123671_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 		alt="usbipd-wsl-list.png"
 	
+	
+		class="gallery-image" 
+		data-flex-grow="193"
+		data-flex-basis="465px"
 	
 ></p>
 <p>这里面 <code>Silicon Labs CP210x USB to UART Bridge (COM5)</code> 就是我们想要连接的开发板了，<code>2-1</code> 就是它的设备总线 ID。</p>
@@ -330,14 +334,18 @@
 <p>在 Ubuntu 中，运行以下命令，列出所有连接到 WSL 的 USB 设备：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lsusb
 </span></span></code></pre></div><p>然后就成功显示到了开发板：</p>
-<p><img src="/lsusb.png"
-	
-	
-	
+<p><img src="/post/wsl-connect-usb/lsusb.png"
+	width="1368"
+	height="706"
+	srcset="/post/wsl-connect-usb/lsusb_hua6e7b5a8e506188b739813c6689c72b6_1178835_480x0_resize_box_3.png 480w, /post/wsl-connect-usb/lsusb_hua6e7b5a8e506188b739813c6689c72b6_1178835_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 		alt="lsusb.png"
 	
+	
+		class="gallery-image" 
+		data-flex-grow="193"
+		data-flex-basis="465px"
 	
 ></p>
 </li>
@@ -346,14 +354,18 @@
 <p>我提前在 WSL 上用 <code>esp-idf</code> 工具链编译了一个简单的 hello-world 程序，现在尝试用 <code>esp-idf</code> 工具链将 WSL 中的项目烧录到开发板上。</p>
 <p>通过 <code>ls /dev/tty*</code> 命令查找到开发板的串口设备为 <code>/dev/ttyUSB0</code>，所以可以运行以下命令烧录程序：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>idf.py -p /dev/ttyUSB0 flash
-</span></span></code></pre></div><p><img src="/flash.png"
-	
-	
-	
+</span></span></code></pre></div><p><img src="/post/wsl-connect-usb/flash.png"
+	width="2559"
+	height="1370"
+	srcset="/post/wsl-connect-usb/flash_hu82fbdc63674008d2de8da95becad5faa_4114606_480x0_resize_box_3.png 480w, /post/wsl-connect-usb/flash_hu82fbdc63674008d2de8da95becad5faa_4114606_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 		alt="flash.png"
 	
+	
+		class="gallery-image" 
+		data-flex-grow="186"
+		data-flex-basis="448px"
 	
 ></p>
 <p>我也尝试了直接使用设备总线 ID 来烧录程序，但没有成功……</p>
@@ -367,27 +379,35 @@
 </span></span><span style="display:flex;"><span>PermissionError: <span style="color:#f92672">[</span>Errno 13<span style="color:#f92672">]</span> Permission denied: <span style="color:#e6db74">&#39;/dev/bus/usb/002/001&#39;</span>
 </span></span></code></pre></div><p>嘛，不管那个了，运行串口监视器，可以看到开发板是正常运行的：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>idf.py -p /dev/ttyUSB0 monitor
-</span></span></code></pre></div><p><img src="/serial-monitor.png"
-	
-	
-	
+</span></span></code></pre></div><p><img src="/post/wsl-connect-usb/serial-monitor.png"
+	width="2559"
+	height="1370"
+	srcset="/post/wsl-connect-usb/serial-monitor_hu82fbdc63674008d2de8da95becad5faa_4349664_480x0_resize_box_3.png 480w, /post/wsl-connect-usb/serial-monitor_hu82fbdc63674008d2de8da95becad5faa_4349664_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 		alt="serial-monitor.png"
 	
 	
+		class="gallery-image" 
+		data-flex-grow="186"
+		data-flex-basis="448px"
+	
 ></p>
 <p>使用结束后，其实可以直接将 USB 设备从电脑上拔出，或者在管理员模式下运行 PowerSheell 命令来断开连接：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>usbipd wsl detach --busid &lt;busid&gt;
 </span></span></code></pre></div><p>实际操作下来，使用命令断开 WSL 的 USB 连接后，Windows 上的设备管理器中又显示出了设备。</p>
-<p><img src="/device-manager.png"
-	
-	
-	
+<p><img src="/post/wsl-connect-usb/device-manager.png"
+	width="1110"
+	height="786"
+	srcset="/post/wsl-connect-usb/device-manager_hufd5193e7c18b7870d201fcb0d267e885_172477_480x0_resize_box_3.png 480w, /post/wsl-connect-usb/device-manager_hufd5193e7c18b7870d201fcb0d267e885_172477_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 		alt="device-manager.png"
 	
+	
+		class="gallery-image" 
+		data-flex-grow="141"
+		data-flex-basis="338px"
 	
 ></p>
 

@@ -6,7 +6,31 @@
         <description>Recent content in Tags on JayLab256</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Fri, 24 Nov 2023 20:56:12 +0800</lastBuildDate><atom:link href="https://maxwelljay256.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 28 Nov 2023 11:04:03 +0800</lastBuildDate><atom:link href="https://maxwelljay256.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>C</title>
+        <link>https://maxwelljay256.github.io/tags/c/</link>
+        <pubDate>Tue, 28 Nov 2023 11:04:03 +0800</pubDate>
+        
+        <guid>https://maxwelljay256.github.io/tags/c/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>C#</title>
+        <link>https://maxwelljay256.github.io/tags/c#/</link>
+        <pubDate>Tue, 28 Nov 2023 11:04:03 +0800</pubDate>
+        
+        <guid>https://maxwelljay256.github.io/tags/c#/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>C&#43;&#43;</title>
+        <link>https://maxwelljay256.github.io/tags/c&#43;&#43;/</link>
+        <pubDate>Tue, 28 Nov 2023 11:04:03 +0800</pubDate>
+        
+        <guid>https://maxwelljay256.github.io/tags/c&#43;&#43;/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>ESP32</title>
         <link>https://maxwelljay256.github.io/tags/esp32/</link>
         <pubDate>Fri, 24 Nov 2023 20:56:12 +0800</pubDate>

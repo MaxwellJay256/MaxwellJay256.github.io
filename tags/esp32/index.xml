@@ -42,14 +42,18 @@
 &lt;p&gt;通过管理员模式打开 PowerShell 并运行以下命令，列出所有连接到 Windows 的 USB 设备：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;usbipd wsl list
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;本次实验连接的是一个 &lt;code&gt;ESP-32 Devkit-M&lt;/code&gt;，输出如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/usbipd-wsl-list.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/post/wsl-connect-usb/usbipd-wsl-list.png&#34;
+	width=&#34;1368&#34;
+	height=&#34;706&#34;
+	srcset=&#34;https://maxwelljay256.github.io/post/wsl-connect-usb/usbipd-wsl-list_hu078912b644f920f0a8ea1af2b02a52d8_1123671_480x0_resize_box_3.png 480w, https://maxwelljay256.github.io/post/wsl-connect-usb/usbipd-wsl-list_hu078912b644f920f0a8ea1af2b02a52d8_1123671_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;usbipd-wsl-list.png&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;193&#34;
+		data-flex-basis=&#34;465px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;这里面 &lt;code&gt;Silicon Labs CP210x USB to UART Bridge (COM5)&lt;/code&gt; 就是我们想要连接的开发板了，&lt;code&gt;2-1&lt;/code&gt; 就是它的设备总线 ID。&lt;/p&gt;
@@ -64,14 +68,18 @@
 &lt;p&gt;在 Ubuntu 中，运行以下命令，列出所有连接到 WSL 的 USB 设备：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;lsusb
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后就成功显示到了开发板：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/lsusb.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/post/wsl-connect-usb/lsusb.png&#34;
+	width=&#34;1368&#34;
+	height=&#34;706&#34;
+	srcset=&#34;https://maxwelljay256.github.io/post/wsl-connect-usb/lsusb_hua6e7b5a8e506188b739813c6689c72b6_1178835_480x0_resize_box_3.png 480w, https://maxwelljay256.github.io/post/wsl-connect-usb/lsusb_hua6e7b5a8e506188b739813c6689c72b6_1178835_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;lsusb.png&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;193&#34;
+		data-flex-basis=&#34;465px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;/li&gt;
@@ -80,14 +88,18 @@
 &lt;p&gt;我提前在 WSL 上用 &lt;code&gt;esp-idf&lt;/code&gt; 工具链编译了一个简单的 hello-world 程序，现在尝试用 &lt;code&gt;esp-idf&lt;/code&gt; 工具链将 WSL 中的项目烧录到开发板上。&lt;/p&gt;
 &lt;p&gt;通过 &lt;code&gt;ls /dev/tty*&lt;/code&gt; 命令查找到开发板的串口设备为 &lt;code&gt;/dev/ttyUSB0&lt;/code&gt;，所以可以运行以下命令烧录程序：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;idf.py -p /dev/ttyUSB0 flash
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/flash.png&#34;
-	
-	
-	
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/post/wsl-connect-usb/flash.png&#34;
+	width=&#34;2559&#34;
+	height=&#34;1370&#34;
+	srcset=&#34;https://maxwelljay256.github.io/post/wsl-connect-usb/flash_hu82fbdc63674008d2de8da95becad5faa_4114606_480x0_resize_box_3.png 480w, https://maxwelljay256.github.io/post/wsl-connect-usb/flash_hu82fbdc63674008d2de8da95becad5faa_4114606_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;flash.png&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;186&#34;
+		data-flex-basis=&#34;448px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;我也尝试了直接使用设备总线 ID 来烧录程序，但没有成功……&lt;/p&gt;
@@ -101,27 +113,35 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;PermissionError: &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;Errno 13&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; Permission denied: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/dev/bus/usb/002/001&amp;#39;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;嘛，不管那个了，运行串口监视器，可以看到开发板是正常运行的：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;idf.py -p /dev/ttyUSB0 monitor
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/serial-monitor.png&#34;
-	
-	
-	
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/post/wsl-connect-usb/serial-monitor.png&#34;
+	width=&#34;2559&#34;
+	height=&#34;1370&#34;
+	srcset=&#34;https://maxwelljay256.github.io/post/wsl-connect-usb/serial-monitor_hu82fbdc63674008d2de8da95becad5faa_4349664_480x0_resize_box_3.png 480w, https://maxwelljay256.github.io/post/wsl-connect-usb/serial-monitor_hu82fbdc63674008d2de8da95becad5faa_4349664_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;serial-monitor.png&#34;
 	
 	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;186&#34;
+		data-flex-basis=&#34;448px&#34;
+	
 &gt;&lt;/p&gt;
 &lt;p&gt;使用结束后，其实可以直接将 USB 设备从电脑上拔出，或者在管理员模式下运行 PowerSheell 命令来断开连接：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;usbipd wsl detach --busid &amp;lt;busid&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;实际操作下来，使用命令断开 WSL 的 USB 连接后，Windows 上的设备管理器中又显示出了设备。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/device-manager.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/post/wsl-connect-usb/device-manager.png&#34;
+	width=&#34;1110&#34;
+	height=&#34;786&#34;
+	srcset=&#34;https://maxwelljay256.github.io/post/wsl-connect-usb/device-manager_hufd5193e7c18b7870d201fcb0d267e885_172477_480x0_resize_box_3.png 480w, https://maxwelljay256.github.io/post/wsl-connect-usb/device-manager_hufd5193e7c18b7870d201fcb0d267e885_172477_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;device-manager.png&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;141&#34;
+		data-flex-basis=&#34;338px&#34;
 	
 &gt;&lt;/p&gt;
 </description>
