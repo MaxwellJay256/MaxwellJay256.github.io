@@ -7,7 +7,79 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>MaxwellJay256</copyright>
-        <lastBuildDate>Tue, 28 Nov 2023 11:04:03 +0800</lastBuildDate><atom:link href="https://maxwelljay256.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 02 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://maxwelljay256.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>关于</title>
+        <link>https://maxwelljay256.github.io/about/</link>
+        <pubDate>Sat, 02 Dec 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://maxwelljay256.github.io/about/</guid>
+        <description>&lt;img src="https://maxwelljay256.github.io/about/103323667_p2.jpg" alt="Featured image of post 关于" /&gt;&lt;p&gt;&lt;strong&gt;博客的文章大多使用中文写作，但是有些特殊的文章可能会使用英文。&lt;/strong&gt;
+感兴趣的话，不妨把语言切换为 English 看看有些什么。&lt;/p&gt;
+&lt;h2 id=&#34;基本信息&#34;&gt;基本信息&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;就读于 &lt;a class=&#34;link&#34; href=&#34;https://www.hitsz.edu.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;哈尔滨工业大学（深圳）&lt;/a&gt;，22 级本科自动化专业&lt;/li&gt;
+&lt;li&gt;平时自称「大扑棱蛾子」，这个人设来自 &lt;a class=&#34;link&#34; href=&#34;https://arcaea.lowiro.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Arcaea&lt;/a&gt; 中的角色 &lt;a class=&#34;link&#34; href=&#34;https://arcwiki.mcd.blue/%E5%BD%A9%E6%A2%A6&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Ayu&lt;/strong&gt;&lt;/a&gt;（其实她是蝙蝠）&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/HITSZ-OpenAuto&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;HITSZ-OpenAuto&lt;/a&gt; 组织的发起者之一和成员&lt;/li&gt;
+&lt;li&gt;理想是成为能帮助到大家的开源开发者&lt;/li&gt;
+&lt;li&gt;目前点亮的技能树：&lt;code&gt;C/C++&lt;/code&gt;，&lt;code&gt;Python&lt;/code&gt;，Linux，$LaTeX$，SolidWorks，ROS&lt;/li&gt;
+&lt;li&gt;正在学习：&lt;code&gt;C#&lt;/code&gt;，ESP32&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在计算机领域我确实没有什么专精的东西，我觉得我反而更适合写文档、管理文件、维护网站这样的事情。&lt;/p&gt;
+&lt;p&gt;至于自动化专业，这是我儿时以来的梦想，因此我会&lt;strong&gt;不惜一切代价&lt;/strong&gt;学习我想学的知识。&lt;/p&gt;
+&lt;h2 id=&#34;个人经历&#34;&gt;个人经历&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;2022 年 8 月，进入哈尔滨工业大学（深圳）自动化专业本科就读。&lt;/li&gt;
+&lt;li&gt;2022 年 9 月，加入 HITSZ-VEX 机器人战队，曾担任控制组组长，专职开发对电子设备的控制程序，包括机器人底盘驱动、电机调速器等。
+2023 年 4 月在上海科创青禾全国 VEX 机器人精英赛担任操作手。后停止在战队的活动。&lt;/li&gt;
+&lt;li&gt;2023 年 4 月，获得哈工大（深圳）理学院第二届弘理杯数学建模竞赛一等奖。&lt;/li&gt;
+&lt;li&gt;2023 年 9 月，作为队长参加全国大学生数学建模竞赛，获得广东赛区省一等奖。&lt;/li&gt;
+&lt;li&gt;2023 年 10 月，开始与同学合作建设 &lt;a class=&#34;link&#34; href=&#34;https://github.com/HITSZ-OpenAuto&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;HITSZ-OpenAuto&lt;/a&gt; 组织，目前主要负责文档的编写和文件的管理。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;工作习惯&#34;&gt;工作习惯&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;🧙‍♂️ 独来独往，很少求人帮忙&lt;/li&gt;
+&lt;li&gt;⏰ Morning bird🐦 而不是 night owl🦉。一般 22:00 后就不会做任何和学习工作有关的事情了（你这个年纪怎么睡得着觉的）&lt;/li&gt;
+&lt;li&gt;💻 VS Code 写一切；Windows 11 with WSL2 (Ubuntu 20.04) + NUC11 with Ubuntu 22.04&lt;/li&gt;
+&lt;li&gt;🎧 工作时几乎都会听音乐&lt;/li&gt;
+&lt;li&gt;📧 MS Office 365 工作流，OneDrive，OneNote，Outlook&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;兴趣爱好&#34;&gt;兴趣爱好&lt;/h2&gt;
+&lt;p&gt;先说免谈的东西。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;电影，一年基本上只看一两部。确实不喜欢看电影。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;说完了。&lt;/p&gt;
+&lt;h3 id=&#34;音游&#34;&gt;音游&lt;/h3&gt;
+&lt;p&gt;音游基本上是我从高中直到今天唯一的游戏类型，其他类型的游戏几乎不碰，或者只玩了很短的时间后就放弃了。&lt;/p&gt;
+&lt;p&gt;受音游的影响，我在 2023 年暑假入坑了&lt;strong&gt;东方 Project&lt;/strong&gt;，以欣赏二创为主。2023 年了还有人入坑东方😹）&lt;/p&gt;
+&lt;p&gt;几乎玩过所有的移动端音游并且脱离新手期，但现在只有 &lt;a class=&#34;link&#34; href=&#34;https://osu.ppy.sh/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;osu!mania&lt;/a&gt; 还在活跃。
+近段时间玩音游的时候减少了。&lt;/p&gt;
+&lt;!---
+可以到 [这里](/posts/music-games-2023/) 看我的音游经历。
+---&gt;
+&lt;h3 id=&#34;电子音乐&#34;&gt;电子音乐&lt;/h3&gt;
+&lt;p&gt;几乎所有的时间都在听音乐。&lt;/p&gt;
+&lt;p&gt;风格以日系的 &lt;strong&gt;Trance&lt;/strong&gt; 和 &lt;strong&gt;Drum &amp;amp; Bass&lt;/strong&gt; 为主。
+大多来自 &lt;a class=&#34;link&#34; href=&#34;http://www.tano-c.net/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;HARDCORE TANO*C&lt;/a&gt; 和 &lt;a class=&#34;link&#34; href=&#34;https://diverse.jp/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Diverse System&lt;/a&gt; 系的曲师。&lt;/p&gt;
+&lt;!---
+可以到 [这里](/posts/music-collection/) 了解我的电子音乐探索历程。
+---&gt;
+&lt;p&gt;欢迎和我交流音乐收藏，你绝对不会失望。&lt;/p&gt;
+&lt;h3 id=&#34;体育运动&#34;&gt;体育运动&lt;/h3&gt;
+&lt;p&gt;从 2020 年开始爱看 F1 一级方程式赛车，但没有特别粉的车队和车手，只是喜欢看比赛。&lt;/p&gt;
+&lt;p&gt;平时喜欢到外面散步，有大片的时间就会去逛公园或者爬山。&lt;/p&gt;
+&lt;p&gt;打音游，尤其是街机音游算不算运动啊🤭&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>一种实用的 C/C&#43;&#43;/C# 代码注释方法</title>
         <link>https://maxwelljay256.github.io/posts/a-useful-code-annotation/</link>
         <pubDate>Tue, 28 Nov 2023 11:04:03 +0800</pubDate>
@@ -129,9 +201,28 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;如果想要再次激活这段代码，那么把 &lt;code&gt;/*/&lt;/code&gt; 改回 &lt;code&gt;//*/&lt;/code&gt; 就行了。&lt;/p&gt;
+&lt;h2 id=&#34;它的原理是什么&#34;&gt;它的原理是什么？&lt;/h2&gt;
+&lt;p&gt;原理很简单，就是利用了 C 语言的注释规则。&lt;/p&gt;
+&lt;p&gt;在 C/C++/C# 中，&lt;code&gt;//&lt;/code&gt; 之后的内容都会被视为注释，直到&lt;strong&gt;这一行&lt;/strong&gt;的结尾。
+而 &lt;code&gt;/*&lt;/code&gt; 之后的内容都会被视为注释，直到遇到 &lt;code&gt;*/&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;所以只需要一张图就可以解释这种注释方法的原理：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/a-useful-code-annotation/principle.png&#34;
+	width=&#34;632&#34;
+	height=&#34;177&#34;
+	srcset=&#34;https://maxwelljay256.github.io/posts/a-useful-code-annotation/principle_hu2a862e45eefb193ad310b1460f10b9b8_15385_480x0_resize_box_3.png 480w, https://maxwelljay256.github.io/posts/a-useful-code-annotation/principle_hu2a862e45eefb193ad310b1460f10b9b8_15385_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;principle&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;357&#34;
+		data-flex-basis=&#34;856px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;p&gt;下面我来介绍一下这种注释方法的几个用处。&lt;/p&gt;
 &lt;h2 id=&#34;有什么用呢&#34;&gt;有什么用呢？&lt;/h2&gt;
-&lt;h3 id=&#34;学习-ccc-时&#34;&gt;学习 C/C++/C# 时&lt;/h3&gt;
+&lt;h3 id=&#34;学习-ccc&#34;&gt;学习 C/C++/C#&lt;/h3&gt;
 &lt;p&gt;初学一种编程语言时，我们往往会照着例程抄写，然后反复调试运行。&lt;/p&gt;
 &lt;p&gt;例如我正在学习 C# 的逻辑运算，&lt;a class=&#34;link&#34; href=&#34;https://learn.microsoft.com/zh-cn/training&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Microsoft Learn&lt;/a&gt; 上的培训给了若干示例代码。
@@ -406,7 +497,7 @@
 	srcset=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/lsusb_hua6e7b5a8e506188b739813c6689c72b6_1178835_480x0_resize_box_3.png 480w, https://maxwelljay256.github.io/posts/wsl-connect-usb/lsusb_hua6e7b5a8e506188b739813c6689c72b6_1178835_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;lsusb.png&#34;
+		alt=&#34;lsusb&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -433,7 +524,7 @@
 	srcset=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/flash_hu82fbdc63674008d2de8da95becad5faa_4114606_480x0_resize_box_3.png 480w, https://maxwelljay256.github.io/posts/wsl-connect-usb/flash_hu82fbdc63674008d2de8da95becad5faa_4114606_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;flash.png&#34;
+		alt=&#34;flash&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -484,7 +575,7 @@
 	srcset=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/serial-monitor_hu82fbdc63674008d2de8da95becad5faa_4349664_480x0_resize_box_3.png 480w, https://maxwelljay256.github.io/posts/wsl-connect-usb/serial-monitor_hu82fbdc63674008d2de8da95becad5faa_4349664_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;serial-monitor.png&#34;
+		alt=&#34;serial-monitor&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -508,7 +599,7 @@
 	srcset=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/device-manager_hufd5193e7c18b7870d201fcb0d267e885_172477_480x0_resize_box_3.png 480w, https://maxwelljay256.github.io/posts/wsl-connect-usb/device-manager_hufd5193e7c18b7870d201fcb0d267e885_172477_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;device-manager.png&#34;
+		alt=&#34;device-manager&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -530,89 +621,18 @@
         <item>
         <title>归档</title>
         <link>https://maxwelljay256.github.io/archives/</link>
-        <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+        <pubDate>Fri, 17 Nov 2023 00:00:00 +0000</pubDate>
         
         <guid>https://maxwelljay256.github.io/archives/</guid>
         <description></description>
         </item>
         <item>
-        <title>关于</title>
-        <link>https://maxwelljay256.github.io/%E5%85%B3%E4%BA%8E/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        
-        <guid>https://maxwelljay256.github.io/%E5%85%B3%E4%BA%8E/</guid>
-        <description>&lt;img src="https://maxwelljay256.github.io/%E5%85%B3%E4%BA%8E/103323667_p2.jpg" alt="Featured image of post 关于" /&gt;&lt;h2 id=&#34;基本信息&#34;&gt;基本信息&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;就读于 &lt;a class=&#34;link&#34; href=&#34;https://www.hitsz.edu.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;哈尔滨工业大学（深圳）&lt;/a&gt;，22 级本科自动化专业&lt;/li&gt;
-&lt;li&gt;平时自称「大扑棱蛾子」，这个人设来自 &lt;a class=&#34;link&#34; href=&#34;https://arcaea.lowiro.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Arcaea&lt;/a&gt; 中的角色 &lt;a class=&#34;link&#34; href=&#34;https://arcwiki.mcd.blue/%E5%BD%A9%E6%A2%A6&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;&lt;strong&gt;Ayu&lt;/strong&gt;&lt;/a&gt;（其实她是蝙蝠）&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/HITSZ-OpenAuto&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;HITSZ-OpenAuto&lt;/a&gt; 组织的发起者之一和成员&lt;/li&gt;
-&lt;li&gt;理想是成为能帮助到大家的开源开发者&lt;/li&gt;
-&lt;li&gt;目前点亮的技能树：&lt;code&gt;C/C++&lt;/code&gt;，&lt;code&gt;Python&lt;/code&gt;，Linux，$LaTeX$，SolidWorks，ROS&lt;/li&gt;
-&lt;li&gt;正在学习：&lt;code&gt;C#&lt;/code&gt;，ESP32&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;在计算机领域我确实没有什么专精的东西，我觉得我反而更适合写文档、管理文件、维护网站这样的事情。&lt;/p&gt;
-&lt;p&gt;至于自动化专业，这是我儿时以来的梦想，因此我会&lt;strong&gt;不惜一切代价&lt;/strong&gt;学习我想学的知识。&lt;/p&gt;
-&lt;h2 id=&#34;个人经历&#34;&gt;个人经历&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;2022 年 8 月，进入哈尔滨工业大学（深圳）自动化专业本科就读。&lt;/li&gt;
-&lt;li&gt;2022 年 9 月，加入 HITSZ-VEX 机器人战队，曾担任控制组组长，专职开发对电子设备的控制程序，包括机器人底盘驱动、电机调速器等。
-2023 年 4 月在上海科创青禾全国 VEX 机器人精英赛担任操作手。后停止在战队的活动。&lt;/li&gt;
-&lt;li&gt;2023 年 4 月，获得哈工大（深圳）理学院第二届弘理杯数学建模竞赛一等奖。&lt;/li&gt;
-&lt;li&gt;2023 年 9 月，作为队长参加全国大学生数学建模竞赛，获得广东赛区省一等奖。&lt;/li&gt;
-&lt;li&gt;2023 年 10 月，开始与同学合作建设 &lt;a class=&#34;link&#34; href=&#34;https://github.com/HITSZ-OpenAuto&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;HITSZ-OpenAuto&lt;/a&gt; 组织，目前主要负责文档的编写和文件的管理。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;工作习惯&#34;&gt;工作习惯&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;🧙‍♂️ 独来独往，很少求人帮忙&lt;/li&gt;
-&lt;li&gt;⏰ Morning bird🐦 而不是 night owl🦉。一般 22:00 后就不会做任何和学习工作有关的事情了（你这个年纪怎么睡得着觉的）&lt;/li&gt;
-&lt;li&gt;💻 VS Code 写一切；Windows 11 with WSL2 (Ubuntu 20.04) + NUC11 with Ubuntu 22.04&lt;/li&gt;
-&lt;li&gt;🎧 工作时几乎都会听音乐&lt;/li&gt;
-&lt;li&gt;📧 MS Office 365 工作流，OneDrive，OneNote，Outlook&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;兴趣爱好&#34;&gt;兴趣爱好&lt;/h2&gt;
-&lt;p&gt;先说免谈的东西。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;电影，一年基本上只看一两部。确实不喜欢看电影。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;说完了。&lt;/p&gt;
-&lt;h3 id=&#34;音游&#34;&gt;音游&lt;/h3&gt;
-&lt;p&gt;音游基本上是我从高中直到今天唯一的游戏类型，其他类型的游戏几乎不碰，或者只玩了很短的时间后就放弃了。&lt;/p&gt;
-&lt;p&gt;受音游的影响，我在 2023 年暑假入坑了&lt;strong&gt;东方 Project&lt;/strong&gt;，以欣赏二创为主。2023 年了还有人入坑东方😹）&lt;/p&gt;
-&lt;p&gt;几乎玩过所有的移动端音游并且脱离新手期，但现在只有 &lt;a class=&#34;link&#34; href=&#34;https://osu.ppy.sh/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;osu!mania&lt;/a&gt; 还在活跃。
-近段时间玩音游的时候减少了。&lt;/p&gt;
-&lt;!---
-可以到 [这里](/posts/music-games-2023/) 看我的音游经历。
----&gt;
-&lt;h3 id=&#34;电子音乐&#34;&gt;电子音乐&lt;/h3&gt;
-&lt;p&gt;几乎所有的时间都在听音乐。&lt;/p&gt;
-&lt;p&gt;风格以日系的 &lt;strong&gt;Trance&lt;/strong&gt; 和 &lt;strong&gt;Drum &amp;amp; Bass&lt;/strong&gt; 为主。
-大多来自 &lt;a class=&#34;link&#34; href=&#34;http://www.tano-c.net/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;HARDCORE TANO*C&lt;/a&gt; 和 &lt;a class=&#34;link&#34; href=&#34;https://diverse.jp/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Diverse System&lt;/a&gt; 系的曲师。&lt;/p&gt;
-&lt;!---
-可以到 [这里](/posts/music-collection/) 了解我的电子音乐探索历程。
----&gt;
-&lt;p&gt;欢迎和我交流音乐收藏，你绝对不会失望。&lt;/p&gt;
-&lt;h3 id=&#34;体育运动&#34;&gt;体育运动&lt;/h3&gt;
-&lt;p&gt;从 2020 年开始爱看 F1 一级方程式赛车，但没有特别粉的车队和车手，只是喜欢看比赛。&lt;/p&gt;
-&lt;p&gt;平时喜欢到外面散步，有大片的时间就会去逛公园或者爬山。&lt;/p&gt;
-&lt;p&gt;打音游，尤其是街机音游算不算运动啊🤭&lt;/p&gt;
-</description>
-        </item>
-        <item>
         <title>链接</title>
-        <link>https://maxwelljay256.github.io/%E9%93%BE%E6%8E%A5/</link>
+        <link>https://maxwelljay256.github.io/links/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://maxwelljay256.github.io/%E9%93%BE%E6%8E%A5/</guid>
-        <description>&lt;p&gt;一个人是其社会关系的总和。——卡尔·马克思&lt;/p&gt;
-</description>
+        <guid>https://maxwelljay256.github.io/links/</guid>
+        <description></description>
         </item>
         <item>
         <title>搜索</title>

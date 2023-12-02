@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Pages on JayLab256</title>
+        <link>https://maxwelljay256.github.io/en/page/</link>
+        <description>Recent content in Pages on JayLab256</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>MaxwellJay256</copyright>
+        <lastBuildDate>Sat, 02 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://maxwelljay256.github.io/en/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>About</title>
+        <link>https://maxwelljay256.github.io/en/about/</link>
+        <pubDate>Sat, 02 Dec 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://maxwelljay256.github.io/en/about/</guid>
+        <description>&lt;img src="https://maxwelljay256.github.io/en/about/103323667_p2.jpg" alt="Featured image of post About" /&gt;&lt;p&gt;&lt;strong&gt;Articles in my blog are mostly written in Chinese.
+However, some special ones may be written in English.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;basic-information&#34;&gt;Basic Information&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Undergraduate student of &lt;a class=&#34;link&#34; href=&#34;https://www.hitsz.edu.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Harbin Institute of Technology, Shenzhen&lt;/a&gt;.
+Majoring in Automation since 2022.&lt;/li&gt;
+&lt;li&gt;I call myself &lt;em&gt;A large flappy moth&lt;/em&gt;.
+This nickname comes from &lt;a class=&#34;link&#34; href=&#34;https://arcwiki.mcd.blue/%E5%BD%A9%E6%A2%A6&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Ayu&lt;/strong&gt;&lt;/a&gt; in &lt;a class=&#34;link&#34; href=&#34;https://arcaea.lowiro.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Arcaea&lt;/a&gt; (She&amp;rsquo;s not a moth, though).&lt;/li&gt;
+&lt;li&gt;One of the initiators and members of &lt;a class=&#34;link&#34; href=&#34;https://github.com/HITSZ-OpenAuto&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;HITSZ OpenAuto&lt;/a&gt; organization.&lt;/li&gt;
+&lt;li&gt;My ideal is to be a helpful open source developer.&lt;/li&gt;
+&lt;li&gt;Skills I have acclaimed: &lt;code&gt;C/C++&lt;/code&gt;, &lt;code&gt;Python&lt;/code&gt;, Linux, $LaTeX$, SolidWorks, ROS.&lt;/li&gt;
+&lt;li&gt;I&amp;rsquo;m learning: &lt;code&gt;C#&lt;/code&gt;, ESP32.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I don&amp;rsquo;t have any expertise in the field of computer science.
+I think I&amp;rsquo;m more suitable for writing documents, managing files, and maintaining websites.&lt;/p&gt;
+&lt;p&gt;As for the automation major, it has been my dream since childhood, so I will learn what I want to learn &lt;strong&gt;at all costs&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;personal-experience&#34;&gt;Personal Experience&lt;/h2&gt;
+&lt;h3 id=&#34;august-2022&#34;&gt;August 2022&lt;/h3&gt;
+&lt;p&gt;Admitted to Harbin Institute of Technology (Shenzhen) to study for a bachelor&amp;rsquo;s degree in automation.&lt;/p&gt;
+&lt;h3 id=&#34;september-2022&#34;&gt;September 2022&lt;/h3&gt;
+&lt;p&gt;Joined the HITSZ-VEX robotics team, served as leader of the control group.
+Focused on developing control systems for electronic devices, including robot chassis drive, motor speed controller, etc.&lt;/p&gt;
+&lt;h3 id=&#34;april-2023&#34;&gt;April 2023&lt;/h3&gt;
+&lt;p&gt;Served as the operator at the Shanghai Science and Technology Creation Qinghe National VEX Robot Elite Competition.
+I left HITSZ-VEX then.&lt;/p&gt;
+&lt;p&gt;1st prize in &lt;em&gt;HITSZ 2nd Hongli Cup Mathematical Modeling Competition&lt;/em&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;september-2023&#34;&gt;September 2023&lt;/h3&gt;
+&lt;p&gt;Lead the team in 2023 &lt;em&gt;China Undergraduate Mathematical Contest in Modeling(CUMCM)&lt;/em&gt;. 1st prize in Guangdong Division.&lt;/p&gt;
+&lt;h3 id=&#34;october-2023&#34;&gt;October 2023&lt;/h3&gt;
+&lt;p&gt;Started to build the &lt;a class=&#34;link&#34; href=&#34;https://github.com/HITSZ-OpenAuto&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;HITSZ OpenAuto&lt;/a&gt; organization with some friends.
+Currently responsible for documentation and file management.&lt;/p&gt;
+&lt;h2 id=&#34;working-habits&#34;&gt;Working Habits&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;🧙‍♂️ I work alone and rarely ask for help.&lt;/li&gt;
+&lt;li&gt;⏰ Morning bird🐦 instead of night owl🦉.
+I usually won&amp;rsquo;t do anything related to study and work after 22:00.&lt;/li&gt;
+&lt;li&gt;💻 VS Code for everything;
+Windows 11 with WSL2 (Ubuntu 20.04) + NUC11 with Ubuntu 22.04&lt;/li&gt;
+&lt;li&gt;🎧 I almost always listen to music when I work.&lt;/li&gt;
+&lt;li&gt;📧 MS Office 365 workflow, OneDrive, OneNote, Outlook.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;hobbies&#34;&gt;Hobbies&lt;/h2&gt;
+&lt;p&gt;First I have to say what is not discussed.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Movies, usually just one or two cinema visits a year.
+I really don&amp;rsquo;t like watching movies.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;That&amp;rsquo;s all.&lt;/p&gt;
+&lt;h3 id=&#34;rhythm-games&#34;&gt;Rhythm Games&lt;/h3&gt;
+&lt;p&gt;Rhythm games are basically the only type of game I&amp;rsquo;ve played from high school until now, and I rarely touch other types of games, or I give them up after playing for a short time.&lt;/p&gt;
+&lt;p&gt;Influenced by rhythm games, I became a fan of &lt;strong&gt;Touhou Project&lt;/strong&gt; in the summer vacation of 2023, mainly watching Doujins.
+(It&amp;rsquo;s 2023 and there are still people who become fans of Touhou😹)&lt;/p&gt;
+&lt;p&gt;I have played almost all mobile rhythm games and have left the novice stage, but now only &lt;a class=&#34;link&#34; href=&#34;https://osu.ppy.sh/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;osu!mania&lt;/a&gt; is still frequently played.
+I have reduced the time on rhythm games recently.&lt;/p&gt;
+&lt;h3 id=&#34;electronic-music&#34;&gt;Electronic Music&lt;/h3&gt;
+&lt;p&gt;I listen to music almost all the time.&lt;/p&gt;
+&lt;p&gt;The genres I often listen to are Japanese &lt;strong&gt;Trance&lt;/strong&gt; and &lt;strong&gt;Drum &amp;amp; Bass&lt;/strong&gt;.
+Most of them come from artists from &lt;a class=&#34;link&#34; href=&#34;http://www.tano-c.net/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;HARDCORE TANO*C&lt;/a&gt; and &lt;a class=&#34;link&#34; href=&#34;https://diverse.jp/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Diverse System&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You are welcome to know more of my music collection.
+You won&amp;rsquo;t be disappointed.&lt;/p&gt;
+&lt;h3 id=&#34;sports&#34;&gt;Sports&lt;/h3&gt;
+&lt;p&gt;I have been watching 🏎️ Formula One since 2020.
+However I am not a fan of any team or driver.
+I just watch races for fun.&lt;/p&gt;
+&lt;p&gt;In spare time I would take a walk in parks, or climb mountains.&lt;/p&gt;
+&lt;p&gt;Can rhythm games, especially arcade rhythm games be considered as sport?🤭&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Archives</title>
+        <link>https://maxwelljay256.github.io/en/archives/</link>
+        <pubDate>Fri, 17 Nov 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://maxwelljay256.github.io/en/archives/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Links</title>
+        <link>https://maxwelljay256.github.io/en/links/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://maxwelljay256.github.io/en/links/</guid>
+        <description>&lt;p&gt;A man is the sum of his social relations. - Karl Marx&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Search</title>
+        <link>https://maxwelljay256.github.io/en/search/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://maxwelljay256.github.io/en/search/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>
