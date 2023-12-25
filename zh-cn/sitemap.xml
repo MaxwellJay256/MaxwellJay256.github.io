@@ -91,6 +91,16 @@
   </url><url>
     <loc>https://maxwelljay256.github.io/categories/dev/</loc>
     <lastmod>2023-11-28T11:04:03+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://maxwelljay256.github.io/en/categories/dev/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://maxwelljay256.github.io/categories/dev/"
+                />
   </url><url>
     <loc>https://maxwelljay256.github.io/posts/a-useful-code-annotation/</loc>
     <lastmod>2023-11-28T11:04:03+08:00</lastmod>
@@ -131,6 +141,16 @@
                 />
   </url><url>
     <loc>https://maxwelljay256.github.io/categories/thoughts/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://maxwelljay256.github.io/en/categories/thoughts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://maxwelljay256.github.io/categories/thoughts/"
+                />
   </url><url>
     <loc>https://maxwelljay256.github.io/links/</loc>
     <xhtml:link
@@ -145,6 +165,16 @@
                 />
   </url><url>
     <loc>https://maxwelljay256.github.io/categories/life/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://maxwelljay256.github.io/en/categories/life/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://maxwelljay256.github.io/categories/life/"
+                />
   </url><url>
     <loc>https://maxwelljay256.github.io/search/</loc>
     <xhtml:link
@@ -159,5 +189,15 @@
                 />
   </url><url>
     <loc>https://maxwelljay256.github.io/categories/music/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://maxwelljay256.github.io/en/categories/music/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://maxwelljay256.github.io/categories/music/"
+                />
   </url>
 </urlset>

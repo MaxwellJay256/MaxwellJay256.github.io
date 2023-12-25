@@ -13,7 +13,8 @@
         <pubDate>Sat, 02 Dec 2023 00:00:00 +0000</pubDate>
         
         <guid>https://maxwelljay256.github.io/en/about/</guid>
-        <description>&lt;img src="https://maxwelljay256.github.io/en/about/103323667_p2.jpg" alt="Featured image of post About" /&gt;&lt;p&gt;&lt;strong&gt;Articles in my blog are mostly written in Chinese.
+        <description>&lt;img src="https://maxwelljay256.github.io/en/about/103323667_p2.jpg" alt="Featured image of post About" /&gt;&lt;iframe frameborder=&#34;no&#34; border=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; width=440 height=86 src=&#34;//music.163.com/outchain/player?type=2&amp;id=464647026&amp;auto=1&amp;height=66&#34;&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;strong&gt;Articles in my blog are mostly written in Chinese.
 However, some special ones may be written in English.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&#34;basic-information&#34;&gt;Basic Information&lt;/h2&gt;
 &lt;ul&gt;
@@ -38,13 +39,8 @@ I think I&amp;rsquo;m more suitable for writing documents, managing files, and m
 &lt;p&gt;Admitted to Harbin Institute of Technology (Shenzhen) to study for a bachelor&amp;rsquo;s degree in automation.&lt;/p&gt;
 &lt;h3 id=&#34;september-2022&#34;&gt;September 2022&lt;/h3&gt;
 &lt;p&gt;Joined the HITSZ-VEX robotics team, served as leader of the control group.
-Focused on developing control systems for electronic devices, including robot chassis drive, motor speed controller, etc.&lt;/p&gt;
-&lt;h3 id=&#34;april-2023&#34;&gt;April 2023&lt;/h3&gt;
-&lt;p&gt;Served as the operator at the Shanghai Science and Technology Creation Qinghe National VEX Robot Elite Competition.
-I left HITSZ-VEX then.&lt;/p&gt;
-&lt;p&gt;1st prize in &lt;em&gt;HITSZ 2nd Hongli Cup Mathematical Modeling Competition&lt;/em&gt;.&lt;/p&gt;
-&lt;h3 id=&#34;september-2023&#34;&gt;September 2023&lt;/h3&gt;
-&lt;p&gt;Lead the team in 2023 &lt;em&gt;China Undergraduate Mathematical Contest in Modeling(CUMCM)&lt;/em&gt;. 1st prize in Guangdong Division.&lt;/p&gt;
+Focused on developing control systems for electronic devices, including robot chassis drive, motor speed controller, etc.
+Stopped participating in the team&amp;rsquo;s activities after April 2023.&lt;/p&gt;
 &lt;h3 id=&#34;october-2023&#34;&gt;October 2023&lt;/h3&gt;
 &lt;p&gt;Started to build the &lt;a class=&#34;link&#34; href=&#34;https://github.com/HITSZ-OpenAuto&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;HITSZ OpenAuto&lt;/a&gt; organization with some friends.

@@ -92,6 +92,30 @@
                 href="https://maxwelljay256.github.io/en/categories/"
                 />
   </url><url>
+    <loc>https://maxwelljay256.github.io/en/categories/dev/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://maxwelljay256.github.io/categories/dev/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://maxwelljay256.github.io/en/categories/dev/"
+                />
+  </url><url>
+    <loc>https://maxwelljay256.github.io/en/categories/life/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://maxwelljay256.github.io/categories/life/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://maxwelljay256.github.io/en/categories/life/"
+                />
+  </url><url>
     <loc>https://maxwelljay256.github.io/en/links/</loc>
     <xhtml:link
                 rel="alternate"
@@ -102,6 +126,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://maxwelljay256.github.io/en/links/"
+                />
+  </url><url>
+    <loc>https://maxwelljay256.github.io/en/categories/music/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://maxwelljay256.github.io/categories/music/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://maxwelljay256.github.io/en/categories/music/"
                 />
   </url><url>
     <loc>https://maxwelljay256.github.io/en/search/</loc>
@@ -126,6 +162,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://maxwelljay256.github.io/en/tags/"
+                />
+  </url><url>
+    <loc>https://maxwelljay256.github.io/en/categories/thoughts/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://maxwelljay256.github.io/categories/thoughts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://maxwelljay256.github.io/en/categories/thoughts/"
                 />
   </url>
 </urlset>

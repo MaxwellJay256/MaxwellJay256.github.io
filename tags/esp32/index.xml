@@ -48,7 +48,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install linux-tools-generic hwdata
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;每次要启动 USBIP 服务时，运行以下命令：&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;为了启用 USBIP 服务，运行以下命令：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -57,8 +57,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo update-alternatives --install /usr/local/bin/usbip usbip /usr/lib/linux-tools/*-generic/usbip &lt;span class=&#34;m&#34;&gt;20&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;此时，一个服务就会在 Windows 上运行以共享 USB 设备，并且在 WSL 中安装了必要的工具来连接到共享设备。&lt;/p&gt;
-&lt;h2 id=&#34;附加-usb-设备&#34;&gt;附加 USB 设备&lt;/h2&gt;
+&lt;/div&gt;&lt;h2 id=&#34;附加-usb-设备&#34;&gt;附加 USB 设备&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;通过管理员模式打开 PowerShell 并运行以下命令，列出所有连接到 Windows 的 USB 设备：&lt;/p&gt;
@@ -70,7 +69,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;usbipd&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;wsl&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;list&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;本次实验连接的是一个 &lt;code&gt;ESP-32 Devkit-M&lt;/code&gt;，输出如下：&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;本次实验连接的是一个 &lt;code&gt;ESP-32 DevKit-C&lt;/code&gt;，输出如下：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/usbipd-wsl-list.png&#34;
 	width=&#34;1368&#34;
 	height=&#34;706&#34;
@@ -85,7 +84,7 @@
 		data-flex-basis=&#34;465px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;这里面 &lt;code&gt;Silicon Labs CP210x USB to UART Bridge (COM5)&lt;/code&gt; 就是我们想要连接的开发板了，&lt;code&gt;2-1&lt;/code&gt; 就是它的设备总线 ID。&lt;/p&gt;
+&lt;p&gt;这里面 &lt;code&gt;Silicon Labs CP210x USB to UART Bridge (COM5)&lt;/code&gt; 就是我们想要连接的开发板了，它的设备总线 ID 是 &lt;code&gt;2-1&lt;/code&gt;。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;选择要附加到 WSL 的设备总线 ID，然后运行以下命令：&lt;/p&gt;

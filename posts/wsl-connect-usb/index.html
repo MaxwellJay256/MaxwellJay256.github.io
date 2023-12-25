@@ -397,7 +397,7 @@ if (!doNotTrack) {
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install linux-tools-generic hwdata
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>每次要启动 USBIP 服务时，运行以下命令：</p>
+</div><p>为了启用 USBIP 服务，运行以下命令：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -406,8 +406,7 @@ if (!doNotTrack) {
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo update-alternatives --install /usr/local/bin/usbip usbip /usr/lib/linux-tools/*-generic/usbip <span class="m">20</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>此时，一个服务就会在 Windows 上运行以共享 USB 设备，并且在 WSL 中安装了必要的工具来连接到共享设备。</p>
-<h2 id="附加-usb-设备">附加 USB 设备</h2>
+</div><h2 id="附加-usb-设备">附加 USB 设备</h2>
 <ol>
 <li>
 <p>通过管理员模式打开 PowerShell 并运行以下命令，列出所有连接到 Windows 的 USB 设备：</p>
@@ -419,7 +418,7 @@ if (!doNotTrack) {
 <pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">usbipd</span> <span class="n">wsl</span> <span class="n">list</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>本次实验连接的是一个 <code>ESP-32 Devkit-M</code>，输出如下：</p>
+</div><p>本次实验连接的是一个 <code>ESP-32 DevKit-C</code>，输出如下：</p>
 <p><img src="/posts/wsl-connect-usb/usbipd-wsl-list.png"
 	width="1368"
 	height="706"
@@ -434,7 +433,7 @@ if (!doNotTrack) {
 		data-flex-basis="465px"
 	
 ></p>
-<p>这里面 <code>Silicon Labs CP210x USB to UART Bridge (COM5)</code> 就是我们想要连接的开发板了，<code>2-1</code> 就是它的设备总线 ID。</p>
+<p>这里面 <code>Silicon Labs CP210x USB to UART Bridge (COM5)</code> 就是我们想要连接的开发板了，它的设备总线 ID 是 <code>2-1</code>。</p>
 </li>
 <li>
 <p>选择要附加到 WSL 的设备总线 ID，然后运行以下命令：</p>
@@ -601,7 +600,7 @@ if (!doNotTrack) {
 
 
 
-        <span>CC BY-NC-SA 4.0</span>
+        <span>LICENSED UNDER CC BY-NC-SA 4.0</span>
     </section>
     </footer>
 
