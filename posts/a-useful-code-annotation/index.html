@@ -435,6 +435,44 @@ if (!doNotTrack) {
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>而且要想删掉这段注释，就必须既删掉这段注释的开头 <code>/*</code>，又要删掉注释的结尾 <code>*/</code>，否则整个文件都会出问题，非常麻烦。</p>
+<p>最近我又在一些库文件中看到了另一种注释方法，那就是利用 <code>if</code> 和 <code>endif</code>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#if 0</span><span class="c"> // 以下代码块不会出现在编译后的文件中
+</span></span></span><span class="line"><span class="cl"><span class="c">int main()
+</span></span></span><span class="line"><span class="cl"><span class="c">{
+</span></span></span><span class="line"><span class="cl"><span class="c">    printf(&#34;Hello, world!\n&#34;);
+</span></span></span><span class="line"><span class="cl"><span class="c">    return 0;
+</span></span></span><span class="line"><span class="cl"><span class="c">}
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="cp">#endif
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#if 1 </span><span class="c1">// 激活以下代码块
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Hello, world!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#endif
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>这种方法通过在 <code>if 0</code> 和 <code>if 1</code> 之间切换来实现代码块的禁用和激活，严格意义上来说不属于注释语法，</p>
 <h2 id="一种实用的注释方法">一种实用的注释方法</h2>
 <p>这个时候我想起来了过去在 HITSZ-VEX 程序组培训时，<a class="link" href="https://github.com/TangLongbin"  target="_blank" rel="noopener"
     >Longbin</a> 教给我们的一种注释方法。
@@ -765,7 +803,9 @@ if (!doNotTrack) {
     <section class="copyright">
         &copy; 
         
-        2023 MaxwellJay256
+            2023 - 
+        
+        2024 MaxwellJay256
     </section>
     
     <section class="powerby">
