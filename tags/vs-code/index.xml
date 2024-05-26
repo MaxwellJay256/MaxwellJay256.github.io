@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>VS Code on JayLab256</title>
+        <link>http://localhost:1313/tags/vs-code/</link>
+        <description>Recent content in VS Code on JayLab256</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>MaxwellJay256</copyright>
+        <lastBuildDate>Tue, 02 Apr 2024 15:57:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/vs-code/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>浅谈 STM32 开发环境，以及个人开发环境分享</title>
+        <link>http://localhost:1313/posts/%E6%B5%85%E8%B0%88-stm32-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%BB%A5%E5%8F%8A%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%88%86%E4%BA%AB/</link>
+        <pubDate>Tue, 02 Apr 2024 15:57:00 +0800</pubDate>
+        
+        <guid>http://localhost:1313/posts/%E6%B5%85%E8%B0%88-stm32-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%BB%A5%E5%8F%8A%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%88%86%E4%BA%AB/</guid>
+        <description>&lt;h2 id=&#34;前言&#34;&gt;
+    &lt;a href=&#34;#%e5%89%8d%e8%a8%80&#34;&gt;#&lt;/a&gt;
+    前言
+&lt;/h2&gt;&lt;p&gt;STM32 的开发环境之所以相当难配置，是因为从代码编写到编译到烧录调试，可选的工具琳琅满目，用法各异。
+这导致咱们电类专业学生上手 STM32 之初，发现每一个视频、每一篇博客都在介绍不同的路线，让人不知所措。
+更糟的是，新人在并不了解工具链、编译器、烧录仿真等等概念的情况下，无法在熟悉开发环境使用之前了解这些开发环境孰优孰劣。&lt;/p&gt;
+&lt;p&gt;比如我这种希望电脑上的 IDE 越少越好的人来说，就非常不愿意安装一个 GUI 看上去十分落后的 Keil。
+之前还尝试过 STM32CubeIDE，但是它的代码提示和自动补全很难搞，运行也很吃内存。
+结果我很长一段时间虽然手上有 STM32 开发板，但始终不想去动它。&lt;/p&gt;
+&lt;p&gt;最近因为要准备竞赛，我又不得不开始啃 STM32 这个硬骨头。
+经过几天的研究，我尝试了数套开发环境，最终找到了 &lt;strong&gt;VS Code + arm-none-eabi-gcc + OpenOCD&lt;/strong&gt; 的组合。
+这套环境有 4 大优势：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用 VS Code C/C++ 的 IntelliSense 实现代码提示和补全，几乎不用担心函数、文件名下的红波浪线。&lt;/li&gt;
+&lt;li&gt;除了必须用 STM32CubeMX 生成代码外，不需要打开任何其他的窗口，即可完成工程的编译、烧录、调试。&lt;/li&gt;
+&lt;li&gt;跨平台，Windows 和 Linux 下都能使用。&lt;/li&gt;
+&lt;li&gt;全部免费，免去破解 Keil 的步骤，适合有许可证洁癖的宝宝。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;本文并不单纯是配置这套环境的教程。
+我想在这篇长文中详细讲解一下 STM32 的几种常见开发环境是什么、怎么用的，总结一下自己对 STM32 的软件生态的了解。&lt;/p&gt;
+&lt;p&gt;接下来请出本文的嘉宾：&lt;a class=&#34;link&#34; href=&#34;https://www.st.com/zh/evaluation-tools/nucleo-u575zi-q&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;NUCLEO-U575ZI-Q&lt;/a&gt;。
+这块 ST 官方的开发板搭载 &lt;a class=&#34;link&#34; href=&#34;https://www.st.com/zh/microcontrollers-microprocessors/stm32u575zi.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;STM32U575ZIT6Q&lt;/a&gt; 芯片（LQFP144 封装），同时板上自带 ST-LINK 调试器。
+本文中出现的硬件实验都是基于这块开发板进行的。&lt;/p&gt;
+&lt;img src=&#34;NUCLEO-U575ZI-Q.jpg&#34; alt=&#34;NUCLEO-U575ZI-Q&#34; style=&#34;zoom:20%;&#34; /&gt;
+&lt;h2 id=&#34;stm32-开发环境的组成&#34;&gt;
+    &lt;a href=&#34;#stm32-%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e7%bb%84%e6%88%90&#34;&gt;#&lt;/a&gt;
+    STM32 开发环境的组成
+&lt;/h2&gt;&lt;p&gt;我们按照给 STM32 单片机编写工程的完整流程，看看 STM32 的开发都用到了哪些东西。&lt;/p&gt;
+&lt;p&gt;我想通过罗列这些工具，对比一下 STM32 相比其他单片机的开发有什么区别。&lt;/p&gt;
+&lt;h3 id=&#34;代码生成工具&#34;&gt;
+    &lt;a href=&#34;#%e4%bb%a3%e7%a0%81%e7%94%9f%e6%88%90%e5%b7%a5%e5%85%b7&#34;&gt;#&lt;/a&gt;
+    代码生成工具
+&lt;/h3&gt;&lt;p&gt;如果你之前使用过 Arduino 或者 ESP32，你会注意到给它们创建一个新工程并不困难。&lt;/p&gt;
+&lt;p&gt;创建一个 Arduino 工程，本质上只需要新建一个 &lt;code&gt;.ino&lt;/code&gt; 文件。
+如果要使用多文件，则可以把所有头文件和源文件放在 &lt;code&gt;.ino&lt;/code&gt; 文件的同一个目录下，Arduino 会自动链接和编译所有的文件。&lt;/p&gt;
+&lt;p&gt;ESP32（如果基于 ESP-IDF 而不是 Arduino 开发）则是从 esp-idf 的 examples 中复制一个 &lt;code&gt;sample-project&lt;/code&gt; 文件夹，然后编辑其中的 &lt;code&gt;CMakeLists.txt&lt;/code&gt; 文件，再开始写代码。
+ESP-IDF 的工程是基于 CMake 构建的，因此 &lt;code&gt;sample-project&lt;/code&gt; 的文件结构如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sample-project
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── main
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   ├── CMakeLists.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   ├── component.mk
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   └── main.c
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── CMakeLists.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── Makefile
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;└── README.md
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;如果要为其添加新的头文件和源文件，需要在 &lt;code&gt;main/CMakeLists.txt&lt;/code&gt; 中作出对应的修改。&lt;/p&gt;
+&lt;p&gt;而 STM32 就远比以上二者复杂了。
+STM32 的 MCU 型号众多，外设配置不尽相同，并且 STM32 的库文件相当地底层，仅仅关于配置 IO 的代码就相当复杂，靠手搓文件基本上是不可能的。&lt;/p&gt;
+&lt;p&gt;因此，抛开标准库不谈，基于 HAL 库的 STM32 开发甚至需要专门的工具
+&lt;a class=&#34;link&#34; href=&#34;https://www.st.com/zh/development-tools/stm32cubemx.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;STM32CubeMX&lt;/strong&gt;&lt;/a&gt;
+来生成具有完整配置的工程。&lt;/p&gt;
+&lt;h3 id=&#34;文本编辑器&#34;&gt;
+    &lt;a href=&#34;#%e6%96%87%e6%9c%ac%e7%bc%96%e8%be%91%e5%99%a8&#34;&gt;#&lt;/a&gt;
+    文本编辑器
+&lt;/h3&gt;&lt;p&gt;文本编辑器没有什么多说的，还是那句话，文本编辑器的本质工作就是编辑文本，用记事本，用 Vim，理论上也不是不行。
+IDE 只是在文本编辑的基础上融合了其他的功能。&lt;/p&gt;
+&lt;p&gt;针对 STM32，最常用的 IDE 就是 Keil 了，当前几乎每一个 STM32 入门教程的前几章中必定提到 Keil 的下载和使用。&lt;/p&gt;
+&lt;p&gt;ST 也在 2019 年推出了基于 Eclipse 的
+&lt;a class=&#34;link&#34; href=&#34;https://www.st.com/zh/development-tools/stm32cubeide.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;STM32CubeIDE&lt;/a&gt;，
+将 STM32 的代码生成工具和 IDE 集成在一起，可以说是目前集成度最高的 STM32 开发环境。&lt;/p&gt;
+&lt;h3 id=&#34;编译器&#34;&gt;
+    &lt;a href=&#34;#%e7%bc%96%e8%af%91%e5%99%a8&#34;&gt;#&lt;/a&gt;
+    编译器
+&lt;/h3&gt;&lt;p&gt;用来编译 STM32 工程的编译器有很多，比如 Keil 内置的编译器
+&lt;a class=&#34;link&#34; href=&#34;https://developer.arm.com/Tools%20and%20Software/Arm%20Compiler%20for%20Embedded&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ARMCC&lt;/a&gt;、
+IAR 的编译器 &lt;a class=&#34;link&#34; href=&#34;https://www.iar.com/zh/product/architectures/arm/iar-embedded-workbench-for-arm/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;IAR Embedded Workbench&lt;/a&gt;、
+GNU 的编译器 &lt;a class=&#34;link&#34; href=&#34;https://developer.arm.com/Tools%20and%20Software/GNU%20Toolchain&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;arm-none-eabi-gcc&lt;/a&gt; 等等。&lt;/p&gt;
+&lt;p&gt;这里面 ARMCC 既集成在 Keil MDK 中，也可以独立使用；
+IAR 仅随其 IDE 一起发行；
+GCC for ARM 则是开源的，独立发行。&lt;/p&gt;
+&lt;p&gt;那么第一个问题来了，我怎么知道我的工程该用谁家的编译器编译呢？&lt;/p&gt;
+&lt;p&gt;关于这一点，STM32CubeMX 会帮你解决。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/cubemx-project.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;CubeMX 上的 Project Manager&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;上图的 Project Manager 界面中，有一个选项叫做 “Toolchain / IDE”，由用户来选择自己的工程之后由哪个工具链来编译。
+可以看到，CubeMX 提供了 5 个选项：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;EWARM&lt;/strong&gt;：使用 IAR Embedded Workbench&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MDK-ARM&lt;/strong&gt;：使用 Keil MDK&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;STM32CubeIDE&lt;/strong&gt;：使用 CubeIDE&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Makefile&lt;/strong&gt;：工程目录下会生成 &lt;code&gt;Makefile&lt;/code&gt; 文件，由用户使用 GNU Make 链接和编译&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CMake&lt;/strong&gt;：工程目录下会生成 &lt;code&gt;CMakeLists.txt&lt;/code&gt; 文件，由用户使用 CMake 生成 &lt;code&gt;Makefile&lt;/code&gt;，再由 Make 编译&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;其中第 4 和第 5 个选项看上去并没有指定编译器，但是由 CubeMX 生成的 &lt;code&gt;Makefile&lt;/code&gt; 中会有这么一段：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-makefile&#34; data-lang=&#34;makefile&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;#######################################
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;# binaries
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;#######################################
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;PREFIX&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; arm-none-eabi-
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;# The gcc compiler bin path can be either defined in make command via GCC_PATH variable (&amp;gt; make GCC_PATH=xxx)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;# either it can be added to the PATH environment variable.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;ifdef&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;GCC_PATH&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;CC&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;GCC_PATH&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;/&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;PREFIX&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;gcc
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;AS&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;GCC_PATH&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;/&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;PREFIX&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;gcc -x assembler-with-cpp
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;CP&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;GCC_PATH&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;/&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;PREFIX&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;objcopy
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;SZ&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;GCC_PATH&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;/&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;PREFIX&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;size
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;CC&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;PREFIX&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;gcc
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;AS&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;PREFIX&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;gcc -x assembler-with-cpp
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;CP&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;PREFIX&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;objcopy
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;SZ&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;PREFIX&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;size
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;endif&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这里的 &lt;code&gt;PREFIX = arm-none-eabi-&lt;/code&gt; 就是 GNU ARM 编译器的前缀。
+也就是说，CubeMX 是默认我们使用 arm-none-eabi-gcc 来编译工程的。&lt;/p&gt;
+&lt;p&gt;如果我们采用 GNU ARM Toolchain，那么我们就应该在 CubeMX 中选择 “Makefile” 或者 “CMake” 作为工程的生成方式。&lt;/p&gt;
+&lt;h3 id=&#34;烧录--调试工具&#34;&gt;
+    &lt;a href=&#34;#%e7%83%a7%e5%bd%95--%e8%b0%83%e8%af%95%e5%b7%a5%e5%85%b7&#34;&gt;#&lt;/a&gt;
+    烧录 / 调试工具
+&lt;/h3&gt;&lt;p&gt;STM32 代码的烧录和调试又是一个大坑。&lt;/p&gt;
+&lt;p&gt;CubeMX 通过可视化的方式让用户配置 MCU 上的外设、时钟等。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/posts/%E6%B5%85%E8%B0%88-stm32-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%BB%A5%E5%8F%8A%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%88%86%E4%BA%AB/cubemx-pinout.png&#34;
+	width=&#34;2560&#34;
+	height=&#34;1381&#34;
+	srcset=&#34;http://localhost:1313/posts/%E6%B5%85%E8%B0%88-stm32-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%BB%A5%E5%8F%8A%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%88%86%E4%BA%AB/cubemx-pinout_hu58724caaadabffbc7efc340aee5df565_578600_480x0_resize_box_3.png 480w, http://localhost:1313/posts/%E6%B5%85%E8%B0%88-stm32-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%BB%A5%E5%8F%8A%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%88%86%E4%BA%AB/cubemx-pinout_hu58724caaadabffbc7efc340aee5df565_578600_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;CubeMX 上的 Pinout &amp; Configuration&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;185&#34;
+		data-flex-basis=&#34;444px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;在 “Project Manager” 界面，还有若干个选项可以配置工程的生成方式。&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

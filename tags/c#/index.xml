@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>C# on JayLab256</title>
-        <link>https://maxwelljay256.github.io/tags/c#/</link>
+        <link>https://maxwelljay256.github.io/tags/c</link>
         <description>Recent content in C# on JayLab256</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>MaxwellJay256</copyright>
-        <lastBuildDate>Tue, 28 Nov 2023 11:04:03 +0800</lastBuildDate><atom:link href="https://maxwelljay256.github.io/tags/c#/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 28 Nov 2023 11:04:03 +0800</lastBuildDate><atom:link href="https://maxwelljay256.github.io/tags/c" rel="self" type="application/rss+xml" /><item>
         <title>一种实用的 C/C&#43;&#43;/C# 代码注释方法</title>
         <link>https://maxwelljay256.github.io/posts/a-useful-code-annotation/</link>
         <pubDate>Tue, 28 Nov 2023 11:04:03 +0800</pubDate>
@@ -16,8 +16,10 @@
         <description>&lt;img src="https://maxwelljay256.github.io/posts/a-useful-code-annotation/screenshot.png" alt="Featured image of post 一种实用的 C/C&#43;&#43;/C# 代码注释方法" /&gt;&lt;p&gt;刚考完复变函数与积分变换，有一个星期可以喘息一下了。
 我闲得没事干，就开始在 &lt;a class=&#34;link&#34; href=&#34;https://learn.microsoft.com/zh-cn/training&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Microsoft Learn&lt;/a&gt; 上学习 C#。&lt;/p&gt;
-&lt;h2 id=&#34;普通的注释方法怎么你了&#34;&gt;普通的注释方法怎么你了？&lt;/h2&gt;
-&lt;p&gt;和以前学习 C 和 C++ 一样，我又回到了那个照着例程抄写、反复调试运行的过程。
+&lt;h2 id=&#34;普通的注释方法怎么你了&#34;&gt;
+    &lt;a href=&#34;#%e6%99%ae%e9%80%9a%e7%9a%84%e6%b3%a8%e9%87%8a%e6%96%b9%e6%b3%95%e6%80%8e%e4%b9%88%e4%bd%a0%e4%ba%86&#34;&gt;#&lt;/a&gt;
+    普通的注释方法怎么你了？
+&lt;/h2&gt;&lt;p&gt;和以前学习 C 和 C++ 一样，我又回到了那个照着例程抄写、反复调试运行的过程。
 这里面将代码注释掉是一个常见的操作。
 一般来说，我们要想注释一行 C 语言风格的代码（对 C/C++/C# 都适用），常用 &lt;code&gt;//&lt;/code&gt;：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -124,8 +126,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;这种方法通过在 &lt;code&gt;if 0&lt;/code&gt; 和 &lt;code&gt;if 1&lt;/code&gt; 之间切换来实现代码块的禁用和激活，严格意义上来说不属于注释语法，&lt;/p&gt;
-&lt;h2 id=&#34;一种实用的注释方法&#34;&gt;一种实用的注释方法&lt;/h2&gt;
-&lt;p&gt;这个时候我想起来了过去在 HITSZ-VEX 程序组培训时，&lt;a class=&#34;link&#34; href=&#34;https://github.com/TangLongbin&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;h2 id=&#34;一种实用的注释方法&#34;&gt;
+    &lt;a href=&#34;#%e4%b8%80%e7%a7%8d%e5%ae%9e%e7%94%a8%e7%9a%84%e6%b3%a8%e9%87%8a%e6%96%b9%e6%b3%95&#34;&gt;#&lt;/a&gt;
+    一种实用的注释方法
+&lt;/h2&gt;&lt;p&gt;这个时候我想起来了过去在 HITSZ-VEX 程序组培训时，&lt;a class=&#34;link&#34; href=&#34;https://github.com/TangLongbin&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Longbin&lt;/a&gt; 教给我们的一种注释方法。
 它的内容是，在要注释的代码块开头和结尾都添加一行 &lt;code&gt;//*/&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -167,8 +171,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;如果想要再次激活这段代码，那么把 &lt;code&gt;/*/&lt;/code&gt; 改回 &lt;code&gt;//*/&lt;/code&gt; 就行了。&lt;/p&gt;
-&lt;h2 id=&#34;它的原理是什么&#34;&gt;它的原理是什么？&lt;/h2&gt;
-&lt;p&gt;原理很简单，就是利用了 C 语言的注释规则。&lt;/p&gt;
+&lt;h2 id=&#34;它的原理是什么&#34;&gt;
+    &lt;a href=&#34;#%e5%ae%83%e7%9a%84%e5%8e%9f%e7%90%86%e6%98%af%e4%bb%80%e4%b9%88&#34;&gt;#&lt;/a&gt;
+    它的原理是什么？
+&lt;/h2&gt;&lt;p&gt;原理很简单，就是利用了 C 语言的注释规则。&lt;/p&gt;
 &lt;p&gt;在 C/C++/C# 中，&lt;code&gt;//&lt;/code&gt; 之后的内容都会被视为注释，直到&lt;strong&gt;这一行&lt;/strong&gt;的结尾。
 而 &lt;code&gt;/*&lt;/code&gt; 之后的内容都会被视为注释，直到遇到 &lt;code&gt;*/&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;所以只需要一张图就可以解释这种注释方法的原理：&lt;/p&gt;
@@ -187,9 +193,13 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;下面我来介绍一下这种注释方法的几个用处。&lt;/p&gt;
-&lt;h2 id=&#34;有什么用呢&#34;&gt;有什么用呢？&lt;/h2&gt;
-&lt;h3 id=&#34;学习-ccc&#34;&gt;学习 C/C++/C#&lt;/h3&gt;
-&lt;p&gt;初学一种编程语言时，我们往往会照着例程抄写，然后反复调试运行。&lt;/p&gt;
+&lt;h2 id=&#34;有什么用呢&#34;&gt;
+    &lt;a href=&#34;#%e6%9c%89%e4%bb%80%e4%b9%88%e7%94%a8%e5%91%a2&#34;&gt;#&lt;/a&gt;
+    有什么用呢？
+&lt;/h2&gt;&lt;h3 id=&#34;学习-ccc&#34;&gt;
+    &lt;a href=&#34;#%e5%ad%a6%e4%b9%a0-ccc&#34;&gt;#&lt;/a&gt;
+    学习 C/C++/C#
+&lt;/h3&gt;&lt;p&gt;初学一种编程语言时，我们往往会照着例程抄写，然后反复调试运行。&lt;/p&gt;
 &lt;p&gt;例如我正在学习 C# 的逻辑运算，&lt;a class=&#34;link&#34; href=&#34;https://learn.microsoft.com/zh-cn/training&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Microsoft Learn&lt;/a&gt; 上的培训给了若干示例代码。
 我想把它们都记录下来，但测试运行效果时，我只想运行我最新抄写下来的那一段代码，因此我的文件看起来是这样的：&lt;/p&gt;
@@ -257,8 +267,10 @@
 &lt;p&gt;概括下来，只需一次删除操作和一次添加操作，就可以实现代码块的切换。&lt;/p&gt;
 &lt;p&gt;读者可以设想或实验一下使用普通的注释方法 &lt;code&gt;//&lt;/code&gt; 和 &lt;code&gt;/* */&lt;/code&gt;，以上的内容要怎么写才能达到同样的效果、至少会使用到多少次删除和添加的操作。&lt;/p&gt;
 &lt;p&gt;懂了吧？😏&lt;/p&gt;
-&lt;h3 id=&#34;调试程序&#34;&gt;调试程序&lt;/h3&gt;
-&lt;p&gt;无论是机器人制作还是嵌入式开发，我们往往会对一些顺序执行的流程进行调试。&lt;/p&gt;
+&lt;h3 id=&#34;调试程序&#34;&gt;
+    &lt;a href=&#34;#%e8%b0%83%e8%af%95%e7%a8%8b%e5%ba%8f&#34;&gt;#&lt;/a&gt;
+    调试程序
+&lt;/h3&gt;&lt;p&gt;无论是机器人制作还是嵌入式开发，我们往往会对一些顺序执行的流程进行调试。&lt;/p&gt;
 &lt;p&gt;例如我曾经还在 HITSZ-VEX 的时候，我们的机器人自动程序大概是这样的：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -322,8 +334,10 @@
 &lt;code&gt;//*/ ----- Stage x -----&lt;/code&gt; 与 &lt;code&gt;/*/ ----- Stage x -----&lt;/code&gt;
 之间进行切换。
 因此这种注释方法就能在尽可能减少对代码的破坏的同时，实现高效率的调试。&lt;/p&gt;
-&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
-&lt;p&gt;总结一下，本文介绍了一种 C/C++/C# 风格的注释方法&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;
+    &lt;a href=&#34;#%e6%80%bb%e7%bb%93&#34;&gt;#&lt;/a&gt;
+    总结
+&lt;/h2&gt;&lt;p&gt;总结一下，本文介绍了一种 C/C++/C# 风格的注释方法&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1

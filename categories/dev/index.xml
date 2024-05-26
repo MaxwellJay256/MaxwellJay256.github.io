@@ -21,18 +21,26 @@
 &lt;blockquote&gt;
 &lt;p&gt;2024.1.10 更新：usbipd 更新到了 4.0.0 版本，指令有所变化，本文已更新。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;先决条件&#34;&gt;先决条件&lt;/h2&gt;
-&lt;ul&gt;
+&lt;h2 id=&#34;先决条件&#34;&gt;
+    &lt;a href=&#34;#%e5%85%88%e5%86%b3%e6%9d%a1%e4%bb%b6&#34;&gt;#&lt;/a&gt;
+    先决条件
+&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Windows 11（内部版本 22000 或更高版本）&lt;/li&gt;
 &lt;li&gt;具有 x64/x86 处理器的计算机&lt;/li&gt;
 &lt;li&gt;Linux 发行版已安装并设置为 WSL 2（本次使用的是 Ubuntu 20.04 LTS）&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;安装-uspipd-win-项目&#34;&gt;安装 USPIPD-WIN 项目&lt;/h2&gt;
-&lt;h3 id=&#34;方法-1从-github-下载安装&#34;&gt;方法 1：从 GitHub 下载安装&lt;/h3&gt;
-&lt;p&gt;仓库链接：&lt;a class=&#34;link&#34; href=&#34;https://github.com/dorssel/usbipd-win&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;h2 id=&#34;安装-uspipd-win-项目&#34;&gt;
+    &lt;a href=&#34;#%e5%ae%89%e8%a3%85-uspipd-win-%e9%a1%b9%e7%9b%ae&#34;&gt;#&lt;/a&gt;
+    安装 USPIPD-WIN 项目
+&lt;/h2&gt;&lt;h3 id=&#34;方法-1从-github-下载安装&#34;&gt;
+    &lt;a href=&#34;#%e6%96%b9%e6%b3%95-1%e4%bb%8e-github-%e4%b8%8b%e8%bd%bd%e5%ae%89%e8%a3%85&#34;&gt;#&lt;/a&gt;
+    方法 1：从 GitHub 下载安装
+&lt;/h3&gt;&lt;p&gt;仓库链接：&lt;a class=&#34;link&#34; href=&#34;https://github.com/dorssel/usbipd-win&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;usbipd-win&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;方法-2使用-windows-程序包管理器程序-winget-安装&#34;&gt;方法 2：使用 Windows 程序包管理器程序 (winget) 安装&lt;/h3&gt;
-&lt;p&gt;打开 PowerShell 并运行以下命令：&lt;/p&gt;
+&lt;h3 id=&#34;方法-2使用-windows-程序包管理器程序-winget-安装&#34;&gt;
+    &lt;a href=&#34;#%e6%96%b9%e6%b3%95-2%e4%bd%bf%e7%94%a8-windows-%e7%a8%8b%e5%ba%8f%e5%8c%85%e7%ae%a1%e7%90%86%e5%99%a8%e7%a8%8b%e5%ba%8f-winget-%e5%ae%89%e8%a3%85&#34;&gt;#&lt;/a&gt;
+    方法 2：使用 Windows 程序包管理器程序 (winget) 安装
+&lt;/h3&gt;&lt;p&gt;打开 PowerShell 并运行以下命令：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -41,8 +49,10 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;winget&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;install&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;-interactive&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-exact&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dorssel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;usbipd-win&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;在-linux-中安装-usbip-工具和硬件数据库&#34;&gt;在 Linux 中安装 USBIP 工具和硬件数据库&lt;/h2&gt;
-&lt;p&gt;在 Ubuntu 中，运行以下命令安装工具和硬件数据库：&lt;/p&gt;
+&lt;/div&gt;&lt;h2 id=&#34;在-linux-中安装-usbip-工具和硬件数据库&#34;&gt;
+    &lt;a href=&#34;#%e5%9c%a8-linux-%e4%b8%ad%e5%ae%89%e8%a3%85-usbip-%e5%b7%a5%e5%85%b7%e5%92%8c%e7%a1%ac%e4%bb%b6%e6%95%b0%e6%8d%ae%e5%ba%93&#34;&gt;#&lt;/a&gt;
+    在 Linux 中安装 USBIP 工具和硬件数据库
+&lt;/h2&gt;&lt;p&gt;在 Ubuntu 中，运行以下命令安装工具和硬件数据库：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -60,8 +70,10 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo update-alternatives --install /usr/local/bin/usbip usbip /usr/lib/linux-tools/*-generic/usbip &lt;span class=&#34;m&#34;&gt;20&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;附加-usb-设备&#34;&gt;附加 USB 设备&lt;/h2&gt;
-&lt;ol&gt;
+&lt;/div&gt;&lt;h2 id=&#34;附加-usb-设备&#34;&gt;
+    &lt;a href=&#34;#%e9%99%84%e5%8a%a0-usb-%e8%ae%be%e5%a4%87&#34;&gt;#&lt;/a&gt;
+    附加 USB 设备
+&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;通过管理员模式打开 PowerShell 并运行以下命令，列出所有连接到 Windows 的 USB 设备：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -165,8 +177,10 @@
 &gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;测试连接以及断开连接&#34;&gt;测试连接以及断开连接&lt;/h2&gt;
-&lt;p&gt;我提前在 WSL 上用 &lt;code&gt;esp-idf&lt;/code&gt; 工具链编译了一个简单的 hello-world 程序，现在尝试用 &lt;code&gt;esp-idf&lt;/code&gt; 工具链将 WSL 中的项目烧录到开发板上。&lt;/p&gt;
+&lt;h2 id=&#34;测试连接以及断开连接&#34;&gt;
+    &lt;a href=&#34;#%e6%b5%8b%e8%af%95%e8%bf%9e%e6%8e%a5%e4%bb%a5%e5%8f%8a%e6%96%ad%e5%bc%80%e8%bf%9e%e6%8e%a5&#34;&gt;#&lt;/a&gt;
+    测试连接以及断开连接
+&lt;/h2&gt;&lt;p&gt;我提前在 WSL 上用 &lt;code&gt;esp-idf&lt;/code&gt; 工具链编译了一个简单的 hello-world 程序，现在尝试用 &lt;code&gt;esp-idf&lt;/code&gt; 工具链将 WSL 中的项目烧录到开发板上。&lt;/p&gt;
 &lt;p&gt;通过 &lt;code&gt;ls /dev/tty*&lt;/code&gt; 命令查找到开发板的串口设备为 &lt;code&gt;/dev/ttyUSB0&lt;/code&gt;，所以可以运行以下命令烧录程序：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -274,8 +288,10 @@
 		data-flex-basis=&#34;338px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h2 id=&#34;新功能自动重连&#34;&gt;（新功能）自动重连&lt;/h2&gt;
-&lt;p&gt;usbipd 在 4.0.0 版本后增加了自动重连功能，也就是说，我们可以仅通过运行一个命令让电脑一直检测 USB 设备的连接状态，如果设备被物理断连后重新接入，则自动重新连接到 WSL。&lt;/p&gt;
+&lt;h2 id=&#34;新功能自动重连&#34;&gt;
+    &lt;a href=&#34;#%e6%96%b0%e5%8a%9f%e8%83%bd%e8%87%aa%e5%8a%a8%e9%87%8d%e8%bf%9e&#34;&gt;#&lt;/a&gt;
+    （新功能）自动重连
+&lt;/h2&gt;&lt;p&gt;usbipd 在 4.0.0 版本后增加了自动重连功能，也就是说，我们可以仅通过运行一个命令让电脑一直检测 USB 设备的连接状态，如果设备被物理断连后重新接入，则自动重新连接到 WSL。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -328,8 +344,10 @@
         <description>&lt;img src="https://maxwelljay256.github.io/posts/a-useful-code-annotation/screenshot.png" alt="Featured image of post 一种实用的 C/C&#43;&#43;/C# 代码注释方法" /&gt;&lt;p&gt;刚考完复变函数与积分变换，有一个星期可以喘息一下了。
 我闲得没事干，就开始在 &lt;a class=&#34;link&#34; href=&#34;https://learn.microsoft.com/zh-cn/training&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Microsoft Learn&lt;/a&gt; 上学习 C#。&lt;/p&gt;
-&lt;h2 id=&#34;普通的注释方法怎么你了&#34;&gt;普通的注释方法怎么你了？&lt;/h2&gt;
-&lt;p&gt;和以前学习 C 和 C++ 一样，我又回到了那个照着例程抄写、反复调试运行的过程。
+&lt;h2 id=&#34;普通的注释方法怎么你了&#34;&gt;
+    &lt;a href=&#34;#%e6%99%ae%e9%80%9a%e7%9a%84%e6%b3%a8%e9%87%8a%e6%96%b9%e6%b3%95%e6%80%8e%e4%b9%88%e4%bd%a0%e4%ba%86&#34;&gt;#&lt;/a&gt;
+    普通的注释方法怎么你了？
+&lt;/h2&gt;&lt;p&gt;和以前学习 C 和 C++ 一样，我又回到了那个照着例程抄写、反复调试运行的过程。
 这里面将代码注释掉是一个常见的操作。
 一般来说，我们要想注释一行 C 语言风格的代码（对 C/C++/C# 都适用），常用 &lt;code&gt;//&lt;/code&gt;：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -436,8 +454,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;这种方法通过在 &lt;code&gt;if 0&lt;/code&gt; 和 &lt;code&gt;if 1&lt;/code&gt; 之间切换来实现代码块的禁用和激活，严格意义上来说不属于注释语法，&lt;/p&gt;
-&lt;h2 id=&#34;一种实用的注释方法&#34;&gt;一种实用的注释方法&lt;/h2&gt;
-&lt;p&gt;这个时候我想起来了过去在 HITSZ-VEX 程序组培训时，&lt;a class=&#34;link&#34; href=&#34;https://github.com/TangLongbin&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;h2 id=&#34;一种实用的注释方法&#34;&gt;
+    &lt;a href=&#34;#%e4%b8%80%e7%a7%8d%e5%ae%9e%e7%94%a8%e7%9a%84%e6%b3%a8%e9%87%8a%e6%96%b9%e6%b3%95&#34;&gt;#&lt;/a&gt;
+    一种实用的注释方法
+&lt;/h2&gt;&lt;p&gt;这个时候我想起来了过去在 HITSZ-VEX 程序组培训时，&lt;a class=&#34;link&#34; href=&#34;https://github.com/TangLongbin&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Longbin&lt;/a&gt; 教给我们的一种注释方法。
 它的内容是，在要注释的代码块开头和结尾都添加一行 &lt;code&gt;//*/&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -479,8 +499,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;如果想要再次激活这段代码，那么把 &lt;code&gt;/*/&lt;/code&gt; 改回 &lt;code&gt;//*/&lt;/code&gt; 就行了。&lt;/p&gt;
-&lt;h2 id=&#34;它的原理是什么&#34;&gt;它的原理是什么？&lt;/h2&gt;
-&lt;p&gt;原理很简单，就是利用了 C 语言的注释规则。&lt;/p&gt;
+&lt;h2 id=&#34;它的原理是什么&#34;&gt;
+    &lt;a href=&#34;#%e5%ae%83%e7%9a%84%e5%8e%9f%e7%90%86%e6%98%af%e4%bb%80%e4%b9%88&#34;&gt;#&lt;/a&gt;
+    它的原理是什么？
+&lt;/h2&gt;&lt;p&gt;原理很简单，就是利用了 C 语言的注释规则。&lt;/p&gt;
 &lt;p&gt;在 C/C++/C# 中，&lt;code&gt;//&lt;/code&gt; 之后的内容都会被视为注释，直到&lt;strong&gt;这一行&lt;/strong&gt;的结尾。
 而 &lt;code&gt;/*&lt;/code&gt; 之后的内容都会被视为注释，直到遇到 &lt;code&gt;*/&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;所以只需要一张图就可以解释这种注释方法的原理：&lt;/p&gt;
@@ -499,9 +521,13 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;下面我来介绍一下这种注释方法的几个用处。&lt;/p&gt;
-&lt;h2 id=&#34;有什么用呢&#34;&gt;有什么用呢？&lt;/h2&gt;
-&lt;h3 id=&#34;学习-ccc&#34;&gt;学习 C/C++/C#&lt;/h3&gt;
-&lt;p&gt;初学一种编程语言时，我们往往会照着例程抄写，然后反复调试运行。&lt;/p&gt;
+&lt;h2 id=&#34;有什么用呢&#34;&gt;
+    &lt;a href=&#34;#%e6%9c%89%e4%bb%80%e4%b9%88%e7%94%a8%e5%91%a2&#34;&gt;#&lt;/a&gt;
+    有什么用呢？
+&lt;/h2&gt;&lt;h3 id=&#34;学习-ccc&#34;&gt;
+    &lt;a href=&#34;#%e5%ad%a6%e4%b9%a0-ccc&#34;&gt;#&lt;/a&gt;
+    学习 C/C++/C#
+&lt;/h3&gt;&lt;p&gt;初学一种编程语言时，我们往往会照着例程抄写，然后反复调试运行。&lt;/p&gt;
 &lt;p&gt;例如我正在学习 C# 的逻辑运算，&lt;a class=&#34;link&#34; href=&#34;https://learn.microsoft.com/zh-cn/training&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Microsoft Learn&lt;/a&gt; 上的培训给了若干示例代码。
 我想把它们都记录下来，但测试运行效果时，我只想运行我最新抄写下来的那一段代码，因此我的文件看起来是这样的：&lt;/p&gt;
@@ -569,8 +595,10 @@
 &lt;p&gt;概括下来，只需一次删除操作和一次添加操作，就可以实现代码块的切换。&lt;/p&gt;
 &lt;p&gt;读者可以设想或实验一下使用普通的注释方法 &lt;code&gt;//&lt;/code&gt; 和 &lt;code&gt;/* */&lt;/code&gt;，以上的内容要怎么写才能达到同样的效果、至少会使用到多少次删除和添加的操作。&lt;/p&gt;
 &lt;p&gt;懂了吧？😏&lt;/p&gt;
-&lt;h3 id=&#34;调试程序&#34;&gt;调试程序&lt;/h3&gt;
-&lt;p&gt;无论是机器人制作还是嵌入式开发，我们往往会对一些顺序执行的流程进行调试。&lt;/p&gt;
+&lt;h3 id=&#34;调试程序&#34;&gt;
+    &lt;a href=&#34;#%e8%b0%83%e8%af%95%e7%a8%8b%e5%ba%8f&#34;&gt;#&lt;/a&gt;
+    调试程序
+&lt;/h3&gt;&lt;p&gt;无论是机器人制作还是嵌入式开发，我们往往会对一些顺序执行的流程进行调试。&lt;/p&gt;
 &lt;p&gt;例如我曾经还在 HITSZ-VEX 的时候，我们的机器人自动程序大概是这样的：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -634,8 +662,10 @@
 &lt;code&gt;//*/ ----- Stage x -----&lt;/code&gt; 与 &lt;code&gt;/*/ ----- Stage x -----&lt;/code&gt;
 之间进行切换。
 因此这种注释方法就能在尽可能减少对代码的破坏的同时，实现高效率的调试。&lt;/p&gt;
-&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
-&lt;p&gt;总结一下，本文介绍了一种 C/C++/C# 风格的注释方法&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;
+    &lt;a href=&#34;#%e6%80%bb%e7%bb%93&#34;&gt;#&lt;/a&gt;
+    总结
+&lt;/h2&gt;&lt;p&gt;总结一下，本文介绍了一种 C/C++/C# 风格的注释方法&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1

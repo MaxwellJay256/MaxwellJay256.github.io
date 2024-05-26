@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='按一个键就可以注释一大段代码，再按一次就可以取消，不觉得很有趣吗？'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="按一个键就可以注释一大段代码，再按一次就可以取消，不觉得很有趣吗？">
 <title>一种实用的 C/C&#43;&#43;/C# 代码注释方法</title>
 
 <link rel='canonical' href='https://maxwelljay256.github.io/posts/a-useful-code-annotation/'>
 
-<link rel="stylesheet" href="/scss/style.min.24ef1cc321916467896e8c70c10c0ad7b98c2a8df14298032fb637216e397f50.css"><meta property='og:title' content='一种实用的 C/C&#43;&#43;/C# 代码注释方法'>
-<meta property='og:description' content='按一个键就可以注释一大段代码，再按一次就可以取消，不觉得很有趣吗？'>
+<link rel="stylesheet" href="/scss/style.min.fec648d95dd3f1a32bc914e3cc01d7edd209ad11d650d6fd453efddb5160afc5.css"><meta property='og:title' content="一种实用的 C/C++/C# 代码注释方法">
+<meta property='og:description' content="按一个键就可以注释一大段代码，再按一次就可以取消，不觉得很有趣吗？">
 <meta property='og:url' content='https://maxwelljay256.github.io/posts/a-useful-code-annotation/'>
 <meta property='og:site_name' content='JayLab256'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='C' /><meta property='article:tag' content='C&#43;&#43;' /><meta property='article:tag' content='C#' /><meta property='article:published_time' content='2023-11-28T11:04:03&#43;08:00'/><meta property='article:modified_time' content='2023-11-28T11:04:03&#43;08:00'/><meta property='og:image' content='https://maxwelljay256.github.io/posts/a-useful-code-annotation/screenshot.png' />
-<meta name="twitter:title" content="一种实用的 C/C&#43;&#43;/C# 代码注释方法">
+<meta name="twitter:title" content="一种实用的 C/C++/C# 代码注释方法">
 <meta name="twitter:description" content="按一个键就可以注释一大段代码，再按一次就可以取消，不觉得很有趣吗？"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://maxwelljay256.github.io/posts/a-useful-code-annotation/screenshot.png' />
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -186,10 +186,11 @@ if (!doNotTrack) {
             </a>
         </li>
         
-
-        <div class="menu-bottom-section">
-                <li id="i18n-switch">  
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M4 5h7" />
   <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
@@ -200,19 +201,20 @@ if (!doNotTrack) {
 
 
 
-                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
-                        
-                            <option value="https://maxwelljay256.github.io/en/" >English</option>
-                        
-                            <option value="https://maxwelljay256.github.io/" selected>简体中文</option>
-                        
-                    </select>
-                </li>
-            
-            
-            
-                <li id="dark-mode-toggle">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://maxwelljay256.github.io/en/" >English</option>
+                                
+                                    <option value="https://maxwelljay256.github.io/" selected>简体中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="8" cy="12" r="2" />
   <rect x="2" y="6" width="20" height="12" rx="6" />
@@ -220,7 +222,7 @@ if (!doNotTrack) {
 
 
 
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="16" cy="12" r="2" />
   <rect x="2" y="6" width="20" height="12" rx="6" />
@@ -228,10 +230,11 @@ if (!doNotTrack) {
 
 
 
-                    <span>暗色模式</span>
-                </li>
-            
-        </div>
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
     </ol>
 </aside>
 
@@ -365,8 +368,10 @@ if (!doNotTrack) {
     <p>刚考完复变函数与积分变换，有一个星期可以喘息一下了。
 我闲得没事干，就开始在 <a class="link" href="https://learn.microsoft.com/zh-cn/training"  target="_blank" rel="noopener"
     >Microsoft Learn</a> 上学习 C#。</p>
-<h2 id="普通的注释方法怎么你了">普通的注释方法怎么你了？</h2>
-<p>和以前学习 C 和 C++ 一样，我又回到了那个照着例程抄写、反复调试运行的过程。
+<h2 id="普通的注释方法怎么你了">
+    <a href="#%e6%99%ae%e9%80%9a%e7%9a%84%e6%b3%a8%e9%87%8a%e6%96%b9%e6%b3%95%e6%80%8e%e4%b9%88%e4%bd%a0%e4%ba%86">#</a>
+    普通的注释方法怎么你了？
+</h2><p>和以前学习 C 和 C++ 一样，我又回到了那个照着例程抄写、反复调试运行的过程。
 这里面将代码注释掉是一个常见的操作。
 一般来说，我们要想注释一行 C 语言风格的代码（对 C/C++/C# 都适用），常用 <code>//</code>：</p>
 <div class="highlight"><div class="chroma">
@@ -473,8 +478,10 @@ if (!doNotTrack) {
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>这种方法通过在 <code>if 0</code> 和 <code>if 1</code> 之间切换来实现代码块的禁用和激活，严格意义上来说不属于注释语法，</p>
-<h2 id="一种实用的注释方法">一种实用的注释方法</h2>
-<p>这个时候我想起来了过去在 HITSZ-VEX 程序组培训时，<a class="link" href="https://github.com/TangLongbin"  target="_blank" rel="noopener"
+<h2 id="一种实用的注释方法">
+    <a href="#%e4%b8%80%e7%a7%8d%e5%ae%9e%e7%94%a8%e7%9a%84%e6%b3%a8%e9%87%8a%e6%96%b9%e6%b3%95">#</a>
+    一种实用的注释方法
+</h2><p>这个时候我想起来了过去在 HITSZ-VEX 程序组培训时，<a class="link" href="https://github.com/TangLongbin"  target="_blank" rel="noopener"
     >Longbin</a> 教给我们的一种注释方法。
 它的内容是，在要注释的代码块开头和结尾都添加一行 <code>//*/</code></p>
 <div class="highlight"><div class="chroma">
@@ -516,8 +523,10 @@ if (!doNotTrack) {
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果想要再次激活这段代码，那么把 <code>/*/</code> 改回 <code>//*/</code> 就行了。</p>
-<h2 id="它的原理是什么">它的原理是什么？</h2>
-<p>原理很简单，就是利用了 C 语言的注释规则。</p>
+<h2 id="它的原理是什么">
+    <a href="#%e5%ae%83%e7%9a%84%e5%8e%9f%e7%90%86%e6%98%af%e4%bb%80%e4%b9%88">#</a>
+    它的原理是什么？
+</h2><p>原理很简单，就是利用了 C 语言的注释规则。</p>
 <p>在 C/C++/C# 中，<code>//</code> 之后的内容都会被视为注释，直到<strong>这一行</strong>的结尾。
 而 <code>/*</code> 之后的内容都会被视为注释，直到遇到 <code>*/</code>。</p>
 <p>所以只需要一张图就可以解释这种注释方法的原理：</p>
@@ -536,9 +545,13 @@ if (!doNotTrack) {
 	
 ></p>
 <p>下面我来介绍一下这种注释方法的几个用处。</p>
-<h2 id="有什么用呢">有什么用呢？</h2>
-<h3 id="学习-ccc">学习 C/C++/C#</h3>
-<p>初学一种编程语言时，我们往往会照着例程抄写，然后反复调试运行。</p>
+<h2 id="有什么用呢">
+    <a href="#%e6%9c%89%e4%bb%80%e4%b9%88%e7%94%a8%e5%91%a2">#</a>
+    有什么用呢？
+</h2><h3 id="学习-ccc">
+    <a href="#%e5%ad%a6%e4%b9%a0-ccc">#</a>
+    学习 C/C++/C#
+</h3><p>初学一种编程语言时，我们往往会照着例程抄写，然后反复调试运行。</p>
 <p>例如我正在学习 C# 的逻辑运算，<a class="link" href="https://learn.microsoft.com/zh-cn/training"  target="_blank" rel="noopener"
     >Microsoft Learn</a> 上的培训给了若干示例代码。
 我想把它们都记录下来，但测试运行效果时，我只想运行我最新抄写下来的那一段代码，因此我的文件看起来是这样的：</p>
@@ -606,8 +619,10 @@ if (!doNotTrack) {
 <p>概括下来，只需一次删除操作和一次添加操作，就可以实现代码块的切换。</p>
 <p>读者可以设想或实验一下使用普通的注释方法 <code>//</code> 和 <code>/* */</code>，以上的内容要怎么写才能达到同样的效果、至少会使用到多少次删除和添加的操作。</p>
 <p>懂了吧？😏</p>
-<h3 id="调试程序">调试程序</h3>
-<p>无论是机器人制作还是嵌入式开发，我们往往会对一些顺序执行的流程进行调试。</p>
+<h3 id="调试程序">
+    <a href="#%e8%b0%83%e8%af%95%e7%a8%8b%e5%ba%8f">#</a>
+    调试程序
+</h3><p>无论是机器人制作还是嵌入式开发，我们往往会对一些顺序执行的流程进行调试。</p>
 <p>例如我曾经还在 HITSZ-VEX 的时候，我们的机器人自动程序大概是这样的：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -671,8 +686,10 @@ if (!doNotTrack) {
 <code>//*/ ----- Stage x -----</code> 与 <code>/*/ ----- Stage x -----</code>
 之间进行切换。
 因此这种注释方法就能在尽可能减少对代码的破坏的同时，实现高效率的调试。</p>
-<h2 id="总结">总结</h2>
-<p>总结一下，本文介绍了一种 C/C++/C# 风格的注释方法</p>
+<h2 id="总结">
+    <a href="#%e6%80%bb%e7%bb%93">#</a>
+    总结
+</h2><p>总结一下，本文介绍了一种 C/C++/C# 风格的注释方法</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -712,7 +729,7 @@ if (!doNotTrack) {
         
             <a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>
         
-            <a href="/tags/c#/">C#</a>
+            <a href="/tags/c">C#</a>
         
     </section>
 
@@ -735,18 +752,18 @@ if (!doNotTrack) {
     
         <link 
                 rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
             ><script 
-                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
                 defer
                 >
             </script><script 
-                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
                 defer
                 >
             </script><script>
     window.addEventListener("DOMContentLoaded", () => {
-        renderMathInElement(document.querySelector(`.article-content`), {
+        renderMathInElement(document.body, {
             delimiters: [
                 { left: "$$", right: "$$", display: true },
                 { left: "$", right: "$", display: false },
@@ -811,8 +828,8 @@ if (!doNotTrack) {
     <section class="powerby">
         
             Maxwell Jay at his most tender. <br/>
-        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.21.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.25.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
 
