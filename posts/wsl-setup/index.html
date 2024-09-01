@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="时间紧，任务重，就看这个了！">
+<title>WSL 快速配置自查手册</title>
+
+<link rel='canonical' href='https://maxwelljay256.github.io/posts/wsl-setup/'>
+
+<link rel="stylesheet" href="/scss/style.min.fec648d95dd3f1a32bc914e3cc01d7edd209ad11d650d6fd453efddb5160afc5.css"><meta property='og:title' content="WSL 快速配置自查手册">
+<meta property='og:description' content="时间紧，任务重，就看这个了！">
+<meta property='og:url' content='https://maxwelljay256.github.io/posts/wsl-setup/'>
+<meta property='og:site_name' content='JayLab256'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Linux' /><meta property='article:published_time' content='2024-09-01T11:08:00&#43;08:00'/><meta property='article:modified_time' content='2024-09-01T11:08:00&#43;08:00'/><meta property='og:image' content='https://maxwelljay256.github.io/posts/wsl-setup/neofetch.png' />
+<meta name="twitter:title" content="WSL 快速配置自查手册">
+<meta name="twitter:description" content="时间紧，任务重，就看这个了！"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://maxwelljay256.github.io/posts/wsl-setup/neofetch.png' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CRZGE8R8FX"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-CRZGE8R8FX', { 'anonymize_ip': false });
+}
+</script>
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu8b84f744e1c18a265f04cae4829642b7_2963469_300x0_resize_box_3.png" width="300"
+                            height="316" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🏫</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">JayLab256</a></h1>
+            <h2 class="site-description">Maxwell Jay 的幻想乡</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://maxwelljay256.github.io/en/" >English</option>
+                                
+                                    <option value="https://maxwelljay256.github.io/" selected>简体中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#安装-wsl">安装 WSL</a></li>
+    <li><a href="#设置软件镜像源">设置软件镜像源</a></li>
+    <li><a href="#设置系统语言为中文">设置系统语言为中文</a></li>
+    <li><a href="#我最爱的-oh-my-posh">我最爱的 Oh My Posh</a></li>
+    <li><a href="#latex-编译器以-tex-live-2024-为例">$LaTeX$ 编译器（以 TeX Live 2024 为例）</a></li>
+    <li><a href="#ros以-ros-noetic-为例">ROS（以 ROS Noetic 为例）</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/posts/wsl-setup/">
+                <img src="/posts/wsl-setup/neofetch_hue7eac84101d2a6240bc719a2e526f4f3_871700_800x0_resize_box_3.png"
+                        srcset="/posts/wsl-setup/neofetch_hue7eac84101d2a6240bc719a2e526f4f3_871700_800x0_resize_box_3.png 800w, /posts/wsl-setup/neofetch_hue7eac84101d2a6240bc719a2e526f4f3_871700_1600x0_resize_box_3.png 1600w"
+                        width="800" 
+                        height="447" 
+                        loading="lazy"
+                        alt="Featured image of post WSL 快速配置自查手册" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/dev/" style="background-color: #2a9d8f; color: #fff;">
+                技术分享
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/wsl-setup/">WSL 快速配置自查手册</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            时间紧，任务重，就看这个了！
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2024-09-01</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 2 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>本文以 Windows 11、WSL 2 和 Ubuntu 20.04 LTS 为例，记录从零开始配置 WSL 以及一些常用开发环境的过程。</p>
+<p>此外，本文提到的镜像源均指 HITSZ OSA Mirrors。配合校园网食用效果更佳。</p>
+<h2 id="安装-wsl">
+    <a href="#%e5%ae%89%e8%a3%85-wsl">#</a>
+    安装 WSL
+</h2><p>方法 1：直接在 Windows 应用商店搜索 Ubuntu，选择对应发行版点击安装。</p>
+<p>方法 2：使用 WSL 命令行安装。参考 <a class="link" href="https://learn.microsoft.com/zh-cn/windows/wsl/install"  target="_blank" rel="noopener"
+    >如何使用 WSL 在 Windows 上安装 Linux - Microsoft Learn</a></p>
+<h2 id="设置软件镜像源">
+    <a href="#%e8%ae%be%e7%bd%ae%e8%bd%af%e4%bb%b6%e9%95%9c%e5%83%8f%e6%ba%90">#</a>
+    设置软件镜像源
+</h2><p><a class="link" href="https://mirrors-help.osa.moe/ubuntu/"  target="_blank" rel="noopener"
+    >Ubuntu 软件仓库镜像使用帮助 - MirrorZ Help</a></p>
+<p><code>/etc/apt/sources.list</code></p>
+<h2 id="设置系统语言为中文">
+    <a href="#%e8%ae%be%e7%bd%ae%e7%b3%bb%e7%bb%9f%e8%af%ad%e8%a8%80%e4%b8%ba%e4%b8%ad%e6%96%87">#</a>
+    设置系统语言为中文
+</h2><ol>
+<li>安装中文语言包</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install language-pack-zh-hans
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>设置中文为默认语言</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dpkg-reconfigure locales
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>选中 en_US.UTF-8 和 zh-CN.UTF-8；选择 zh-CN.UTF-8 为默认语言</p>
+<ol start="3">
+<li>安装字体管理工具 fontconfig</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install fontconfig
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li>让 Linux 使用 Windows 已安装的字体</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo nano /etc/fonts/local.conf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>写入以下内容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE fontconfig SYSTEM &#34;fonts/dtd&#34;&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">fontconfig</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">dir</span><span class="p">&gt;</span>/mnt/c/Windows/Fonts<span class="p">&lt;/</span><span class="nt">dir</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">fontconfig</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>也可将 <code>C:\Windows\Fonts</code> 中的字体复制到 <code>/usr/local/share/fonts</code> 目录下。</p>
+<ol start="5">
+<li>刷新字体缓存</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo fc-cache -fv
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>以上参考自
+<a class="link" href="https://blog.csdn.net/weixin_43589764/article/details/124327175"  target="_blank" rel="noopener"
+    >学习笔记：WSL Ubuntu 20.04 LTS 安装中文语言 - CSDN</a></p>
+</blockquote>
+<h2 id="我最爱的-oh-my-posh">
+    <a href="#%e6%88%91%e6%9c%80%e7%88%b1%e7%9a%84-oh-my-posh">#</a>
+    我最爱的 Oh My Posh
+</h2><p><a class="link" href="https://brew.sh/"  target="_blank" rel="noopener"
+    >Homebrew</a></p>
+<p><a class="link" href="https://ohmyposh.dev/"  target="_blank" rel="noopener"
+    >Oh My Posh</a></p>
+<p>主题可以保存在 Windows 上，例如</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># ~/.bashrc</span>
+</span></span><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>oh-my-posh init bash --config /mnt/d/.../lambdageneration.omp.json<span class="k">)</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="latex-编译器以-tex-live-2024-为例">
+    <a href="#latex-%e7%bc%96%e8%af%91%e5%99%a8%e4%bb%a5-tex-live-2024-%e4%b8%ba%e4%be%8b">#</a>
+    $LaTeX$ 编译器（以 TeX Live 2024 为例）
+</h2><ol>
+<li>从 OSA 镜像站的 <code>CTAN/systems/texlive/Images</code> 下载 <code>texlive2024.iso</code></li>
+<li>在 Windows 上装载光驱，记住对应盘符（如 <code>F:</code>）</li>
+<li>Ubuntu 上挂载光驱</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo mkdir /mnt/texlive
+</span></span><span class="line"><span class="cl">sudo mount -t drvfs F: /mnt/texlive
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol>
+<li>开始安装</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo /mnt/texlive/install-tl
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>按照提示操作，等待选定的软件包被安装。</p>
+<p>记得添加环境变量到 <code>.bashrc</code>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># TeX Live</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/local/texlive/2024/bin/x86_64-linux:<span class="nv">$PATH</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">MANPATH</span><span class="o">=</span>/usr/local/texlive/2024/texmf-dist/doc/man:<span class="nv">$MANPATH</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">INFOPATH</span><span class="o">=</span>/usr/local/texlive/2024/texmf-dist/doc/info:<span class="nv">$INFOPATH</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="5">
+<li>安装完成后解除挂载状态，并删除安装包</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo umount /mnt/texlive
+</span></span><span class="line"><span class="cl">sudo rm -r /mnt/texlive/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>额外内容</strong>：让 Windows Powershell 能直接访问 WSL 的环境变量，建立到 TeX 的软连接。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo /usr/local/texlive/2024/bin/x86_64-linux/tlmgr path add
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在 Windows Powershell 中测试：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">wsl tex -v
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>你甚至可以在 Windows 下的 VS Code
+<a class="link" href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop"  target="_blank" rel="noopener"
+    >LaTeX Workshop</a>
+插件中使用 WSL 的编译器！
+修改 <code>latex-workshop.latex.tools</code> 的各个 <code>&quot;command&quot;</code> 即可。例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;latex-workshop.latex.tools&#34;</span><span class="err">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;xelatex&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;command&#34;</span><span class="p">:</span> <span class="s2">&#34;wsl xelatex&#34;</span><span class="p">,</span> <span class="c1">// 注意这里
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nt">&#34;args&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;-synctex=1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;-interaction=nonstopmode&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;-file-line-error&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;%DOCFILE%&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="ros以-ros-noetic-为例">
+    <a href="#ros%e4%bb%a5-ros-noetic-%e4%b8%ba%e4%be%8b">#</a>
+    ROS（以 ROS Noetic 为例）
+</h2><ol>
+<li>添加 OSA 镜像站的 ROS 源</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo sh -c <span class="s1">&#39;echo &#34;deb http://mirrors.osa.moe/ros/ubuntu/ focal main&#34; &gt; /etc/apt/sources.list.d/ros-latest.list&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>手动编辑：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># /etc/apt/sources.list.d/ros-latest.list</span>
+</span></span><span class="line"><span class="cl">deb https://mirrors.osa.moe/ros/ubuntu/ focal main
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>添加 ROS 的 GPG 密钥</li>
+</ol>
+<p>以下两条命令二选一，任一成功即可。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt-key adv --keyserver <span class="s1">&#39;hkp://keyserver.ubuntu.com:80&#39;</span> --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install curl
+</span></span><span class="line"><span class="cl">curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc <span class="p">|</span> sudo apt-key add -
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>安装 ROS Noetic 桌面完整版</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt update
+</span></span><span class="line"><span class="cl"><span class="c1"># 如果输出类似</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#「命中:6 https://mirrors.osa.moe/ros/ubuntu focal Release」</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 则说明前 2 步成功</span>
+</span></span><span class="line"><span class="cl">sudo apt install ros-noetic-desktop-full
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li>设置环境变量</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;source /opt/ros/noetic/setup.bash&#34;</span> &gt;&gt; ~/.bashrc <span class="c1"># 添加 ROS 配置文件到环境变量</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> ~/.bashrc <span class="c1"># 使配置生效</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="5">
+<li>安装 ROS 配套工具</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="6">
+<li>初始化 rosdep</li>
+</ol>
+<p>这一步就 2 个命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo rosdep init
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">rosdep update
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果没有科学上网，这一步可能会很困难。参考</p>
+<p><a class="link" href="https://blog.csdn.net/LaineGates/article/details/120910628#t7"  target="_blank" rel="noopener"
+    >win10 wsl2 + ubuntu20.04 配置 ROS-Noetic - CSDN</a></p>
+<p>和 <a class="link" href="https://mirrors-help.osa.moe/rosdistro/"  target="_blank" rel="noopener"
+    >ROS Distro 镜像使用帮助 - MirrorZ Help</a> 解决。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/linux/">Linux</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>LICENSED UNDER CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/posts/wsl-connect-usb/">
+        
+        
+            <div class="article-image">
+                <img src="/posts/wsl-connect-usb/ESP32-Devkit.8ca36a26a9d106d57f46d49ff15e3c81_hu053b9317d90769e57a9b8211317cf12c_1799982_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 将 USB 设备连接到 WSL"
+                        data-key="wsl-connect-usb" 
+                        data-hash="md5-jKNqJqnRBtV/RtSf8V48gQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">将 USB 设备连接到 WSL</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/posts/a-useful-code-annotation/">
+        
+        
+            <div class="article-image">
+                <img src="/posts/a-useful-code-annotation/screenshot.870d678c2b1802a1d9fac8bf610d270b_hud772a455f3914001bb0a74ec5ab155b8_15255_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 一种实用的 C/C&#43;&#43;/C# 代码注释方法"
+                        data-key="a-useful-code-annotation" 
+                        data-hash="md5-hw1njCsYAqHZ&#43;si/YQ0nCw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">一种实用的 C/C&#43;&#43;/C# 代码注释方法</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2023 - 
+        
+        2024 MaxwellJay256
+    </section>
+    
+    <section class="powerby">
+        
+            Maxwell Jay at his most tender. <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.25.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
