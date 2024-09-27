@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="时间紧，任务重，就看这个了！">
-<title>WSL 快速配置自查手册</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="本文记录如何为 Linux 系统配置 SSH 密钥，以便在不输入用户名和密码的情况下连接 GitHub。 参考：通过 SSH 连接到 GitHub - Github 文档 # 检查现有 SSH 密钥 1 ls -al ~/.ssh 检查输">
+<title>使用 SSH 连接 GitHub</title>
 
-<link rel='canonical' href='https://maxwelljay256.github.io/posts/wsl-setup/'>
+<link rel='canonical' href='https://maxwelljay256.github.io/posts/ssh-github/'>
 
-<link rel="stylesheet" href="/scss/style.min.fec648d95dd3f1a32bc914e3cc01d7edd209ad11d650d6fd453efddb5160afc5.css"><meta property='og:title' content="WSL 快速配置自查手册">
-<meta property='og:description' content="时间紧，任务重，就看这个了！">
-<meta property='og:url' content='https://maxwelljay256.github.io/posts/wsl-setup/'>
+<link rel="stylesheet" href="/scss/style.min.fec648d95dd3f1a32bc914e3cc01d7edd209ad11d650d6fd453efddb5160afc5.css"><meta property='og:title' content="使用 SSH 连接 GitHub">
+<meta property='og:description' content="本文记录如何为 Linux 系统配置 SSH 密钥，以便在不输入用户名和密码的情况下连接 GitHub。 参考：通过 SSH 连接到 GitHub - Github 文档 # 检查现有 SSH 密钥 1 ls -al ~/.ssh 检查输">
+<meta property='og:url' content='https://maxwelljay256.github.io/posts/ssh-github/'>
 <meta property='og:site_name' content='JayLab256'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Linux' /><meta property='article:published_time' content='2024-09-01T11:08:00&#43;08:00'/><meta property='article:modified_time' content='2024-09-01T11:08:00&#43;08:00'/><meta property='og:image' content='https://maxwelljay256.github.io/posts/wsl-setup/neofetch.png' />
-<meta name="twitter:title" content="WSL 快速配置自查手册">
-<meta name="twitter:description" content="时间紧，任务重，就看这个了！"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://maxwelljay256.github.io/posts/wsl-setup/neofetch.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-09-27T16:35:00&#43;08:00'/><meta property='article:modified_time' content='2024-09-27T16:35:00&#43;08:00'/>
+<meta name="twitter:title" content="使用 SSH 连接 GitHub">
+<meta name="twitter:description" content="本文记录如何为 Linux 系统配置 SSH 密钥，以便在不输入用户名和密码的情况下连接 GitHub。 参考：通过 SSH 连接到 GitHub - Github 文档 # 检查现有 SSH 密钥 1 ls -al ~/.ssh 检查输">
     <link rel="shortcut icon" href="/favicon.ico" />
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CRZGE8R8FX"></script>
@@ -260,12 +259,16 @@ if (!doNotTrack) {
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#安装-wsl">安装 WSL</a></li>
-    <li><a href="#设置软件镜像源">设置软件镜像源</a></li>
-    <li><a href="#设置系统语言为中文">设置系统语言为中文</a></li>
-    <li><a href="#我最爱的-oh-my-posh">我最爱的 Oh My Posh</a></li>
-    <li><a href="#latex-编译器以-tex-live-2024-为例">$LaTeX$ 编译器（以 TeX Live 2024 为例）</a></li>
-    <li><a href="#ros以-ros-noetic-为例">ROS（以 ROS Noetic 为例）</a></li>
+    <li><a href="#检查现有-ssh-密钥">检查现有 SSH 密钥</a></li>
+    <li><a href="#生成新的-ssh-密钥">生成新的 SSH 密钥</a></li>
+    <li><a href="#将-ssh-密钥添加到-ssh-agent">将 SSH 密钥添加到 ssh-agent</a>
+      <ol>
+        <li><a href="#在后台启动-ssh-代理">在后台启动 ssh 代理</a></li>
+        <li><a href="#将-ssh-私钥添加到-ssh-agent">将 SSH 私钥添加到 ssh-agent</a></li>
+      </ol>
+    </li>
+    <li><a href="#添加-ssh-密钥到-github">添加 SSH 密钥到 GitHub</a></li>
+    <li><a href="#测试-ssh-连接">测试 SSH 连接</a></li>
   </ol>
 </nav>
         </div>
@@ -277,20 +280,8 @@ if (!doNotTrack) {
 
 
             <main class="main full-width">
-    <article class="has-image main-article">
+    <article class="main-article">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/posts/wsl-setup/">
-                <img src="/posts/wsl-setup/neofetch_hue7eac84101d2a6240bc719a2e526f4f3_871700_800x0_resize_box_3.png"
-                        srcset="/posts/wsl-setup/neofetch_hue7eac84101d2a6240bc719a2e526f4f3_871700_800x0_resize_box_3.png 800w, /posts/wsl-setup/neofetch_hue7eac84101d2a6240bc719a2e526f4f3_871700_1600x0_resize_box_3.png 1600w"
-                        width="800" 
-                        height="447" 
-                        loading="lazy"
-                        alt="Featured image of post WSL 快速配置自查手册" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
@@ -305,13 +296,9 @@ if (!doNotTrack) {
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/posts/wsl-setup/">WSL 快速配置自查手册</a>
+            <a href="/posts/ssh-github/">使用 SSH 连接 GitHub</a>
         </h2>
     
-        
-        <h3 class="article-subtitle">
-            时间紧，任务重，就看这个了！
-        </h3>
         
     </div>
 
@@ -331,7 +318,7 @@ if (!doNotTrack) {
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">2024-09-01</time>
+                <time class="article-time--published">2024-09-27</time>
             </div>
         
 
@@ -361,281 +348,23 @@ if (!doNotTrack) {
     <section class="article-content">
     
     
-    <p>本文以 Windows 11、WSL 2 和 Ubuntu 20.04 LTS 为例，记录从零开始配置 WSL 以及一些常用开发环境的过程。</p>
-<p>此外，本文提到的镜像源均指 HITSZ OSA Mirrors。配合校园网食用效果更佳。</p>
-<h2 id="安装-wsl">
-    <a href="#%e5%ae%89%e8%a3%85-wsl">#</a>
-    安装 WSL
-</h2><p>方法 1：直接在 Windows 应用商店搜索 Ubuntu，选择对应发行版点击安装。</p>
-<p>方法 2：使用 WSL 命令行安装。参考 <a class="link" href="https://learn.microsoft.com/zh-cn/windows/wsl/install"  target="_blank" rel="noopener"
-    >如何使用 WSL 在 Windows 上安装 Linux - Microsoft Learn</a></p>
-<h2 id="设置软件镜像源">
-    <a href="#%e8%ae%be%e7%bd%ae%e8%bd%af%e4%bb%b6%e9%95%9c%e5%83%8f%e6%ba%90">#</a>
-    设置软件镜像源
-</h2><p><a class="link" href="https://mirrors-help.osa.moe/ubuntu/"  target="_blank" rel="noopener"
-    >Ubuntu 软件仓库镜像使用帮助 - MirrorZ Help</a></p>
-<p><code>/etc/apt/sources.list</code></p>
-<h2 id="设置系统语言为中文">
-    <a href="#%e8%ae%be%e7%bd%ae%e7%b3%bb%e7%bb%9f%e8%af%ad%e8%a8%80%e4%b8%ba%e4%b8%ad%e6%96%87">#</a>
-    设置系统语言为中文
-</h2><ol>
-<li>安装中文语言包</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install language-pack-zh-hans
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="2">
-<li>设置中文为默认语言</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dpkg-reconfigure locales
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>选中 en_US.UTF-8 和 zh-CN.UTF-8；选择 zh-CN.UTF-8 为默认语言</p>
-<ol start="3">
-<li>安装字体管理工具 fontconfig</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install fontconfig
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="4">
-<li>让 Linux 使用 Windows 已安装的字体</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo nano /etc/fonts/local.conf
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>写入以下内容</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE fontconfig SYSTEM &#34;fonts/dtd&#34;&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">fontconfig</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">dir</span><span class="p">&gt;</span>/mnt/c/Windows/Fonts<span class="p">&lt;/</span><span class="nt">dir</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">fontconfig</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>也可将 <code>C:\Windows\Fonts</code> 中的字体复制到 <code>/usr/local/share/fonts</code> 目录下。</p>
-<ol start="5">
-<li>刷新字体缓存</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo fc-cache -fv
-</span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
-<p>以上参考自
-<a class="link" href="https://blog.csdn.net/weixin_43589764/article/details/124327175"  target="_blank" rel="noopener"
-    >学习笔记：WSL Ubuntu 20.04 LTS 安装中文语言 - CSDN</a></p>
+    <p>本文记录如何为 Linux 系统配置 SSH 密钥，以便在不输入用户名和密码的情况下连接 GitHub。</p>
+<blockquote>
+<p>参考：<a class="link" href="https://docs.github.com/zh/authentication/connecting-to-github-with-ssh"  target="_blank" rel="noopener"
+    >通过 SSH 连接到 GitHub - Github 文档</a></p>
 </blockquote>
-<h2 id="我最爱的-oh-my-posh">
-    <a href="#%e6%88%91%e6%9c%80%e7%88%b1%e7%9a%84-oh-my-posh">#</a>
-    我最爱的 Oh My Posh
-</h2><p><a class="link" href="https://brew.sh/"  target="_blank" rel="noopener"
-    >Homebrew</a></p>
-<p><a class="link" href="https://ohmyposh.dev/"  target="_blank" rel="noopener"
-    >Oh My Posh</a></p>
-<p>主题可以保存在 Windows 上，例如</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># ~/.bashrc</span>
-</span></span><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>oh-my-posh init bash --config /mnt/d/.../lambdageneration.omp.json<span class="k">)</span><span class="s2">&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="latex-编译器以-tex-live-2024-为例">
-    <a href="#latex-%e7%bc%96%e8%af%91%e5%99%a8%e4%bb%a5-tex-live-2024-%e4%b8%ba%e4%be%8b">#</a>
-    $LaTeX$ 编译器（以 TeX Live 2024 为例）
-</h2><ol>
-<li>从 OSA 镜像站的 <code>CTAN/systems/texlive/Images</code> 下载 <code>texlive2024.iso</code></li>
-<li>在 Windows 上装载光驱，记住对应盘符（如 <code>F:</code>）</li>
-<li>Ubuntu 上挂载光驱</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo mkdir /mnt/texlive
-</span></span><span class="line"><span class="cl">sudo mount -t drvfs F: /mnt/texlive
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol>
-<li>开始安装</li>
-</ol>
-<div class="highlight"><div class="chroma">
+<h2 id="检查现有-ssh-密钥">
+    <a href="#%e6%a3%80%e6%9f%a5%e7%8e%b0%e6%9c%89-ssh-%e5%af%86%e9%92%a5">#</a>
+    检查现有 SSH 密钥
+</h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo /mnt/texlive/install-tl
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls -al ~/.ssh
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>按照提示操作，等待选定的软件包被安装。</p>
-<p>记得添加环境变量到 <code>.bashrc</code>：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># TeX Live</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/local/texlive/2024/bin/x86_64-linux:<span class="nv">$PATH</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">MANPATH</span><span class="o">=</span>/usr/local/texlive/2024/texmf-dist/doc/man:<span class="nv">$MANPATH</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">INFOPATH</span><span class="o">=</span>/usr/local/texlive/2024/texmf-dist/doc/info:<span class="nv">$INFOPATH</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="5">
-<li>安装完成后解除挂载状态，并删除安装包</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo umount /mnt/texlive
-</span></span><span class="line"><span class="cl">sudo rm -r /mnt/texlive/
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>额外内容</strong>：让 Windows Powershell 能直接访问 WSL 的环境变量，建立到 TeX 的软连接。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo /usr/local/texlive/2024/bin/x86_64-linux/tlmgr path add
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>在 Windows Powershell 中测试：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">wsl tex -v
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>你甚至可以在 Windows 下的 VS Code
-<a class="link" href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop"  target="_blank" rel="noopener"
-    >LaTeX Workshop</a>
-插件中使用 WSL 的编译器！
-修改 <code>latex-workshop.latex.tools</code> 的各个 <code>&quot;command&quot;</code> 即可。例：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;latex-workshop.latex.tools&#34;</span><span class="err">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;xelatex&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;command&#34;</span><span class="p">:</span> <span class="s2">&#34;wsl xelatex&#34;</span><span class="p">,</span> <span class="c1">// 注意这里
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nt">&#34;args&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;-synctex=1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;-interaction=nonstopmode&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;-file-line-error&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;%DOCFILE%&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">]</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl"><span class="p">]</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="ros以-ros-noetic-为例">
-    <a href="#ros%e4%bb%a5-ros-noetic-%e4%b8%ba%e4%be%8b">#</a>
-    ROS（以 ROS Noetic 为例）
-</h2><ol>
-<li>添加 OSA 镜像站的 ROS 源</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo sh -c <span class="s1">&#39;echo &#34;deb http://mirrors.osa.moe/ros/ubuntu/ focal main&#34; &gt; /etc/apt/sources.list.d/ros-latest.list&#39;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>手动编辑：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># /etc/apt/sources.list.d/ros-latest.list</span>
-</span></span><span class="line"><span class="cl">deb https://mirrors.osa.moe/ros/ubuntu/ focal main
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="2">
-<li>添加 ROS 的 GPG 密钥</li>
-</ol>
-<p>以下两条命令二选一，任一成功即可。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt-key adv --keyserver <span class="s1">&#39;hkp://keyserver.ubuntu.com:80&#39;</span> --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install curl
-</span></span><span class="line"><span class="cl">curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc <span class="p">|</span> sudo apt-key add -
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="3">
-<li>安装 ROS Noetic 桌面完整版</li>
-</ol>
+</div><p>检查输出结果中是否含有 id_rsa.pub / id_ecdsa.pub / <em>id_ed25519.pub</em> 文件。例如</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -643,49 +372,29 @@ if (!doNotTrack) {
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
+</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt update
-</span></span><span class="line"><span class="cl"><span class="c1"># 如果输出类似</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#「命中:6 https://mirrors.osa.moe/ros/ubuntu focal Release」</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 则说明前 2 步成功</span>
-</span></span><span class="line"><span class="cl">sudo apt install ros-noetic-desktop-full
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">总用量 <span class="m">20</span>
+</span></span><span class="line"><span class="cl">drwx------  <span class="m">2</span> jay jay <span class="m">4096</span> x月  xx xx:xx .
+</span></span><span class="line"><span class="cl">drwxr-xr-x <span class="m">30</span> jay jay <span class="m">4096</span> x月  xx xx:xx ..
+</span></span><span class="line"><span class="cl">-rw-------  <span class="m">1</span> jay jay  <span class="m">432</span> x月  xx xx:xx id_ed25519
+</span></span><span class="line"><span class="cl">-rw-r--r--  <span class="m">1</span> jay jay  <span class="m">118</span> x月  xx xx:xx id_ed25519.pub
+</span></span><span class="line"><span class="cl">-rw-r--r--  <span class="m">1</span> jay jay  <span class="m">444</span> x月  xx xx:xx known_hosts
 </span></span></code></pre></td></tr></table>
 </div>
-</div><ol start="4">
-<li>设置环境变量</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;source /opt/ros/noetic/setup.bash&#34;</span> &gt;&gt; ~/.bashrc <span class="c1"># 添加 ROS 配置文件到环境变量</span>
-</span></span><span class="line"><span class="cl"><span class="nb">source</span> ~/.bashrc <span class="c1"># 使配置生效</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="5">
-<li>安装 ROS 配套工具</li>
-</ol>
+</div><p>说明这个用户已经有一个 SSH 密钥了。</p>
+<p>当然，如果没有出现这些文件，或者用户目录下根本没有 <code>.ssh</code> 文件夹，那么说明该用户需要生成新的 SSH 密钥。</p>
+<h2 id="生成新的-ssh-密钥">
+    <a href="#%e7%94%9f%e6%88%90%e6%96%b0%e7%9a%84-ssh-%e5%af%86%e9%92%a5">#</a>
+    生成新的 SSH 密钥
+</h2><p>输入以下命令，将 &ldquo;<a class="link" href="mailto:your_email@example.com" >your_email@example.com</a>&rdquo; 替换为 GitHub 邮箱地址。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="6">
-<li>初始化 rosdep</li>
-</ol>
-<p>这一步就 2 个命令：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo rosdep init
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh-keygen -t ed25519 -C <span class="s2">&#34;your_email@example.com&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
@@ -693,39 +402,115 @@ if (!doNotTrack) {
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">rosdep update
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&gt; Generating public/private ALGORITHM key pair.
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>如果没有科学上网，这一步可能会很困难。参考</p>
-<p><a class="link" href="https://blog.csdn.net/LaineGates/article/details/120910628#t7"  target="_blank" rel="noopener"
-    >win10 wsl2 + ubuntu20.04 配置 ROS-Noetic - CSDN</a></p>
-<p>和 <a class="link" href="https://mirrors-help.osa.moe/rosdistro/"  target="_blank" rel="noopener"
-    >ROS Distro 镜像使用帮助 - MirrorZ Help</a> 解决。</p>
+</div><p>当系统提示 &ldquo;Enter a file in which to save the key（输入要保存密钥的文件）&rdquo; 时，可以按 Enter 键接受默认文件位置。</p>
+<p>但如果已经有了已经有了一个密钥文件，则 ssh-keygen 可能会要求重写另一个密钥，在这种情况下，建议创建自定义命名的 SSH 密钥。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&gt; Enter a file in which to save the key <span class="o">(</span>/home/YOU/.ssh/id_ALGORITHM<span class="o">)</span>:<span class="o">[</span>Press enter<span class="o">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果想为 SSH 密钥添加密码，在下列提示出现时设置。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&gt; Enter passphrase <span class="o">(</span>empty <span class="k">for</span> no passphrase<span class="o">)</span>: <span class="o">[</span>Type a passphrase<span class="o">]</span>
+</span></span><span class="line"><span class="cl">&gt; Enter same passphrase again: <span class="o">[</span>Type passphrase again<span class="o">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="将-ssh-密钥添加到-ssh-agent">
+    <a href="#%e5%b0%86-ssh-%e5%af%86%e9%92%a5%e6%b7%bb%e5%8a%a0%e5%88%b0-ssh-agent">#</a>
+    将 SSH 密钥添加到 ssh-agent
+</h2><h3 id="在后台启动-ssh-代理">
+    <a href="#%e5%9c%a8%e5%90%8e%e5%8f%b0%e5%90%af%e5%8a%a8-ssh-%e4%bb%a3%e7%90%86">#</a>
+    在后台启动 ssh 代理
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果 ssh-agent 没有启动，输入 <code>exec ssh-agent bash</code>（或 <code>zsh</code>，取决于终端）。</p>
+<h3 id="将-ssh-私钥添加到-ssh-agent">
+    <a href="#%e5%b0%86-ssh-%e7%a7%81%e9%92%a5%e6%b7%bb%e5%8a%a0%e5%88%b0-ssh-agent">#</a>
+    将 SSH 私钥添加到 ssh-agent
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh-add ~/.ssh/id_ed25519
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果使用其他名称创建了密钥，或要添加具有其他名称的现有密钥，请将命令中的 id_ed25519 替换为私钥文件的名称。</p>
+<h2 id="添加-ssh-密钥到-github">
+    <a href="#%e6%b7%bb%e5%8a%a0-ssh-%e5%af%86%e9%92%a5%e5%88%b0-github">#</a>
+    添加 SSH 密钥到 GitHub
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat ~/.ssh/id_ed25519.pub
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>将输出的内容复制到剪贴板。</p>
+<p>在 GitHub 网页上，点击右上角的头像，选择 <code>Settings</code> -&gt; <code>SSH and GPG keys</code> -&gt; <code>New SSH key</code>。
+将复制的 SSH 密钥粘贴到 <code>Key</code> 输入框中，点击 <code>Add SSH key</code>。</p>
+<h2 id="测试-ssh-连接">
+    <a href="#%e6%b5%8b%e8%af%95-ssh-%e8%bf%9e%e6%8e%a5">#</a>
+    测试 SSH 连接
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh -T git@github.com
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可能会出现以下提示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&gt; The authenticity of host <span class="s1">&#39;github.com (IP ADDRESS)&#39;</span> can<span class="err">&#39;</span>t be established.
+</span></span><span class="line"><span class="cl">&gt; ED25519 key fingerprint is SHA256:....
+</span></span><span class="line"><span class="cl">&gt; Are you sure you want to <span class="k">continue</span> connecting <span class="o">(</span>yes/no<span class="o">)</span>?
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>验证所看到消息中的指纹是否与 GitHub 的公钥指纹匹配。如果是，则键入 yes：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&gt; Hi USERNAME! You<span class="err">&#39;</span>ve successfully authenticated, but GitHub does not
+</span></span><span class="line"><span class="cl">&gt; provide shell access.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>之后，就可以在不输入用户名和密码的情况下连接 GitHub 了。</p>
+<p>从网站上克隆仓库的时候，记得使用 SSH 地址而不是 HTTPS。</p>
 
 </section>
 
 
     <footer class="article-footer">
     
-    <section class="article-tags">
-        
-            <a href="/tags/linux/">Linux</a>
-        
-    </section>
 
-
-    
-    <section class="article-copyright">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
-</svg>
-
-
-
-        <span>LICENSED UNDER CC BY-NC-SA 4.0</span>
-    </section>
     </footer>
 
 
@@ -767,6 +552,30 @@ if (!doNotTrack) {
             
                 
 <article class="has-image">
+    <a href="/posts/wsl-setup/">
+        
+        
+            <div class="article-image">
+                <img src="/posts/wsl-setup/neofetch.10efd061240ac11102eb27729ce8f3f8_hue7eac84101d2a6240bc719a2e526f4f3_871700_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post WSL 快速配置自查手册"
+                        data-key="wsl-setup" 
+                        data-hash="md5-EO/QYSQKwREC6ydynOjz&#43;A==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">WSL 快速配置自查手册</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
     <a href="/posts/wsl-connect-usb/">
         
         
@@ -784,19 +593,6 @@ if (!doNotTrack) {
 
         <div class="article-details">
             <h2 class="article-title">将 USB 设备连接到 WSL</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/posts/ssh-github/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">使用 SSH 连接 GitHub</h2>
         </div>
     </a>
 </article>
