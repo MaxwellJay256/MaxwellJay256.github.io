@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://maxwelljay256.github.io/posts/wsl-setup/'>
 
-<link rel="stylesheet" href="/scss/style.min.fec648d95dd3f1a32bc914e3cc01d7edd209ad11d650d6fd453efddb5160afc5.css"><meta property='og:title' content="WSL 快速配置自查手册">
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="WSL 快速配置自查手册">
 <meta property='og:description' content="时间紧，任务重，就看这个了！">
 <meta property='og:url' content='https://maxwelljay256.github.io/posts/wsl-setup/'>
 <meta property='og:site_name' content='JayLab256'>
@@ -363,21 +363,15 @@ if (!doNotTrack) {
     
     <p>本文以 Windows 11、WSL 2 和 Ubuntu 20.04 LTS 为例，记录从零开始配置 WSL 以及一些常用开发环境的过程。</p>
 <p>此外，本文提到的镜像源均指 HITSZ OSA Mirrors。配合校园网食用效果更佳。</p>
-<h2 id="安装-wsl">
-    <a href="#%e5%ae%89%e8%a3%85-wsl">#</a>
-    安装 WSL
+<h2 id="安装-wsl">安装 WSL
 </h2><p>方法 1：直接在 Windows 应用商店搜索 Ubuntu，选择对应发行版点击安装。</p>
 <p>方法 2：使用 WSL 命令行安装。参考 <a class="link" href="https://learn.microsoft.com/zh-cn/windows/wsl/install"  target="_blank" rel="noopener"
     >如何使用 WSL 在 Windows 上安装 Linux - Microsoft Learn</a></p>
-<h2 id="设置软件镜像源">
-    <a href="#%e8%ae%be%e7%bd%ae%e8%bd%af%e4%bb%b6%e9%95%9c%e5%83%8f%e6%ba%90">#</a>
-    设置软件镜像源
+<h2 id="设置软件镜像源">设置软件镜像源
 </h2><p><a class="link" href="https://mirrors-help.osa.moe/ubuntu/"  target="_blank" rel="noopener"
     >Ubuntu 软件仓库镜像使用帮助 - MirrorZ Help</a></p>
 <p><code>/etc/apt/sources.list</code></p>
-<h2 id="设置系统语言为中文">
-    <a href="#%e8%ae%be%e7%bd%ae%e7%b3%bb%e7%bb%9f%e8%af%ad%e8%a8%80%e4%b8%ba%e4%b8%ad%e6%96%87">#</a>
-    设置系统语言为中文
+<h2 id="设置系统语言为中文">设置系统语言为中文
 </h2><ol>
 <li>安装中文语言包</li>
 </ol>
@@ -457,9 +451,7 @@ if (!doNotTrack) {
 <a class="link" href="https://blog.csdn.net/weixin_43589764/article/details/124327175"  target="_blank" rel="noopener"
     >学习笔记：WSL Ubuntu 20.04 LTS 安装中文语言 - CSDN</a></p>
 </blockquote>
-<h2 id="我最爱的-oh-my-posh">
-    <a href="#%e6%88%91%e6%9c%80%e7%88%b1%e7%9a%84-oh-my-posh">#</a>
-    我最爱的 Oh My Posh
+<h2 id="我最爱的-oh-my-posh">我最爱的 Oh My Posh
 </h2><p><a class="link" href="https://brew.sh/"  target="_blank" rel="noopener"
     >Homebrew</a></p>
 <p><a class="link" href="https://ohmyposh.dev/"  target="_blank" rel="noopener"
@@ -475,9 +467,7 @@ if (!doNotTrack) {
 </span></span><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>oh-my-posh init bash --config /mnt/d/.../lambdageneration.omp.json<span class="k">)</span><span class="s2">&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="latex-编译器以-tex-live-2024-为例">
-    <a href="#latex-%e7%bc%96%e8%af%91%e5%99%a8%e4%bb%a5-tex-live-2024-%e4%b8%ba%e4%be%8b">#</a>
-    $LaTeX$ 编译器（以 TeX Live 2024 为例）
+</div><h2 id="latex-编译器以-tex-live-2024-为例">$LaTeX$ 编译器（以 TeX Live 2024 为例）
 </h2><ol>
 <li>从 OSA 镜像站的 <code>CTAN/systems/texlive/Images</code> 下载 <code>texlive2024.iso</code></li>
 <li>在 Windows 上装载光驱，记住对应盘符（如 <code>F:</code>）</li>
@@ -586,9 +576,7 @@ if (!doNotTrack) {
 </span></span><span class="line"><span class="cl"><span class="p">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="ros以-ros-noetic-为例">
-    <a href="#ros%e4%bb%a5-ros-noetic-%e4%b8%ba%e4%be%8b">#</a>
-    ROS（以 ROS Noetic 为例）
+</div><h2 id="ros以-ros-noetic-为例">ROS（以 ROS Noetic 为例）
 </h2><ol>
 <li>添加 OSA 镜像站的 ROS 源</li>
 </ol>
@@ -846,7 +834,7 @@ if (!doNotTrack) {
         
             Maxwell Jay at his most tender. <br/>
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.25.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.29.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
 
@@ -935,7 +923,7 @@ if (!doNotTrack) {
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');

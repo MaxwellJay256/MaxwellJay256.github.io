@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://maxwelljay256.github.io/posts/wsl-connect-usb/'>
 
-<link rel="stylesheet" href="/scss/style.min.fec648d95dd3f1a32bc914e3cc01d7edd209ad11d650d6fd453efddb5160afc5.css"><meta property='og:title' content="将 USB 设备连接到 WSL">
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="将 USB 设备连接到 WSL">
 <meta property='og:description' content="使用 WSL 2 进行嵌入式开发时，如何将 USB 连接从 Windows 转移到 WSL 上？">
 <meta property='og:url' content='https://maxwelljay256.github.io/posts/wsl-connect-usb/'>
 <meta property='og:site_name' content='JayLab256'>
@@ -374,25 +374,17 @@ if (!doNotTrack) {
 <blockquote>
 <p>2024.1.10 更新：usbipd 更新到了 4.0.0 版本，指令有所变化，本文已更新。</p>
 </blockquote>
-<h2 id="先决条件">
-    <a href="#%e5%85%88%e5%86%b3%e6%9d%a1%e4%bb%b6">#</a>
-    先决条件
+<h2 id="先决条件">先决条件
 </h2><ul>
 <li>Windows 11（内部版本 22000 或更高版本）</li>
 <li>具有 x64/x86 处理器的计算机</li>
 <li>Linux 发行版已安装并设置为 WSL 2（本次使用的是 Ubuntu 20.04 LTS）</li>
 </ul>
-<h2 id="安装-uspipd-win-项目">
-    <a href="#%e5%ae%89%e8%a3%85-uspipd-win-%e9%a1%b9%e7%9b%ae">#</a>
-    安装 USPIPD-WIN 项目
-</h2><h3 id="方法-1从-github-下载安装">
-    <a href="#%e6%96%b9%e6%b3%95-1%e4%bb%8e-github-%e4%b8%8b%e8%bd%bd%e5%ae%89%e8%a3%85">#</a>
-    方法 1：从 GitHub 下载安装
+<h2 id="安装-uspipd-win-项目">安装 USPIPD-WIN 项目
+</h2><h3 id="方法-1从-github-下载安装">方法 1：从 GitHub 下载安装
 </h3><p>仓库链接：<a class="link" href="https://github.com/dorssel/usbipd-win"  target="_blank" rel="noopener"
     >usbipd-win</a></p>
-<h3 id="方法-2使用-windows-程序包管理器程序-winget-安装">
-    <a href="#%e6%96%b9%e6%b3%95-2%e4%bd%bf%e7%94%a8-windows-%e7%a8%8b%e5%ba%8f%e5%8c%85%e7%ae%a1%e7%90%86%e5%99%a8%e7%a8%8b%e5%ba%8f-winget-%e5%ae%89%e8%a3%85">#</a>
-    方法 2：使用 Windows 程序包管理器程序 (winget) 安装
+<h3 id="方法-2使用-windows-程序包管理器程序-winget-安装">方法 2：使用 Windows 程序包管理器程序 (winget) 安装
 </h3><p>打开 PowerShell 并运行以下命令：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -402,9 +394,7 @@ if (!doNotTrack) {
 <pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">winget</span> <span class="n">install</span> <span class="p">-</span><span class="n">-interactive</span> <span class="p">-</span><span class="o">-exact</span> <span class="n">dorssel</span><span class="p">.</span><span class="nb">usbipd-win</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="在-linux-中安装-usbip-工具和硬件数据库">
-    <a href="#%e5%9c%a8-linux-%e4%b8%ad%e5%ae%89%e8%a3%85-usbip-%e5%b7%a5%e5%85%b7%e5%92%8c%e7%a1%ac%e4%bb%b6%e6%95%b0%e6%8d%ae%e5%ba%93">#</a>
-    在 Linux 中安装 USBIP 工具和硬件数据库
+</div><h2 id="在-linux-中安装-usbip-工具和硬件数据库">在 Linux 中安装 USBIP 工具和硬件数据库
 </h2><p>在 Ubuntu 中，运行以下命令安装工具和硬件数据库：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -423,9 +413,7 @@ if (!doNotTrack) {
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo update-alternatives --install /usr/local/bin/usbip usbip /usr/lib/linux-tools/*-generic/usbip <span class="m">20</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="附加-usb-设备">
-    <a href="#%e9%99%84%e5%8a%a0-usb-%e8%ae%be%e5%a4%87">#</a>
-    附加 USB 设备
+</div><h2 id="附加-usb-设备">附加 USB 设备
 </h2><ol>
 <li>
 <p>通过管理员模式打开 PowerShell 并运行以下命令，列出所有连接到 Windows 的 USB 设备：</p>
@@ -530,9 +518,7 @@ if (!doNotTrack) {
 ></p>
 </li>
 </ol>
-<h2 id="测试连接以及断开连接">
-    <a href="#%e6%b5%8b%e8%af%95%e8%bf%9e%e6%8e%a5%e4%bb%a5%e5%8f%8a%e6%96%ad%e5%bc%80%e8%bf%9e%e6%8e%a5">#</a>
-    测试连接以及断开连接
+<h2 id="测试连接以及断开连接">测试连接以及断开连接
 </h2><p>我提前在 WSL 上用 <code>esp-idf</code> 工具链编译了一个简单的 hello-world 程序，现在尝试用 <code>esp-idf</code> 工具链将 WSL 中的项目烧录到开发板上。</p>
 <p>通过 <code>ls /dev/tty*</code> 命令查找到开发板的串口设备为 <code>/dev/ttyUSB0</code>，所以可以运行以下命令烧录程序：</p>
 <div class="highlight"><div class="chroma">
@@ -641,9 +627,7 @@ if (!doNotTrack) {
 		data-flex-basis="338px"
 	
 ></p>
-<h2 id="新功能自动重连">
-    <a href="#%e6%96%b0%e5%8a%9f%e8%83%bd%e8%87%aa%e5%8a%a8%e9%87%8d%e8%bf%9e">#</a>
-    （新功能）自动重连
+<h2 id="新功能自动重连">（新功能）自动重连
 </h2><p>usbipd 在 4.0.0 版本后增加了自动重连功能，也就是说，我们可以仅通过运行一个命令让电脑一直检测 USB 设备的连接状态，如果设备被物理断连后重新接入，则自动重新连接到 WSL。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -833,7 +817,7 @@ if (!doNotTrack) {
         
             Maxwell Jay at his most tender. <br/>
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.25.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.29.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
 
@@ -922,7 +906,7 @@ if (!doNotTrack) {
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');

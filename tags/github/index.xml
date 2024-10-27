@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>GitHub on JayLab256</title>
+        <link>https://maxwelljay256.github.io/tags/github/</link>
+        <description>Recent content in GitHub on JayLab256</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>MaxwellJay256</copyright>
+        <lastBuildDate>Mon, 28 Oct 2024 00:00:00 +0800</lastBuildDate><atom:link href="https://maxwelljay256.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>杂谈：关于分享知识</title>
+        <link>https://maxwelljay256.github.io/posts/sharing-knowledge/</link>
+        <pubDate>Mon, 28 Oct 2024 00:00:00 +0800</pubDate>
+        
+        <guid>https://maxwelljay256.github.io/posts/sharing-knowledge/</guid>
+        <description>&lt;img src="https://maxwelljay256.github.io/posts/sharing-knowledge/64894936_p0.png" alt="Featured image of post 杂谈：关于分享知识" /&gt;&lt;iframe frameborder=&#34;no&#34; border=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; width=450 height=80 src=&#34;//music.163.com/outchain/player?type=2&amp;id=500412167&amp;auto=0&amp;height=66&#34;&gt;&lt;/iframe&gt;
+&lt;p&gt; &lt;sup&gt;
+    &lt;i&gt;配合音乐阅读更佳（&lt;/i&gt;
+&lt;/sup&gt; &lt;/p&gt;
+&lt;p&gt;2024 年 10 月 29 日是 &lt;a class=&#34;link&#34; href=&#34;https://github.com/HITSZ-OpenAuto&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;HITSZ OpenAuto&lt;/a&gt; 的 1 岁生日。&lt;/p&gt;
+&lt;p&gt;好几天前，成员们就在讨论庆祝的事情了。
+想来想去，我们本身是基于互联网的团队，写点小文章纪念一下也是不错的选择。
+结果我最先提出这个想法，反而是最后一个交作业的 😂。&lt;/p&gt;
+&lt;p&gt;一开始有一些写作的想法，看到其他几位同学的博客后发现想出来的东西都被写过了，什么 HOA 的成长历程啊、参与开源的初衷啊、收获与致谢啊……这些都是很好的话题，但大家都写就没意思了。&lt;/p&gt;
+&lt;p&gt;那，咱来聊点不一样的？&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;HOA 网站的搭建，尤其是涉及到 HTML, CSS, JS 的部分基本上都是 &lt;a class=&#34;link&#34; href=&#34;https://github.com/longlin10086&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@longlin li&lt;/a&gt; 和 &lt;a class=&#34;link&#34; href=&#34;https://github.com/kowyo&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@Kowyo&lt;/a&gt; 等人在做。
+而我在 HOA 主要的工作，就是写。&lt;/p&gt;
+&lt;p&gt;写什么呢？写课程描述，写博客，还有一些组织内部文案。
+此外，由于强迫症，我重新排版了很多其他人写的文档。
+这一年，写了不少东西，也读了不少别人写的东西。&lt;/p&gt;
+&lt;h2 id=&#34;为什么要写博客以及分享知识时的面向陌生人原则&#34;&gt;为什么要写博客，以及分享知识时的「面向陌生人」原则
+&lt;/h2&gt;&lt;p&gt;我相当享受用文字组织逻辑的过程（不是用文字倾泻情感，那是另一回事）。
+如果你能用文字完整地描述一个事物，那么说明你对这个事物已经有了充足的理解。
+这也是为什么很多人会用博客的方式记录自己学习的知识，包括学校里学习的课程，和课外自己搞开发时学习的技术。&lt;/p&gt;
+&lt;p&gt;比如&lt;a class=&#34;link&#34; href=&#34;https://hoa.moe/blog/zero-force-poles/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;《平面简单桁架中零力杆的判断》&lt;/a&gt; 这篇 HOA 上的博客，是我在自学这个知识点后马上写下来的。
+即使理论力学这门课的内容我今天已经忘掉了 90%，我仍然能随口说出零力杆的 4 种判断方法。&lt;/p&gt;
+&lt;p&gt;你可能问了，这跟自己记的笔记有什么区别呢？&lt;/p&gt;
+&lt;p&gt;笔记是记给你自己看的，自己看得懂就 OK 了，所以你可能在记笔记的时候并没有多加思考，或者记得很简略。
+说不定过了一段时间，你已经看不懂自己过去的笔记了（&lt;/p&gt;
+&lt;p&gt;而写博客的时候，你应该时刻提醒自己，&lt;strong&gt;博文的读者不是你，而是对你所写的内容完全陌生的人&lt;/strong&gt;。
+这也是我在 HOA 上写文档时反复提醒自己的一点。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;一篇知识型文章的出发点应当低于你想要描述的主体内容&lt;/strong&gt;。
+例如我想描述平面简单桁架中零力杆的判断方法，我就从质点的二维静力学平衡条件出发，逐个讲述每种特殊节点的判断原理。
+这样对读者的筛选就会非常宽松，能够保证读有所得，并且你也能收获更多的阅读量。
+这也是为什么网上自称「保姆级」「零基础」的教程往往更吸引眼球。
+最重要的是，当那个读者是你自己的时候，你可以无负担地重新 get 到文章的完整内容，而不需要为了读懂它而去查找别的资料。&lt;/p&gt;
+&lt;p&gt;另一方面，你以最通俗的方式描述知识的过程，其实就是把模棱两可的东西变得清晰的过程。
+这样一来，你在回忆这个知识的时候就不存在任何思维负担了，因为你已经把它变成了一个完整的故事。&lt;/p&gt;
+&lt;p&gt;如果写博文时不遵循「面向陌生人」原则，出发点等同于甚至高于主体内容，那么在外人看来，这篇文章就是单纯的作秀，炫耀自己会别人不会的东西。
+这种博文，其实没有起到分享知识的作用。&lt;/p&gt;
+&lt;p&gt;有点难理解？回忆一下你在 B 站上逛到的那些「开源」项目，哪些让你心动复刻，哪些你看了两眼就关掉了？&lt;/p&gt;
+&lt;h2 id=&#34;知识共享平台的更多可能性&#34;&gt;知识共享平台的更多可能性
+&lt;/h2&gt;&lt;p&gt;所谓的「知识分享平台」其实很多，B 站上有不少知识区 up 主，微信有海量学习公众号，GitHub 上有许多开源社区，甚至自救群也算得上。&lt;/p&gt;
+&lt;p&gt;我在这里想讨论的是 HOA 这样，面向中等规模群众（如 HITSZ 本科生）的开源社区。&lt;/p&gt;
+&lt;p&gt;开源社区与其他类型平台的区别在于，所有的内容都透明公开，不存在任何商业利益。
+对比之下，你并不知道 B 站 up 主或微信公众号的内部是如何运作的。
+它们面向的是全网多数用户，并不一定能满足某个特定用户或者群体的全部需求。&lt;/p&gt;
+&lt;p&gt;作为开源组织，我们可以深入地调查同学们的需要，然后根据反馈进行更新内容。
+更重要的是，开源平台的 Pull Request 机制允许所有人参与到平台维护和内容创作中来。
+这也是我认为最被忽视的一点。&lt;/p&gt;
+&lt;p&gt;由于我们的内容是以网站的形式呈现给大家的，而真正的仓库托管在 GitHub 上，不少同学对 HOA 的印象可能还停留在类似「微信公众号」的组织。&lt;/p&gt;
+&lt;p&gt;我们不是单向地向大家搬运信息！你所阅读到的文档、下载的资料，除了组织内部成员整理，还有无数普通学生的贡献。
+所以我看到自救群里有人质问「HOA 上某某课程怎么没有资料」时，我其实是很无语的。
+没有人有义务去上传这些资料，HOA 也只是提供了平台。&lt;/p&gt;
+&lt;p&gt;因此，开源社区的活跃非常依赖用户与核心成员的&lt;strong&gt;双向&lt;/strong&gt;互动。
+如果只有核心成员在维护仓库，用户只是单向消费内容，那么 HOA 就和微信公众号一样，随时可以停更跑路；&lt;/p&gt;
+&lt;p&gt;另一个极端就是自救群。
+自救群的优势在于门槛和发言成本很低，用户参与度可以非常高。&lt;/p&gt;
+&lt;p&gt;但是自救群有突出的问题：信息流量大，导致信息质量参差不齐，且时效性太强。&lt;/p&gt;
+&lt;p&gt;举个例子，某同学在群里为一道题提供了非常优质的解答，但是很快就被后面的消息淹没了。
+后来的学生遇到相同的问题，很难检索到这条消息。
+虽然 QQ 群有诸如「精华消息」的功能，但精华消息设置得太多，其实就没有精华了。&lt;/p&gt;
+&lt;p&gt;如果答主将解答以文件或者博客的形式上传到 HOA，就可以长期保存且不失曝光度。&lt;/p&gt;
+&lt;p&gt;HOA 作为开源社区，可以在「双向交流」和「组织度」方面，一定程度上规避微信公众号和自救群的不足。
+这也是我认为 HOA 重要的发展方向。&lt;/p&gt;
+&lt;p&gt;我希望同学们能多多参与到 HOA 的维护中来
+（其实我们已经有很多努力了，你会注意到大多数页面下方有评论区，我们也有专门的邮箱接受邮件，更别忘了你可以直接提 Pull Request！），
+这并不只是为了 HOA，你其实在这个过程中也会有非常多的收获。
+你问能收获什么？我在本文第一部分就说过啦！&lt;/p&gt;
+&lt;p&gt;总的来说，开源社区，也许是未来的知识分享平台的一种可能，会比公众号、自救群走得更远。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;闲言碎语，不成体系，但我希望这篇文章能给你一些启发。
+最后，祝 HITSZ OpenAuto 生日快乐。我想在有生之年，看见你成为最棒的知识共享平台。&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;关于参与维护，如果你不知道从哪里开始，看一看你正在学习哪一学期的课程，对应文档上有没有「过期」的内容？
+如果有，这就是你贡献的大好机会！
+试着更新一下课程的基本信息，就是你在 HOA 上的一次重要贡献！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;封面：&lt;a class=&#34;link&#34; href=&#34;https://www.pixiv.net/artworks/64894936&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;フランの夢は睡深 36,000 歩 by &lt;em&gt;こざくら&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

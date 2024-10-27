@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://maxwelljay256.github.io/posts/a-useful-code-annotation/'>
 
-<link rel="stylesheet" href="/scss/style.min.fec648d95dd3f1a32bc914e3cc01d7edd209ad11d650d6fd453efddb5160afc5.css"><meta property='og:title' content="一种实用的 C/C++/C# 代码注释方法">
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="一种实用的 C/C++/C# 代码注释方法">
 <meta property='og:description' content="按一个键就可以注释一大段代码，再按一次就可以取消，不觉得很有趣吗？">
 <meta property='og:url' content='https://maxwelljay256.github.io/posts/a-useful-code-annotation/'>
 <meta property='og:site_name' content='JayLab256'>
@@ -368,9 +368,7 @@ if (!doNotTrack) {
     <p>刚考完复变函数与积分变换，有一个星期可以喘息一下了。
 我闲得没事干，就开始在 <a class="link" href="https://learn.microsoft.com/zh-cn/training"  target="_blank" rel="noopener"
     >Microsoft Learn</a> 上学习 C#。</p>
-<h2 id="普通的注释方法怎么你了">
-    <a href="#%e6%99%ae%e9%80%9a%e7%9a%84%e6%b3%a8%e9%87%8a%e6%96%b9%e6%b3%95%e6%80%8e%e4%b9%88%e4%bd%a0%e4%ba%86">#</a>
-    普通的注释方法怎么你了？
+<h2 id="普通的注释方法怎么你了">普通的注释方法怎么你了？
 </h2><p>和以前学习 C 和 C++ 一样，我又回到了那个照着例程抄写、反复调试运行的过程。
 这里面将代码注释掉是一个常见的操作。
 一般来说，我们要想注释一行 C 语言风格的代码（对 C/C++/C# 都适用），常用 <code>//</code>：</p>
@@ -478,9 +476,7 @@ if (!doNotTrack) {
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>这种方法通过在 <code>if 0</code> 和 <code>if 1</code> 之间切换来实现代码块的禁用和激活，严格意义上来说不属于注释语法，</p>
-<h2 id="一种实用的注释方法">
-    <a href="#%e4%b8%80%e7%a7%8d%e5%ae%9e%e7%94%a8%e7%9a%84%e6%b3%a8%e9%87%8a%e6%96%b9%e6%b3%95">#</a>
-    一种实用的注释方法
+<h2 id="一种实用的注释方法">一种实用的注释方法
 </h2><p>这个时候我想起来了过去在 HITSZ-VEX 程序组培训时，<a class="link" href="https://github.com/TangLongbin"  target="_blank" rel="noopener"
     >Longbin</a> 教给我们的一种注释方法。
 它的内容是，在要注释的代码块开头和结尾都添加一行 <code>//*/</code></p>
@@ -523,9 +519,7 @@ if (!doNotTrack) {
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果想要再次激活这段代码，那么把 <code>/*/</code> 改回 <code>//*/</code> 就行了。</p>
-<h2 id="它的原理是什么">
-    <a href="#%e5%ae%83%e7%9a%84%e5%8e%9f%e7%90%86%e6%98%af%e4%bb%80%e4%b9%88">#</a>
-    它的原理是什么？
+<h2 id="它的原理是什么">它的原理是什么？
 </h2><p>原理很简单，就是利用了 C 语言的注释规则。</p>
 <p>在 C/C++/C# 中，<code>//</code> 之后的内容都会被视为注释，直到<strong>这一行</strong>的结尾。
 而 <code>/*</code> 之后的内容都会被视为注释，直到遇到 <code>*/</code>。</p>
@@ -545,12 +539,8 @@ if (!doNotTrack) {
 	
 ></p>
 <p>下面我来介绍一下这种注释方法的几个用处。</p>
-<h2 id="有什么用呢">
-    <a href="#%e6%9c%89%e4%bb%80%e4%b9%88%e7%94%a8%e5%91%a2">#</a>
-    有什么用呢？
-</h2><h3 id="学习-ccc">
-    <a href="#%e5%ad%a6%e4%b9%a0-ccc">#</a>
-    学习 C/C++/C#
+<h2 id="有什么用呢">有什么用呢？
+</h2><h3 id="学习-ccc">学习 C/C++/C#
 </h3><p>初学一种编程语言时，我们往往会照着例程抄写，然后反复调试运行。</p>
 <p>例如我正在学习 C# 的逻辑运算，<a class="link" href="https://learn.microsoft.com/zh-cn/training"  target="_blank" rel="noopener"
     >Microsoft Learn</a> 上的培训给了若干示例代码。
@@ -619,9 +609,7 @@ if (!doNotTrack) {
 <p>概括下来，只需一次删除操作和一次添加操作，就可以实现代码块的切换。</p>
 <p>读者可以设想或实验一下使用普通的注释方法 <code>//</code> 和 <code>/* */</code>，以上的内容要怎么写才能达到同样的效果、至少会使用到多少次删除和添加的操作。</p>
 <p>懂了吧？😏</p>
-<h3 id="调试程序">
-    <a href="#%e8%b0%83%e8%af%95%e7%a8%8b%e5%ba%8f">#</a>
-    调试程序
+<h3 id="调试程序">调试程序
 </h3><p>无论是机器人制作还是嵌入式开发，我们往往会对一些顺序执行的流程进行调试。</p>
 <p>例如我曾经还在 HITSZ-VEX 的时候，我们的机器人自动程序大概是这样的：</p>
 <div class="highlight"><div class="chroma">
@@ -686,9 +674,7 @@ if (!doNotTrack) {
 <code>//*/ ----- Stage x -----</code> 与 <code>/*/ ----- Stage x -----</code>
 之间进行切换。
 因此这种注释方法就能在尽可能减少对代码的破坏的同时，实现高效率的调试。</p>
-<h2 id="总结">
-    <a href="#%e6%80%bb%e7%bb%93">#</a>
-    总结
+<h2 id="总结">总结
 </h2><p>总结一下，本文介绍了一种 C/C++/C# 风格的注释方法</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -866,7 +852,7 @@ if (!doNotTrack) {
         
             Maxwell Jay at his most tender. <br/>
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.25.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.29.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
 
@@ -955,7 +941,7 @@ if (!doNotTrack) {
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
