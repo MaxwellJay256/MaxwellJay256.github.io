@@ -7,7 +7,111 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>MaxwellJay256</copyright>
-        <lastBuildDate>Mon, 28 Oct 2024 00:00:00 +0800</lastBuildDate><atom:link href="https://maxwelljay256.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 15 Jan 2025 00:00:00 +0800</lastBuildDate><atom:link href="https://maxwelljay256.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>21</title>
+        <link>https://maxwelljay256.github.io/posts/21/</link>
+        <pubDate>Wed, 15 Jan 2025 00:00:00 +0800</pubDate>
+        
+        <guid>https://maxwelljay256.github.io/posts/21/</guid>
+        <description>&lt;img src="https://maxwelljay256.github.io/posts/21/61269686_p0.jpg" alt="Featured image of post 21" /&gt;&lt;p&gt;又是一岁生日，例行回顾一下呗。&lt;/p&gt;
+&lt;h2 id=&#34;深造&#34;&gt;深造
+&lt;/h2&gt;&lt;p&gt;上半年，因为感兴趣所以开始学着用嘉立创 EDA，正好大二下上课要学模拟电子技术基础和数字电子技术基础。
+我做的第一个 PCB 诞生于 2024 年 5 月 9 日，其实就是一个 LCD 屏幕的转接板，没有电路。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/21/MXDS001.png&#34;
+	width=&#34;1920&#34;
+	height=&#34;1080&#34;
+	srcset=&#34;https://maxwelljay256.github.io/posts/21/MXDS001_hu5187122513791137858.png 480w, https://maxwelljay256.github.io/posts/21/MXDS001_hu11336282101719672701.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;MXDS001&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;第 2 个 PCB 诞生于 6 月 1 日，是一个模拟调光的陶瓷 LED 灯板。
+灵感嘛，就是想整点东方prject 有关的创作。
+这个电路除了电池电源管理用的成品模块，其他的电路均从零开始设计，也没有任何现成的参考。
+其中最费时间的其实是 LED 的升压驱动芯片的选型，至少用了两个星期。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/21/MXDS002.JPG&#34;
+	width=&#34;4592&#34;
+	height=&#34;2584&#34;
+	srcset=&#34;https://maxwelljay256.github.io/posts/21/MXDS002_hu7872007238468828863.JPG 480w, https://maxwelljay256.github.io/posts/21/MXDS002_hu16507369301555990524.JPG 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;MXDS002&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;我后来想给自己做的这些设计起个编号，像同人音乐社团的 CD 那样，于是就给这两个电路板起名叫 MXDS001 和 MXDS002。&lt;/p&gt;
+&lt;p&gt;虽然本来就喜欢空想，但从这以后我不会任由灵感飞逝了，我会把它们记录下来，然后实现它们。
+于是又有了 MXDS003，亲手画工图把桌面拓宽; MXDS004，3D 打印的理线器……&lt;/p&gt;
+&lt;p&gt;直到今天，MXDS 系列已经来到了 MXDS010，其中还包括一些面向项目的设计。
+我暂时没有把它们全部开源，因为懒得写文档，也没有什么复刻的价值。&lt;/p&gt;
+&lt;p&gt;下半年我学习了用 Altium Designer，着手一些中大型项目。
+在制作了十几个 PCB 后，我明显能感受到自己对电子系统有了一套理解。&lt;/p&gt;
+&lt;p&gt;2025 年我计划学会高速 PCB 的设计，也许还会接触 FPGA 开发。&lt;/p&gt;
+&lt;h2 id=&#34;唱吧跳吧&#34;&gt;唱吧，跳吧
+&lt;/h2&gt;&lt;p&gt;2024 年，去了两场 Touhou Only，两场东方乐典 Live 演出。 🥰&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/21/202407_shenzhen_THO.JPG&#34;
+	width=&#34;4592&#34;
+	height=&#34;2584&#34;
+	srcset=&#34;https://maxwelljay256.github.io/posts/21/202407_shenzhen_THO_hu3537508503676636062.JPG 480w, https://maxwelljay256.github.io/posts/21/202407_shenzhen_THO_hu12405362384563056569.JPG 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;2024。7 深圳 THO 上的绯想天则赛&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/21/202408_touhou_live.jpg&#34;
+	width=&#34;4080&#34;
+	height=&#34;3060&#34;
+	srcset=&#34;https://maxwelljay256.github.io/posts/21/202408_touhou_live_hu6156928984708042948.jpg 480w, https://maxwelljay256.github.io/posts/21/202408_touhou_live_hu5891243651536235553.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;2024。8 上海东方乐典&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;对于一个从来没有参加过漫展和音乐会的学生，可以说是大饱眼福了。
+我最意外的收获是发现自己先天 rave 圣体，跟着音乐特别能跳。&lt;/p&gt;
+&lt;p&gt;这一年也在不断扩充音乐库，Trance 和 Progressive House 听多了后，我能分析出曲子中最基本的那些要素，也有了自己的一套评价标准。&lt;/p&gt;
+&lt;p&gt;书架上收藏的 CD 数来到了二十有余，但不知道为什么买专辑前自己心心念念，买到了后反而不怎么听，尽管确实都是自己最喜欢的曲子。&lt;/p&gt;
+&lt;p&gt;每个人都有自己排遣的方式，对于我而言，音乐已是最好的选择。
+这是量变带来的效果，只要接触得足够多，自然会形成那种独特的品味。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;去年的这个时候，我面对自己无枝可栖的困境，写了很多悲伤的东西。
+后来我释然了，很多事情本就没有必要一直操心，于是转身向极乐世界走去。&lt;/p&gt;
+&lt;p&gt;20 岁唯一的遗憾，是始终摆脱不了学生的习气，太听话了，别人说什么就是什么。&lt;/p&gt;
+&lt;p&gt;既然下定决心要遵从自己的愿望，那么 21 岁就要继续修炼，把空想变成现实。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>STLINK-V3MINIE 从开箱到折腾高级玩法</title>
+        <link>https://maxwelljay256.github.io/posts/stlink-v3minie/</link>
+        <pubDate>Thu, 02 Jan 2025 10:47:00 +0800</pubDate>
+        
+        <guid>https://maxwelljay256.github.io/posts/stlink-v3minie/</guid>
+        <description>&lt;p&gt;官网链接：
+&lt;a class=&#34;link&#34; href=&#34;https://www.st.com.cn/zh/development-tools/stlink-v3minie.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;STLINK-V3MINIE - 意法半导体&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>杂谈：关于分享知识</title>
         <link>https://maxwelljay256.github.io/posts/sharing-knowledge/</link>
         <pubDate>Mon, 28 Oct 2024 00:00:00 +0800</pubDate>
@@ -708,7 +812,7 @@
 &lt;p&gt;这是我在年龄以 &amp;ldquo;1&amp;rdquo; 开头时，对这个世界予我的审讯的回答。
 我要用它来反驳长辈“为活而活”，用它来反驳同龄人的零和博弈，用它来反驳社会加以所有纯洁的人的迫害。&lt;/p&gt;
 &lt;p&gt;如果你不喜欢这样的说法，那就随你便吧，这是我在年龄以 &amp;ldquo;1&amp;rdquo; 开头时说的，小孩子说的话不算数。&lt;/p&gt;
-&lt;p&gt;20 岁生日到来的这一天，判决书下来了，我“自愿”被放逐了。&lt;/p&gt;
+&lt;p&gt;20 岁生日到来的这一天，判决书下来了，我 “自愿” 被放逐了。&lt;/p&gt;
 &lt;p&gt;苦修，从现在才开始。&lt;/p&gt;
 &lt;!---
 过去的19岁，比起收获，我感觉自己失去的东西更多。我正在慢慢地远离这个世界，直到我发现自己在学校经常连续24小时无话可说时才意识到这一点。
@@ -862,7 +966,7 @@
 &lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/lsusb.png&#34;
 	width=&#34;1368&#34;
 	height=&#34;706&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/lsusb_hua6e7b5a8e506188b739813c6689c72b6_1178835_480x0_resize_box_3.png 480w, https://maxwelljay256.github.io/posts/wsl-connect-usb/lsusb_hua6e7b5a8e506188b739813c6689c72b6_1178835_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/lsusb_hu12073167362876060912.png 480w, https://maxwelljay256.github.io/posts/wsl-connect-usb/lsusb_hu8139109600019241623.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;lsusb&#34;
@@ -889,7 +993,7 @@
 &lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/flash.png&#34;
 	width=&#34;2559&#34;
 	height=&#34;1370&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/flash_hu82fbdc63674008d2de8da95becad5faa_4114606_480x0_resize_box_3.png 480w, https://maxwelljay256.github.io/posts/wsl-connect-usb/flash_hu82fbdc63674008d2de8da95becad5faa_4114606_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/flash_hu8153679681754840267.png 480w, https://maxwelljay256.github.io/posts/wsl-connect-usb/flash_hu16283364085413314644.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;flash&#34;
@@ -940,7 +1044,7 @@
 &lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/serial-monitor.png&#34;
 	width=&#34;2559&#34;
 	height=&#34;1370&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/serial-monitor_hu82fbdc63674008d2de8da95becad5faa_4349664_480x0_resize_box_3.png 480w, https://maxwelljay256.github.io/posts/wsl-connect-usb/serial-monitor_hu82fbdc63674008d2de8da95becad5faa_4349664_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/serial-monitor_hu970333143923218422.png 480w, https://maxwelljay256.github.io/posts/wsl-connect-usb/serial-monitor_hu5232447567352773199.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;serial-monitor&#34;
@@ -973,7 +1077,7 @@
 &lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/device-manager.png&#34;
 	width=&#34;1110&#34;
 	height=&#34;786&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/device-manager_hufd5193e7c18b7870d201fcb0d267e885_172477_480x0_resize_box_3.png 480w, https://maxwelljay256.github.io/posts/wsl-connect-usb/device-manager_hufd5193e7c18b7870d201fcb0d267e885_172477_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/device-manager_hu17960443237697698989.png 480w, https://maxwelljay256.github.io/posts/wsl-connect-usb/device-manager_hu7068249135142502991.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;device-manager&#34;
@@ -1197,7 +1301,7 @@
 &lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/a-useful-code-annotation/principle.png&#34;
 	width=&#34;632&#34;
 	height=&#34;177&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/a-useful-code-annotation/principle_hu2a862e45eefb193ad310b1460f10b9b8_15385_480x0_resize_box_3.png 480w, https://maxwelljay256.github.io/posts/a-useful-code-annotation/principle_hu2a862e45eefb193ad310b1460f10b9b8_15385_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://maxwelljay256.github.io/posts/a-useful-code-annotation/principle_hu3331345941120808242.png 480w, https://maxwelljay256.github.io/posts/a-useful-code-annotation/principle_hu9311936970735580337.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;principle&#34;

@@ -7,7 +7,18 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>MaxwellJay256</copyright>
-        <lastBuildDate>Fri, 27 Sep 2024 16:35:00 +0800</lastBuildDate><atom:link href="https://maxwelljay256.github.io/categories/dev/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 02 Jan 2025 10:47:00 +0800</lastBuildDate><atom:link href="https://maxwelljay256.github.io/categories/dev/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>STLINK-V3MINIE 从开箱到折腾高级玩法</title>
+        <link>https://maxwelljay256.github.io/posts/stlink-v3minie/</link>
+        <pubDate>Thu, 02 Jan 2025 10:47:00 +0800</pubDate>
+        
+        <guid>https://maxwelljay256.github.io/posts/stlink-v3minie/</guid>
+        <description>&lt;p&gt;官网链接：
+&lt;a class=&#34;link&#34; href=&#34;https://www.st.com.cn/zh/development-tools/stlink-v3minie.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;STLINK-V3MINIE - 意法半导体&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>使用 SSH 连接 GitHub</title>
         <link>https://maxwelljay256.github.io/posts/ssh-github/</link>
         <pubDate>Fri, 27 Sep 2024 16:35:00 +0800</pubDate>
@@ -638,7 +649,7 @@
 &lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/lsusb.png&#34;
 	width=&#34;1368&#34;
 	height=&#34;706&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/lsusb_hua6e7b5a8e506188b739813c6689c72b6_1178835_480x0_resize_box_3.png 480w, https://maxwelljay256.github.io/posts/wsl-connect-usb/lsusb_hua6e7b5a8e506188b739813c6689c72b6_1178835_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/lsusb_hu12073167362876060912.png 480w, https://maxwelljay256.github.io/posts/wsl-connect-usb/lsusb_hu8139109600019241623.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;lsusb&#34;
@@ -665,7 +676,7 @@
 &lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/flash.png&#34;
 	width=&#34;2559&#34;
 	height=&#34;1370&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/flash_hu82fbdc63674008d2de8da95becad5faa_4114606_480x0_resize_box_3.png 480w, https://maxwelljay256.github.io/posts/wsl-connect-usb/flash_hu82fbdc63674008d2de8da95becad5faa_4114606_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/flash_hu8153679681754840267.png 480w, https://maxwelljay256.github.io/posts/wsl-connect-usb/flash_hu16283364085413314644.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;flash&#34;
@@ -716,7 +727,7 @@
 &lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/serial-monitor.png&#34;
 	width=&#34;2559&#34;
 	height=&#34;1370&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/serial-monitor_hu82fbdc63674008d2de8da95becad5faa_4349664_480x0_resize_box_3.png 480w, https://maxwelljay256.github.io/posts/wsl-connect-usb/serial-monitor_hu82fbdc63674008d2de8da95becad5faa_4349664_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/serial-monitor_hu970333143923218422.png 480w, https://maxwelljay256.github.io/posts/wsl-connect-usb/serial-monitor_hu5232447567352773199.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;serial-monitor&#34;
@@ -749,7 +760,7 @@
 &lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/device-manager.png&#34;
 	width=&#34;1110&#34;
 	height=&#34;786&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/device-manager_hufd5193e7c18b7870d201fcb0d267e885_172477_480x0_resize_box_3.png 480w, https://maxwelljay256.github.io/posts/wsl-connect-usb/device-manager_hufd5193e7c18b7870d201fcb0d267e885_172477_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/device-manager_hu17960443237697698989.png 480w, https://maxwelljay256.github.io/posts/wsl-connect-usb/device-manager_hu7068249135142502991.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;device-manager&#34;
@@ -973,7 +984,7 @@
 &lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/a-useful-code-annotation/principle.png&#34;
 	width=&#34;632&#34;
 	height=&#34;177&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/a-useful-code-annotation/principle_hu2a862e45eefb193ad310b1460f10b9b8_15385_480x0_resize_box_3.png 480w, https://maxwelljay256.github.io/posts/a-useful-code-annotation/principle_hu2a862e45eefb193ad310b1460f10b9b8_15385_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://maxwelljay256.github.io/posts/a-useful-code-annotation/principle_hu3331345941120808242.png 480w, https://maxwelljay256.github.io/posts/a-useful-code-annotation/principle_hu9311936970735580337.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;principle&#34;
