@@ -7,18 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>MaxwellJay256</copyright>
-        <lastBuildDate>Thu, 02 Jan 2025 10:47:00 +0800</lastBuildDate><atom:link href="https://maxwelljay256.github.io/categories/dev/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>STLINK-V3MINIE 从开箱到折腾高级玩法</title>
-        <link>https://maxwelljay256.github.io/posts/stlink-v3minie/</link>
-        <pubDate>Thu, 02 Jan 2025 10:47:00 +0800</pubDate>
-        
-        <guid>https://maxwelljay256.github.io/posts/stlink-v3minie/</guid>
-        <description>&lt;p&gt;官网链接：
-&lt;a class=&#34;link&#34; href=&#34;https://www.st.com.cn/zh/development-tools/stlink-v3minie.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;STLINK-V3MINIE - 意法半导体&lt;/a&gt;&lt;/p&gt;
-</description>
-        </item>
-        <item>
+        <lastBuildDate>Fri, 27 Sep 2024 16:35:00 +0800</lastBuildDate><atom:link href="https://maxwelljay256.github.io/categories/dev/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>使用 SSH 连接 GitHub</title>
         <link>https://maxwelljay256.github.io/posts/ssh-github/</link>
         <pubDate>Fri, 27 Sep 2024 16:35:00 +0800</pubDate>
