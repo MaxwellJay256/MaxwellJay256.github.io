@@ -9,10 +9,10 @@
         <copyright>MaxwellJay256</copyright>
         <lastBuildDate>Wed, 26 Feb 2025 22:06:00 +0800</lastBuildDate><atom:link href="https://maxwelljay256.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>STM32G474 定时器触发 DMA 高速翻转 GPIO</title>
-        <link>https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/</link>
+        <link>https://maxwelljay256.github.io/posts/stm32g474-dma/</link>
         <pubDate>Wed, 26 Feb 2025 22:06:00 +0800</pubDate>
         
-        <guid>https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/</guid>
+        <guid>https://maxwelljay256.github.io/posts/stm32g474-dma/</guid>
         <description>&lt;p&gt;本文是对 &lt;a class=&#34;link&#34; href=&#34;https://www.analog.com/cn/products/max14808.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;MAX14808&lt;/a&gt;
 进行驱动测试时 STM32G474 定时器触发 DMA 高速翻转 GPIO 的实现过程。&lt;/p&gt;
@@ -37,10 +37,10 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;思路&#34;&gt;思路
 &lt;/h2&gt;&lt;p&gt;为了让 MAX14808 输出实验要求的高压脉冲，需要以一定的时序向每个通道的 INN, INP 引脚输入逻辑信号。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/waveform.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/waveform.jpg&#34;
 	width=&#34;1752&#34;
 	height=&#34;1077&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/waveform_hu11678325593597332871.jpg 480w, https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/waveform_hu12828420517635230585.jpg 1024w&#34;
+	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/waveform_hu11678325593597332871.jpg 480w, https://maxwelljay256.github.io/posts/stm32g474-dma/waveform_hu12828420517635230585.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;目标波形示意图&#34;
@@ -60,10 +60,10 @@
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;将 8 个通道的 16 个 IO 配置在 STM32G474 的 GPIOE0~E15 上，这样向 &lt;code&gt;GPIOE-&amp;gt;ODR&lt;/code&gt; 写入一个 16 位二进制数便可同时操作 16 个引脚输出高 / 低电平。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/gpio.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/gpio.png&#34;
 	width=&#34;2561&#34;
 	height=&#34;1368&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/gpio_hu12209110417221183956.png 480w, https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/gpio_hu18085794383582186610.png 1024w&#34;
+	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/gpio_hu12209110417221183956.png 480w, https://maxwelljay256.github.io/posts/stm32g474-dma/gpio_hu18085794383582186610.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;我把 ADC、SPI、OPAMP 之类的引脚都预留了，只是不生成对应主函数代码&#34;
@@ -77,10 +77,10 @@
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;配置 TIM2 用来生成 10 MHz 脉冲。MCU 主频先拉到最大 170 MHz，TIM2 不预分频，计数周期为 17 - 1，这样生成的脉冲就是 10 MHz。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/tim2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/tim2.png&#34;
 	width=&#34;2561&#34;
 	height=&#34;1368&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/tim2_hu2207058474113341265.png 480w, https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/tim2_hu14607491233496433585.png 1024w&#34;
+	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/tim2_hu2207058474113341265.png 480w, https://maxwelljay256.github.io/posts/stm32g474-dma/tim2_hu14607491233496433585.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;TIM2 配置&#34;
@@ -94,10 +94,10 @@
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;以 &lt;code&gt;TIM2_UP&lt;/code&gt; 为事件生成 DMA 请求（网上的文章这里都用 MemToMem 的 DMA 请求，但 MemToMem 的 DMA 突发传输速度由 AHB 时钟频率决定，不能直接控制）。模式选 Normal 而不是 Circular，原因后面说。方向当然是 Memory to Peripheral，数据宽度选 Half Word（STM32 是 32 位处理器嘛，一个字是 32 位，半个字就是 16 位）。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/dma.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/dma.png&#34;
 	width=&#34;2561&#34;
 	height=&#34;1368&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/dma_hu14419756979312263537.png 480w, https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/dma_hu15068251345600370926.png 1024w&#34;
+	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/dma_hu14419756979312263537.png 480w, https://maxwelljay256.github.io/posts/stm32g474-dma/dma_hu15068251345600370926.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;DMA 配置&#34;
@@ -113,10 +113,10 @@
 &lt;ol start=&#34;4&#34;&gt;
 &lt;li&gt;配置另一个时钟 TIM5（TIM2 和 TIM5 是 STM32G474 中的两个 32 位通用定时器，用它们计时更精准，我猜），预分频 1000 - 1，计数周期 8500 - 1，这样时钟频率就是 20 Hz。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/tim5.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/tim5.png&#34;
 	width=&#34;2561&#34;
 	height=&#34;1368&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/tim5_hu2089242631104491100.png 480w, https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/tim5_hu8501779514406357093.png 1024w&#34;
+	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/tim5_hu2089242631104491100.png 480w, https://maxwelljay256.github.io/posts/stm32g474-dma/tim5_hu8501779514406357093.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;TIM5 配置&#34;
@@ -131,10 +131,10 @@
 &lt;li&gt;开启 TIM5 的全局中断。我会在 TIM5 的中断中执行 DMA 传输。由于 DMA 由硬件执行而不经过 CPU，所以中断函数的运行速度很快。&lt;/li&gt;
 &lt;li&gt;再记录一下时钟树的配置。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/clock.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/clock.png&#34;
 	width=&#34;2561&#34;
 	height=&#34;1368&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/clock_hu11941822533724975896.png 480w, https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/clock_hu1621028372844478618.png 1024w&#34;
+	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/clock_hu11941822533724975896.png 480w, https://maxwelljay256.github.io/posts/stm32g474-dma/clock_hu1621028372844478618.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;时钟树&#34;
@@ -288,10 +288,10 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;实验&#34;&gt;实验
 &lt;/h2&gt;&lt;p&gt;用示波器观察单个通道的 INN 和 INP 引脚：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/osc-gpio.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/osc-gpio.jpg&#34;
 	width=&#34;3625&#34;
 	height=&#34;2090&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/osc-gpio_hu14799984699582535865.jpg 480w, https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/osc-gpio_hu7325506306047891110.jpg 1024w&#34;
+	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/osc-gpio_hu14799984699582535865.jpg 480w, https://maxwelljay256.github.io/posts/stm32g474-dma/osc-gpio_hu7325506306047891110.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;单个通道的 INN 和 INP 引脚局部波形&#34;
@@ -304,10 +304,10 @@
 &gt;&lt;/p&gt;
 &lt;p&gt;波形失真比较严重，我们猜测原因是信号频率高、示波器探头线太长、信号通过杜邦线连接出现多次反射等。但频率、相位都是很精准的。&lt;/p&gt;
 &lt;p&gt;以下是 MAX14808 输出端空载观察到的波形：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/osc-out-1.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/osc-out-1.jpg&#34;
 	width=&#34;3128&#34;
 	height=&#34;1793&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/osc-out-1_hu8478423405869216629.jpg 480w, https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/osc-out-1_hu17918429961987652567.jpg 1024w&#34;
+	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/osc-out-1_hu8478423405869216629.jpg 480w, https://maxwelljay256.github.io/posts/stm32g474-dma/osc-out-1_hu17918429961987652567.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;MAX14808 输出端局部波形&#34;
@@ -318,10 +318,10 @@
 		data-flex-basis=&#34;418px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/osc-out-2.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/osc-out-2.jpg&#34;
 	width=&#34;3070&#34;
 	height=&#34;1769&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/osc-out-2_hu16316577669066848411.jpg 480w, https://maxwelljay256.github.io/posts/stm32g474-%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A6%E5%8F%91-dma-%E9%AB%98%E9%80%9F%E7%BF%BB%E8%BD%AC-gpio/osc-out-2_hu6285870600009906138.jpg 1024w&#34;
+	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/osc-out-2_hu16316577669066848411.jpg 480w, https://maxwelljay256.github.io/posts/stm32g474-dma/osc-out-2_hu6285870600009906138.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;MAX14808 输出端横轴缩放后波形&#34;

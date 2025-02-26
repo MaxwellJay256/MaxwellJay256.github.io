@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="MAX14808 驱动测试">
+<title>STM32G474 定时器触发 DMA 高速翻转 GPIO</title>
+
+<link rel='canonical' href='https://maxwelljay256.github.io/posts/stm32g474-dma/'>
+
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="STM32G474 定时器触发 DMA 高速翻转 GPIO">
+<meta property='og:description' content="MAX14808 驱动测试">
+<meta property='og:url' content='https://maxwelljay256.github.io/posts/stm32g474-dma/'>
+<meta property='og:site_name' content='Keine Studio'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='STM32' /><meta property='article:tag' content='DMA' /><meta property='article:tag' content='嵌入式' /><meta property='article:published_time' content='2025-02-26T22:06:00&#43;08:00'/><meta property='article:modified_time' content='2025-02-26T22:06:00&#43;08:00'/>
+<meta name="twitter:title" content="STM32G474 定时器触发 DMA 高速翻转 GPIO">
+<meta name="twitter:description" content="MAX14808 驱动测试">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-CRZGE8R8FX"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-CRZGE8R8FX');
+        }
+      </script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu7009755089091587297.png" width="300"
+                            height="316" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🎶</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Keine Studio</a></h1>
+            <h2 class="site-description">慧音工作室</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://maxwelljay256.github.io/en/" >English</option>
+                                
+                                    <option value="https://maxwelljay256.github.io/" selected>简体中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#硬件准备">硬件准备</a></li>
+    <li><a href="#软件准备">软件准备</a></li>
+    <li><a href="#思路">思路</a></li>
+    <li><a href="#配置-cubemx">配置 CubeMX</a></li>
+    <li><a href="#代码">代码</a></li>
+    <li><a href="#实验">实验</a></li>
+    <li><a href="#小结">小结</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/dev/" style="background-color: #2a9d8f; color: #fff;">
+                技术分享
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/stm32g474-dma/">STM32G474 定时器触发 DMA 高速翻转 GPIO</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            MAX14808 驱动测试
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025-02-26</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 4 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>本文是对 <a class="link" href="https://www.analog.com/cn/products/max14808.html"  target="_blank" rel="noopener"
+    >MAX14808</a>
+进行驱动测试时 STM32G474 定时器触发 DMA 高速翻转 GPIO 的实现过程。</p>
+<h2 id="硬件准备">硬件准备
+</h2><ul>
+<li>MAX14808 Evaluation Board v1.0</li>
+<li><a class="link" href="https://www.st.com.cn/zh/microcontrollers-microprocessors/stm32g474ve.html"  target="_blank" rel="noopener"
+    >STM32G474VET6</a> 开发板
+<ul>
+<li>STM32G474 的最高时钟频率为 170 MHz，VET6 为 LQFP-100 封装。</li>
+</ul>
+</li>
+<li><a class="link" href="https://www.st.com.cn/zh/development-tools/stlink-v3minie.html"  target="_blank" rel="noopener"
+    >STLINK-V3-MINIE</a></li>
+<li>示波器</li>
+</ul>
+<h2 id="软件准备">软件准备
+</h2><ul>
+<li>STM32CubeMX，固件版本为 STM32Cube_FW_G4_V1.6.1</li>
+<li>Visual Studio Code</li>
+<li>CMake（我从来不用 Keil，CubeIDE 也用不习惯）</li>
+</ul>
+<h2 id="思路">思路
+</h2><p>为了让 MAX14808 输出实验要求的高压脉冲，需要以一定的时序向每个通道的 INN, INP 引脚输入逻辑信号。</p>
+<p><img src="/posts/stm32g474-dma/waveform.jpg"
+	width="1752"
+	height="1077"
+	srcset="/posts/stm32g474-dma/waveform_hu11678325593597332871.jpg 480w, /posts/stm32g474-dma/waveform_hu12828420517635230585.jpg 1024w"
+	loading="lazy"
+	
+		alt="目标波形示意图"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="162"
+		data-flex-basis="390px"
+	
+></p>
+<p>在输出高压脉冲时，INN, INP 需要以 10 MHz 的频率翻转。STM32 的 HAL 库 GPIO 操作是做不到的，需要用到 DMA。</p>
+<p>网上关于 DMA 翻转 GPIO 的方法并非没有，但主要都是测试 STM32 翻转 GPIO 的极限速度，像本文中这种输出特定频率脉冲的博文在我写这份笔记前还没看到过（之前用 NUCLEO-U575ZI 测试 MAX14808 时参考了
+<a class="link" href="https://community.st.com/t5/stm32-mcus-products/stm32u5-triggering-dma-request-from-timer-to-write-to-gpiod-odr/td-p/755881"  target="_blank" rel="noopener"
+    >Solved: STM32U5 Triggering DMA request from timer to write to GPIOD ODR register</a>，但 STM32U5 的 GPDMA 与其他系列的用法区别太大了）。</p>
+<p>我折腾了几天后搞出来以下结果。</p>
+<h2 id="配置-cubemx">配置 CubeMX
+</h2><ol>
+<li>将 8 个通道的 16 个 IO 配置在 STM32G474 的 GPIOE0~E15 上，这样向 <code>GPIOE-&gt;ODR</code> 写入一个 16 位二进制数便可同时操作 16 个引脚输出高 / 低电平。</li>
+</ol>
+<p><img src="/posts/stm32g474-dma/gpio.png"
+	width="2561"
+	height="1368"
+	srcset="/posts/stm32g474-dma/gpio_hu12209110417221183956.png 480w, /posts/stm32g474-dma/gpio_hu18085794383582186610.png 1024w"
+	loading="lazy"
+	
+		alt="我把 ADC、SPI、OPAMP 之类的引脚都预留了，只是不生成对应主函数代码"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="187"
+		data-flex-basis="449px"
+	
+></p>
+<ol start="2">
+<li>配置 TIM2 用来生成 10 MHz 脉冲。MCU 主频先拉到最大 170 MHz，TIM2 不预分频，计数周期为 17 - 1，这样生成的脉冲就是 10 MHz。</li>
+</ol>
+<p><img src="/posts/stm32g474-dma/tim2.png"
+	width="2561"
+	height="1368"
+	srcset="/posts/stm32g474-dma/tim2_hu2207058474113341265.png 480w, /posts/stm32g474-dma/tim2_hu14607491233496433585.png 1024w"
+	loading="lazy"
+	
+		alt="TIM2 配置"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="187"
+		data-flex-basis="449px"
+	
+></p>
+<ol start="3">
+<li>以 <code>TIM2_UP</code> 为事件生成 DMA 请求（网上的文章这里都用 MemToMem 的 DMA 请求，但 MemToMem 的 DMA 突发传输速度由 AHB 时钟频率决定，不能直接控制）。模式选 Normal 而不是 Circular，原因后面说。方向当然是 Memory to Peripheral，数据宽度选 Half Word（STM32 是 32 位处理器嘛，一个字是 32 位，半个字就是 16 位）。</li>
+</ol>
+<p><img src="/posts/stm32g474-dma/dma.png"
+	width="2561"
+	height="1368"
+	srcset="/posts/stm32g474-dma/dma_hu14419756979312263537.png 480w, /posts/stm32g474-dma/dma_hu15068251345600370926.png 1024w"
+	loading="lazy"
+	
+		alt="DMA 配置"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="187"
+		data-flex-basis="449px"
+	
+></p>
+<p>到目前为止我只提到了以 10 MHz 翻转 GPIO，但这个操作每 50 ms 才进行一次。假如我用 DMA Circular，将波形图的红线和绿线部分都扔进 DMA 搬运，那么波形数组内将会有 $50 \times 10^{-3} \cdot 10\times 10^6 = 5 \times 10^5$ 个数，内存估计爆了🤣。</p>
+<p>所以我们只能让 DMA 由另一个周期为 50 ms 的时钟触发，每次触发只搬运脉冲和两条红线的部分，搬完就停，直到下一次被 “唤醒”。这就是为什么要把 DMA 配置为 Normal。</p>
+<ol start="4">
+<li>配置另一个时钟 TIM5（TIM2 和 TIM5 是 STM32G474 中的两个 32 位通用定时器，用它们计时更精准，我猜），预分频 1000 - 1，计数周期 8500 - 1，这样时钟频率就是 20 Hz。</li>
+</ol>
+<p><img src="/posts/stm32g474-dma/tim5.png"
+	width="2561"
+	height="1368"
+	srcset="/posts/stm32g474-dma/tim5_hu2089242631104491100.png 480w, /posts/stm32g474-dma/tim5_hu8501779514406357093.png 1024w"
+	loading="lazy"
+	
+		alt="TIM5 配置"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="187"
+		data-flex-basis="449px"
+	
+></p>
+<ol start="5">
+<li>开启 TIM5 的全局中断。我会在 TIM5 的中断中执行 DMA 传输。由于 DMA 由硬件执行而不经过 CPU，所以中断函数的运行速度很快。</li>
+<li>再记录一下时钟树的配置。</li>
+</ol>
+<p><img src="/posts/stm32g474-dma/clock.png"
+	width="2561"
+	height="1368"
+	srcset="/posts/stm32g474-dma/clock_hu11941822533724975896.png 480w, /posts/stm32g474-dma/clock_hu1621028372844478618.png 1024w"
+	loading="lazy"
+	
+		alt="时钟树"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="187"
+		data-flex-basis="449px"
+	
+></p>
+<p>CubeMX 其余的部分不重要，就不放出来了。</p>
+<h2 id="代码">代码
+</h2><p>只是操作 GPIO，代码并不长。其实只有 <code>main.c</code> 的几个片段：</p>
+<ol>
+<li>脉冲波形数组，<code>PULSE_OFF</code> 对应关断、<code>PULSE_RECEIVE</code> 对应打开 T/R 开关接收回波。根据前文思路，我只需要在波形数组的最后一位填 <code>PULSE_RECEIVE</code>，则传输结束后的剩余时间里 MAX14808 都处于接收状态。</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cm">/* Private macro -------------------------------------------------------------*/</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/* USER CODE BEGIN PM */</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define PULSE_OFF 0x0000
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define PULSE_VPP 0xAAAA
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define PULSE_VNN 0x5555
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define PULSE_RECEIVE 0xFFFF
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="cm">/* USER CODE END PM */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* Private variables ---------------------------------------------------------*/</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* USER CODE BEGIN PV */</span>
+</span></span><span class="line"><span class="cl"><span class="kt">uint16_t</span> <span class="n">pulse_wave</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">PULSE_VPP</span><span class="p">,</span> <span class="n">PULSE_VNN</span><span class="p">,</span> <span class="n">PULSE_VPP</span><span class="p">,</span> <span class="n">PULSE_VNN</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span> <span class="n">PULSE_OFF</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">PULSE_RECEIVE</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">extern</span> <span class="n">DMA_HandleTypeDef</span> <span class="n">hdma_tim2_up</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/* USER CODE END PV */</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>在 <code>main</code> 函数里启动 TIM5。<code>MAX14808_Init</code> 和 <code>MAX14808_SetMode</code> 是我自定义的两个函数，主要是对 <code>MODE0</code> 和 <code>MODE1</code> 两个引脚操作，控制 MAX14808 的整体工作状态，这里略过不提。</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="cm">/* USER CODE BEGIN 2 */</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">MAX14808_Init</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">MAX14808_SetMode</span><span class="p">(</span><span class="n">MAX14808_MODE_OCTAL_THREE_LEVEL</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">HAL_TIM_Base_Start_IT</span><span class="p">(</span><span class="o">&amp;</span><span class="n">htim5</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">  <span class="cm">/* USER CODE END 2 */</span>
+</span></span><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>编辑 TIM5 的中断回调函数，这里少一行代码都不行。为了让 DMA 能够重复触发，你必须：
+关闭 DMA；停止并重置 TIM2；清除 DMA 状态；启动 DMA；启动 TIM2。</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">HAL_TIM_PeriodElapsedCallback</span><span class="p">(</span><span class="n">TIM_HandleTypeDef</span> <span class="o">*</span><span class="n">htim</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="cm">/* USER CODE BEGIN Callback 0 */</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">htim</span><span class="o">-&gt;</span><span class="n">Instance</span> <span class="o">==</span> <span class="n">TIM5</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">__HAL_TIM_DISABLE_DMA</span><span class="p">(</span><span class="o">&amp;</span><span class="n">htim2</span><span class="p">,</span> <span class="n">TIM_DMA_UPDATE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">HAL_TIM_Base_Stop</span><span class="p">(</span><span class="o">&amp;</span><span class="n">htim2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">__HAL_TIM_SET_COUNTER</span><span class="p">(</span><span class="o">&amp;</span><span class="n">htim2</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">HAL_DMA_Abort</span><span class="p">(</span><span class="o">&amp;</span><span class="n">hdma_tim2_up</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">HAL_DMA_Start</span><span class="p">(</span><span class="o">&amp;</span><span class="n">hdma_tim2_up</span><span class="p">,</span> <span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">pulse_wave</span><span class="p">,</span> <span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="o">&amp;</span><span class="n">PULSE_GPIO_Port</span><span class="o">-&gt;</span><span class="n">ODR</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">pulse_wave</span><span class="p">)</span><span class="o">/</span><span class="k">sizeof</span><span class="p">(</span><span class="n">pulse_wave</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">__HAL_TIM_ENABLE_DMA</span><span class="p">(</span><span class="o">&amp;</span><span class="n">htim2</span><span class="p">,</span> <span class="n">TIM_DMA_UPDATE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">HAL_TIM_Base_Start</span><span class="p">(</span><span class="o">&amp;</span><span class="n">htim2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="cm">/* USER CODE END Callback 0 */</span>
+</span></span><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="实验">实验
+</h2><p>用示波器观察单个通道的 INN 和 INP 引脚：</p>
+<p><img src="/posts/stm32g474-dma/osc-gpio.jpg"
+	width="3625"
+	height="2090"
+	srcset="/posts/stm32g474-dma/osc-gpio_hu14799984699582535865.jpg 480w, /posts/stm32g474-dma/osc-gpio_hu7325506306047891110.jpg 1024w"
+	loading="lazy"
+	
+		alt="单个通道的 INN 和 INP 引脚局部波形"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="173"
+		data-flex-basis="416px"
+	
+></p>
+<p>波形失真比较严重，我们猜测原因是信号频率高、示波器探头线太长、信号通过杜邦线连接出现多次反射等。但频率、相位都是很精准的。</p>
+<p>以下是 MAX14808 输出端空载观察到的波形：</p>
+<p><img src="/posts/stm32g474-dma/osc-out-1.jpg"
+	width="3128"
+	height="1793"
+	srcset="/posts/stm32g474-dma/osc-out-1_hu8478423405869216629.jpg 480w, /posts/stm32g474-dma/osc-out-1_hu17918429961987652567.jpg 1024w"
+	loading="lazy"
+	
+		alt="MAX14808 输出端局部波形"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="174"
+		data-flex-basis="418px"
+	
+></p>
+<p><img src="/posts/stm32g474-dma/osc-out-2.jpg"
+	width="3070"
+	height="1769"
+	srcset="/posts/stm32g474-dma/osc-out-2_hu16316577669066848411.jpg 480w, /posts/stm32g474-dma/osc-out-2_hu6285870600009906138.jpg 1024w"
+	loading="lazy"
+	
+		alt="MAX14808 输出端横轴缩放后波形"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="173"
+		data-flex-basis="416px"
+	
+></p>
+<p>这个脉冲局部波形就更丑了，估计也是和电路连接方式有关。这些没办法靠写代码解决，只能等后面硬件方案改版再测试。</p>
+<h2 id="小结">小结
+</h2><p>由于之前没有系统的 STM32 软件开发经验，这次 MAX14808 的驱动实验我绕了很多弯路，甚至烧掉了我的 NUCLEO-U575ZI 开发板😵。但好在我最后找到了一个合格的控制方案，并且实验极大地加深了我对 STM32 MCU 的时钟和 DMA 的理解。</p>
+<p>感谢黄学长的笔记给我的启发以及曹学长的支持。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/stm32/">STM32</a>
+        
+            <a href="/tags/dma/">DMA</a>
+        
+            <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>LICENSED UNDER CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/ssh-github/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">使用 SSH 连接 GitHub</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/posts/wsl-setup/">
+        
+        
+            <div class="article-image">
+                <img src="/posts/wsl-setup/neofetch.10efd061240ac11102eb27729ce8f3f8_hu4049147951626612582.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post WSL 快速配置自查手册"
+                        data-key="wsl-setup" 
+                        data-hash="md5-EO/QYSQKwREC6ydynOjz&#43;A==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">WSL 快速配置自查手册</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/posts/wsl-connect-usb/">
+        
+        
+            <div class="article-image">
+                <img src="/posts/wsl-connect-usb/ESP32-Devkit.8ca36a26a9d106d57f46d49ff15e3c81_hu4035100513735023837.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 将 USB 设备连接到 WSL"
+                        data-key="wsl-connect-usb" 
+                        data-hash="md5-jKNqJqnRBtV/RtSf8V48gQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">将 USB 设备连接到 WSL</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/posts/a-useful-code-annotation/">
+        
+        
+            <div class="article-image">
+                <img src="/posts/a-useful-code-annotation/screenshot.870d678c2b1802a1d9fac8bf610d270b_hu14786967063941013645.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 一种实用的 C/C&#43;&#43;/C# 代码注释方法"
+                        data-key="a-useful-code-annotation" 
+                        data-hash="md5-hw1njCsYAqHZ&#43;si/YQ0nCw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">一种实用的 C/C&#43;&#43;/C# 代码注释方法</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2023 - 
+        
+        2025 MaxwellJay256
+    </section>
+    
+    <section class="powerby">
+        
+            Maxwell Jay at his most tender. <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
