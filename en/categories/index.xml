@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Categories on Keine Studio</title>
-        <link>https://maxwelljay256.github.io/en/categories/</link>
+        <link>https://keinestudio.cn/en/categories/</link>
         <description>Recent content in Categories on Keine Studio</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <copyright>MaxwellJay256</copyright><atom:link href="https://maxwelljay256.github.io/en/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <copyright>MaxwellJay256</copyright><atom:link href="https://keinestudio.cn/en/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Development</title>
-        <link>https://maxwelljay256.github.io/en/categories/dev/</link>
+        <link>https://keinestudio.cn/en/categories/dev/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://maxwelljay256.github.io/en/categories/dev/</guid>
+        <guid>https://keinestudio.cn/en/categories/dev/</guid>
         <description></description>
         </item>
         <item>
         <title>Life</title>
-        <link>https://maxwelljay256.github.io/en/categories/life/</link>
+        <link>https://keinestudio.cn/en/categories/life/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://maxwelljay256.github.io/en/categories/life/</guid>
+        <guid>https://keinestudio.cn/en/categories/life/</guid>
         <description></description>
         </item>
         <item>
         <title>Music</title>
-        <link>https://maxwelljay256.github.io/en/categories/music/</link>
+        <link>https://keinestudio.cn/en/categories/music/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://maxwelljay256.github.io/en/categories/music/</guid>
-        <description>&lt;img src="https://maxwelljay256.github.io/categories/music/107944532_p0.png" alt="Featured image of post Music" /&gt;</description>
+        <guid>https://keinestudio.cn/en/categories/music/</guid>
+        <description>&lt;img src="https://keinestudio.cn/categories/music/107944532_p0.png" alt="Featured image of post Music" /&gt;</description>
         </item>
         <item>
         <title>Thoughts</title>
-        <link>https://maxwelljay256.github.io/en/categories/thoughts/</link>
+        <link>https://keinestudio.cn/en/categories/thoughts/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://maxwelljay256.github.io/en/categories/thoughts/</guid>
+        <guid>https://keinestudio.cn/en/categories/thoughts/</guid>
         <description></description>
         </item>
         

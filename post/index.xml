@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Posts on Keine Studio</title>
-        <link>https://maxwelljay256.github.io/post/</link>
+        <link>https://keinestudio.cn/post/</link>
         <description>Recent content in Posts on Keine Studio</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>MaxwellJay256</copyright>
-        <lastBuildDate>Wed, 26 Feb 2025 22:06:00 +0800</lastBuildDate><atom:link href="https://maxwelljay256.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 26 Feb 2025 22:06:00 +0800</lastBuildDate><atom:link href="https://keinestudio.cn/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>STM32G474 定时器触发 DMA 高速翻转 GPIO</title>
-        <link>https://maxwelljay256.github.io/posts/stm32g474-dma/</link>
+        <link>https://keinestudio.cn/posts/stm32g474-dma/</link>
         <pubDate>Wed, 26 Feb 2025 22:06:00 +0800</pubDate>
         
-        <guid>https://maxwelljay256.github.io/posts/stm32g474-dma/</guid>
+        <guid>https://keinestudio.cn/posts/stm32g474-dma/</guid>
         <description>&lt;p&gt;本文是对 &lt;a class=&#34;link&#34; href=&#34;https://www.analog.com/cn/products/max14808.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;MAX14808&lt;/a&gt;
 进行驱动测试时 STM32G474 定时器触发 DMA 高速翻转 GPIO 的实现过程。&lt;/p&gt;
@@ -37,10 +37,10 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;思路&#34;&gt;思路
 &lt;/h2&gt;&lt;p&gt;为了让 MAX14808 输出实验要求的高压脉冲，需要以一定的时序向每个通道的 INN, INP 引脚输入逻辑信号。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/waveform.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://keinestudio.cn/posts/stm32g474-dma/waveform.jpg&#34;
 	width=&#34;1752&#34;
 	height=&#34;1077&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/waveform_hu11678325593597332871.jpg 480w, https://maxwelljay256.github.io/posts/stm32g474-dma/waveform_hu12828420517635230585.jpg 1024w&#34;
+	srcset=&#34;https://keinestudio.cn/posts/stm32g474-dma/waveform_hu_61f83d86b1bfd452.jpg 480w, https://keinestudio.cn/posts/stm32g474-dma/waveform_hu_b195565cb20d8bb6.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;目标波形示意图&#34;
@@ -60,10 +60,10 @@
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;将 8 个通道的 16 个 IO 配置在 STM32G474 的 GPIOE0~E15 上，这样向 &lt;code&gt;GPIOE-&amp;gt;ODR&lt;/code&gt; 写入一个 16 位二进制数便可同时操作 16 个引脚输出高 / 低电平。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/gpio.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://keinestudio.cn/posts/stm32g474-dma/gpio.png&#34;
 	width=&#34;2561&#34;
 	height=&#34;1368&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/gpio_hu12209110417221183956.png 480w, https://maxwelljay256.github.io/posts/stm32g474-dma/gpio_hu18085794383582186610.png 1024w&#34;
+	srcset=&#34;https://keinestudio.cn/posts/stm32g474-dma/gpio_hu_c036b37fec184f65.png 480w, https://keinestudio.cn/posts/stm32g474-dma/gpio_hu_8238ed4fb7b076e7.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;我把 ADC、SPI、OPAMP 之类的引脚都预留了，只是不生成对应主函数代码&#34;
@@ -77,10 +77,10 @@
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;配置 TIM2 用来生成 10 MHz 脉冲。MCU 主频先拉到最大 170 MHz，TIM2 不预分频，计数周期为 17 - 1，这样生成的脉冲就是 10 MHz。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/tim2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://keinestudio.cn/posts/stm32g474-dma/tim2.png&#34;
 	width=&#34;2561&#34;
 	height=&#34;1368&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/tim2_hu2207058474113341265.png 480w, https://maxwelljay256.github.io/posts/stm32g474-dma/tim2_hu14607491233496433585.png 1024w&#34;
+	srcset=&#34;https://keinestudio.cn/posts/stm32g474-dma/tim2_hu_fc070ca1b0ef8643.png 480w, https://keinestudio.cn/posts/stm32g474-dma/tim2_hu_c351d9708b436b9b.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;TIM2 配置&#34;
@@ -94,10 +94,10 @@
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;以 &lt;code&gt;TIM2_UP&lt;/code&gt; 为事件生成 DMA 请求（网上的文章这里都用 MemToMem 的 DMA 请求，但 MemToMem 的 DMA 突发传输速度由 AHB 时钟频率决定，不能直接控制）。模式选 Normal 而不是 Circular，原因后面说。方向当然是 Memory to Peripheral，数据宽度选 Half Word（STM32 是 32 位处理器嘛，一个字是 32 位，半个字就是 16 位）。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/dma.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://keinestudio.cn/posts/stm32g474-dma/dma.png&#34;
 	width=&#34;2561&#34;
 	height=&#34;1368&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/dma_hu14419756979312263537.png 480w, https://maxwelljay256.github.io/posts/stm32g474-dma/dma_hu15068251345600370926.png 1024w&#34;
+	srcset=&#34;https://keinestudio.cn/posts/stm32g474-dma/dma_hu_89b762c941a53793.png 480w, https://keinestudio.cn/posts/stm32g474-dma/dma_hu_7de9df1d25030206.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;DMA 配置&#34;
@@ -113,10 +113,10 @@
 &lt;ol start=&#34;4&#34;&gt;
 &lt;li&gt;配置另一个时钟 TIM5（TIM2 和 TIM5 是 STM32G474 中的两个 32 位通用定时器，用它们计时更精准，我猜），预分频 1000 - 1，计数周期 8500 - 1，这样时钟频率就是 20 Hz。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/tim5.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://keinestudio.cn/posts/stm32g474-dma/tim5.png&#34;
 	width=&#34;2561&#34;
 	height=&#34;1368&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/tim5_hu2089242631104491100.png 480w, https://maxwelljay256.github.io/posts/stm32g474-dma/tim5_hu8501779514406357093.png 1024w&#34;
+	srcset=&#34;https://keinestudio.cn/posts/stm32g474-dma/tim5_hu_c4fe5a143c0d33b0.png 480w, https://keinestudio.cn/posts/stm32g474-dma/tim5_hu_a03bdc8e3721d93c.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;TIM5 配置&#34;
@@ -131,10 +131,10 @@
 &lt;li&gt;开启 TIM5 的全局中断。我会在 TIM5 的中断中执行 DMA 传输。由于 DMA 由硬件执行而不经过 CPU，所以中断函数的运行速度很快。&lt;/li&gt;
 &lt;li&gt;再记录一下时钟树的配置。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/clock.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://keinestudio.cn/posts/stm32g474-dma/clock.png&#34;
 	width=&#34;2561&#34;
 	height=&#34;1368&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/clock_hu11941822533724975896.png 480w, https://maxwelljay256.github.io/posts/stm32g474-dma/clock_hu1621028372844478618.png 1024w&#34;
+	srcset=&#34;https://keinestudio.cn/posts/stm32g474-dma/clock_hu_4fad9e591fccf7f9.png 480w, https://keinestudio.cn/posts/stm32g474-dma/clock_hu_523e5b5a8875c872.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;时钟树&#34;
@@ -288,10 +288,10 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;实验&#34;&gt;实验
 &lt;/h2&gt;&lt;p&gt;用示波器观察单个通道的 INN 和 INP 引脚：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/osc-gpio.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://keinestudio.cn/posts/stm32g474-dma/osc-gpio.jpg&#34;
 	width=&#34;3625&#34;
 	height=&#34;2090&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/osc-gpio_hu14799984699582535865.jpg 480w, https://maxwelljay256.github.io/posts/stm32g474-dma/osc-gpio_hu7325506306047891110.jpg 1024w&#34;
+	srcset=&#34;https://keinestudio.cn/posts/stm32g474-dma/osc-gpio_hu_3d9d0dbe22c6c643.jpg 480w, https://keinestudio.cn/posts/stm32g474-dma/osc-gpio_hu_bc8ae68c9d242693.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;单个通道的 INN 和 INP 引脚局部波形&#34;
@@ -304,10 +304,10 @@
 &gt;&lt;/p&gt;
 &lt;p&gt;波形失真比较严重，我们猜测原因是信号频率高、示波器探头线太长、信号通过杜邦线连接出现多次反射等。但频率、相位都是很精准的。&lt;/p&gt;
 &lt;p&gt;以下是 MAX14808 输出端空载观察到的波形：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/osc-out-1.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://keinestudio.cn/posts/stm32g474-dma/osc-out-1.jpg&#34;
 	width=&#34;3128&#34;
 	height=&#34;1793&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/osc-out-1_hu8478423405869216629.jpg 480w, https://maxwelljay256.github.io/posts/stm32g474-dma/osc-out-1_hu17918429961987652567.jpg 1024w&#34;
+	srcset=&#34;https://keinestudio.cn/posts/stm32g474-dma/osc-out-1_hu_2fc1938226efbaba.jpg 480w, https://keinestudio.cn/posts/stm32g474-dma/osc-out-1_hu_490f87851e04c4d.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;MAX14808 输出端局部波形&#34;
@@ -318,10 +318,10 @@
 		data-flex-basis=&#34;418px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/osc-out-2.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://keinestudio.cn/posts/stm32g474-dma/osc-out-2.jpg&#34;
 	width=&#34;3070&#34;
 	height=&#34;1769&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/stm32g474-dma/osc-out-2_hu16316577669066848411.jpg 480w, https://maxwelljay256.github.io/posts/stm32g474-dma/osc-out-2_hu6285870600009906138.jpg 1024w&#34;
+	srcset=&#34;https://keinestudio.cn/posts/stm32g474-dma/osc-out-2_hu_c415ac2858e47354.jpg 480w, https://keinestudio.cn/posts/stm32g474-dma/osc-out-2_hu_15c7ead0a1ed6f26.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;MAX14808 输出端横轴缩放后波形&#34;
@@ -340,18 +340,18 @@
         </item>
         <item>
         <title>21</title>
-        <link>https://maxwelljay256.github.io/posts/21/</link>
+        <link>https://keinestudio.cn/posts/21/</link>
         <pubDate>Thu, 16 Jan 2025 00:00:00 +0800</pubDate>
         
-        <guid>https://maxwelljay256.github.io/posts/21/</guid>
-        <description>&lt;img src="https://maxwelljay256.github.io/posts/21/61269686_p0.jpg" alt="Featured image of post 21" /&gt;&lt;p&gt;又是一岁生日，例行回顾一下呗。&lt;/p&gt;
+        <guid>https://keinestudio.cn/posts/21/</guid>
+        <description>&lt;img src="https://keinestudio.cn/posts/21/61269686_p0.jpg" alt="Featured image of post 21" /&gt;&lt;p&gt;又是一岁生日，例行回顾一下呗。&lt;/p&gt;
 &lt;h2 id=&#34;深造&#34;&gt;深造
 &lt;/h2&gt;&lt;p&gt;上半年，因为感兴趣所以开始学着用嘉立创 EDA，正好大二下上课要学模拟电子技术基础和数字电子技术基础。
 我做的第一个 PCB 诞生于 2024 年 5 月 9 日，其实就是一个 LCD 屏幕的转接板，没有电路。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/21/MXDS001.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://keinestudio.cn/posts/21/MXDS001.png&#34;
 	width=&#34;1920&#34;
 	height=&#34;1080&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/21/MXDS001_hu5187122513791137858.png 480w, https://maxwelljay256.github.io/posts/21/MXDS001_hu11336282101719672701.png 1024w&#34;
+	srcset=&#34;https://keinestudio.cn/posts/21/MXDS001_hu_a673b3e3f21f3003.png 480w, https://keinestudio.cn/posts/21/MXDS001_hu_b8941dbf3593042e.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;MXDS001&#34;
@@ -363,13 +363,13 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;第 2 个 PCB 诞生于 6 月 1 日，是一个模拟调光的陶瓷 LED 灯板。
-灵感嘛，就是想整点东方prject 有关的创作。
+灵感嘛，就是想整点东方project 有关的创作。
 这个电路除了电池电源管理用的成品模块，其他的电路均从零开始设计，也没有任何现成的参考。
 其中最费时间的其实是 LED 的升压驱动芯片的选型，至少用了两个星期。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/21/MXDS002.JPG&#34;
+&lt;p&gt;&lt;img src=&#34;https://keinestudio.cn/posts/21/MXDS002.JPG&#34;
 	width=&#34;4592&#34;
 	height=&#34;2584&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/21/MXDS002_hu7872007238468828863.JPG 480w, https://maxwelljay256.github.io/posts/21/MXDS002_hu16507369301555990524.JPG 1024w&#34;
+	srcset=&#34;https://keinestudio.cn/posts/21/MXDS002_hu_f9425d7876ab321b.JPG 480w, https://keinestudio.cn/posts/21/MXDS002_hu_d969102b8f46d770.JPG 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;MXDS002&#34;
@@ -390,10 +390,10 @@
 &lt;p&gt;2025 年我计划学会高速 PCB 的设计，也许还会接触 FPGA 开发。&lt;/p&gt;
 &lt;h2 id=&#34;唱吧跳吧&#34;&gt;唱吧，跳吧
 &lt;/h2&gt;&lt;p&gt;2024 年，去了两场 Touhou Only，两场东方乐典 Live 演出。 🥰&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/21/202407_shenzhen_THO.JPG&#34;
+&lt;p&gt;&lt;img src=&#34;https://keinestudio.cn/posts/21/202407_shenzhen_THO.JPG&#34;
 	width=&#34;4592&#34;
 	height=&#34;2584&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/21/202407_shenzhen_THO_hu3537508503676636062.JPG 480w, https://maxwelljay256.github.io/posts/21/202407_shenzhen_THO_hu12405362384563056569.JPG 1024w&#34;
+	srcset=&#34;https://keinestudio.cn/posts/21/202407_shenzhen_THO_hu_4d1c04236d0175ab.JPG 480w, https://keinestudio.cn/posts/21/202407_shenzhen_THO_hu_f24ffa0d9b8b3eed.JPG 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;2024.7 深圳 THO 上的绯想天则赛&#34;
@@ -404,10 +404,10 @@
 		data-flex-basis=&#34;426px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/21/202408_touhou_live.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://keinestudio.cn/posts/21/202408_touhou_live.jpg&#34;
 	width=&#34;4080&#34;
 	height=&#34;3060&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/21/202408_touhou_live_hu6156928984708042948.jpg 480w, https://maxwelljay256.github.io/posts/21/202408_touhou_live_hu5891243651536235553.jpg 1024w&#34;
+	srcset=&#34;https://keinestudio.cn/posts/21/202408_touhou_live_hu_a1692d3f64740ec9.jpg 480w, https://keinestudio.cn/posts/21/202408_touhou_live_hu_74f914f6beb5aad2.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;2024.8 上海东方乐典&#34;
@@ -433,11 +433,11 @@
         </item>
         <item>
         <title>杂谈：关于分享知识</title>
-        <link>https://maxwelljay256.github.io/posts/sharing-knowledge/</link>
+        <link>https://keinestudio.cn/posts/sharing-knowledge/</link>
         <pubDate>Mon, 28 Oct 2024 00:00:00 +0800</pubDate>
         
-        <guid>https://maxwelljay256.github.io/posts/sharing-knowledge/</guid>
-        <description>&lt;img src="https://maxwelljay256.github.io/posts/sharing-knowledge/64894936_p0.png" alt="Featured image of post 杂谈：关于分享知识" /&gt;&lt;iframe frameborder=&#34;no&#34; border=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; width=450 height=80 src=&#34;//music.163.com/outchain/player?type=2&amp;id=500412167&amp;auto=0&amp;height=66&#34;&gt;&lt;/iframe&gt;
+        <guid>https://keinestudio.cn/posts/sharing-knowledge/</guid>
+        <description>&lt;img src="https://keinestudio.cn/posts/sharing-knowledge/64894936_p0.png" alt="Featured image of post 杂谈：关于分享知识" /&gt;&lt;iframe frameborder=&#34;no&#34; border=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; width=450 height=80 src=&#34;//music.163.com/outchain/player?type=2&amp;id=500412167&amp;auto=0&amp;height=66&#34;&gt;&lt;/iframe&gt;
 &lt;p&gt; &lt;sup&gt;
     &lt;i&gt;配合音乐阅读更佳（&lt;/i&gt;
 &lt;/sup&gt; &lt;/p&gt;
@@ -514,25 +514,22 @@
 &lt;blockquote&gt;
 &lt;p&gt;关于参与维护，如果你不知道从哪里开始，看一看你正在学习哪一学期的课程，对应文档上有没有「过期」的内容？
 如果有，这就是你贡献的大好机会！
-试着更新一下课程的基本信息，就是你在 HOA 上的一次重要贡献！&lt;/p&gt;
-&lt;/blockquote&gt;
+试着更新一下课程的基本信息，就是你在 HOA 上的一次重要贡献！&lt;/p&gt;&lt;/blockquote&gt;
 &lt;blockquote&gt;
 &lt;p&gt;封面：&lt;a class=&#34;link&#34; href=&#34;https://www.pixiv.net/artworks/64894936&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;フランの夢は睡深 36,000 歩 by &lt;em&gt;こざくら&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+    &gt;フランの夢は睡深 36,000 歩 by &lt;em&gt;こざくら&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 </description>
         </item>
         <item>
         <title>使用 SSH 连接 GitHub</title>
-        <link>https://maxwelljay256.github.io/posts/ssh-github/</link>
+        <link>https://keinestudio.cn/posts/ssh-github/</link>
         <pubDate>Fri, 27 Sep 2024 16:35:00 +0800</pubDate>
         
-        <guid>https://maxwelljay256.github.io/posts/ssh-github/</guid>
+        <guid>https://keinestudio.cn/posts/ssh-github/</guid>
         <description>&lt;p&gt;本文记录如何为 Linux 系统配置 SSH 密钥，以便在不输入用户名和密码的情况下连接 GitHub。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;参考：&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/zh/authentication/connecting-to-github-with-ssh&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;通过 SSH 连接到 GitHub - Github 文档&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+    &gt;通过 SSH 连接到 GitHub - Github 文档&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;检查现有-ssh-密钥&#34;&gt;检查现有 SSH 密钥
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -674,11 +671,11 @@
         </item>
         <item>
         <title>WSL 快速配置自查手册</title>
-        <link>https://maxwelljay256.github.io/posts/wsl-setup/</link>
+        <link>https://keinestudio.cn/posts/wsl-setup/</link>
         <pubDate>Sun, 01 Sep 2024 11:08:00 +0800</pubDate>
         
-        <guid>https://maxwelljay256.github.io/posts/wsl-setup/</guid>
-        <description>&lt;img src="https://maxwelljay256.github.io/posts/wsl-setup/neofetch.png" alt="Featured image of post WSL 快速配置自查手册" /&gt;&lt;p&gt;本文以 Windows 11、WSL 2 和 Ubuntu 20.04 LTS 为例，记录从零开始配置 WSL 以及一些常用开发环境的过程。&lt;/p&gt;
+        <guid>https://keinestudio.cn/posts/wsl-setup/</guid>
+        <description>&lt;img src="https://keinestudio.cn/posts/wsl-setup/neofetch.png" alt="Featured image of post WSL 快速配置自查手册" /&gt;&lt;p&gt;本文以 Windows 11、WSL 2 和 Ubuntu 20.04 LTS 为例，记录从零开始配置 WSL 以及一些常用开发环境的过程。&lt;/p&gt;
 &lt;p&gt;此外，本文提到的镜像源均指 HITSZ OSA Mirrors。配合校园网食用效果更佳。&lt;/p&gt;
 &lt;h2 id=&#34;安装-wsl&#34;&gt;安装 WSL
 &lt;/h2&gt;&lt;p&gt;方法 1：直接在 Windows 应用商店搜索 Ubuntu，选择对应发行版点击安装。&lt;/p&gt;
@@ -766,8 +763,7 @@
 &lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;以上参考自
 &lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/weixin_43589764/article/details/124327175&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;学习笔记：WSL Ubuntu 20.04 LTS 安装中文语言 - CSDN&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+    &gt;学习笔记：WSL Ubuntu 20.04 LTS 安装中文语言 - CSDN&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;我最爱的-oh-my-posh&#34;&gt;我最爱的 Oh My Posh
 &lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://brew.sh/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Homebrew&lt;/a&gt;&lt;/p&gt;
@@ -1010,10 +1006,10 @@
         </item>
         <item>
         <title>往地上看</title>
-        <link>https://maxwelljay256.github.io/posts/look-down/</link>
+        <link>https://keinestudio.cn/posts/look-down/</link>
         <pubDate>Sun, 26 May 2024 19:05:12 +0800</pubDate>
         
-        <guid>https://maxwelljay256.github.io/posts/look-down/</guid>
+        <guid>https://keinestudio.cn/posts/look-down/</guid>
         <description>&lt;p&gt;我小时候，有一个习惯，那就是往地上看。
 看地上有什么稀奇的小玩意，还会把它们捡起来。&lt;/p&gt;
 &lt;p&gt;我那时候还没有近视，地上的东西我看得很清楚；身高也不高，因此地面对我来说非常近，轻轻一蹲就能够着地面。&lt;/p&gt;
@@ -1044,10 +1040,10 @@
         </item>
         <item>
         <title>20</title>
-        <link>https://maxwelljay256.github.io/posts/20/</link>
+        <link>https://keinestudio.cn/posts/20/</link>
         <pubDate>Tue, 16 Jan 2024 00:00:00 +0800</pubDate>
         
-        <guid>https://maxwelljay256.github.io/posts/20/</guid>
+        <guid>https://keinestudio.cn/posts/20/</guid>
         <description>&lt;p&gt;大概离生日前一个月就有写这篇博客的想法了。
 这一个月里，各种各样的念头在脑中闪现，有些是一些自己觉得很有意思的句子，然而我很快就把它们给忘掉了；能想起来的那部分，也不知道该放在文章的哪一节。&lt;/p&gt;
 &lt;p&gt;所以这篇文章看起来就像不肯在一张完整的稿纸上写字，而是非要把纸先撕碎，然后再在每一小片上写字一样。
@@ -1127,8 +1123,7 @@
 &lt;p&gt;人类社会一切不完美的存在，都可以归因于一句 “人会死”。&lt;/p&gt;
 &lt;p&gt;在 19 岁的最后几天，我在脑海中生成了这样一段文字：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;人的意义在于留下了什么，而不在于拥有过什么。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;人的意义在于留下了什么，而不在于拥有过什么。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;这是我在年龄以 &amp;ldquo;1&amp;rdquo; 开头时，对这个世界予我的审讯的回答。
 我要用它来反驳长辈“为活而活”，用它来反驳同龄人的零和博弈，用它来反驳社会加以所有纯洁的人的迫害。&lt;/p&gt;
 &lt;p&gt;如果你不喜欢这样的说法，那就随你便吧，这是我在年龄以 &amp;ldquo;1&amp;rdquo; 开头时说的，小孩子说的话不算数。&lt;/p&gt;
@@ -1143,18 +1138,16 @@
         </item>
         <item>
         <title>将 USB 设备连接到 WSL</title>
-        <link>https://maxwelljay256.github.io/posts/wsl-connect-usb/</link>
+        <link>https://keinestudio.cn/posts/wsl-connect-usb/</link>
         <pubDate>Wed, 10 Jan 2024 20:56:12 +0800</pubDate>
         
-        <guid>https://maxwelljay256.github.io/posts/wsl-connect-usb/</guid>
-        <description>&lt;img src="https://maxwelljay256.github.io/posts/wsl-connect-usb/ESP32-Devkit.jpg" alt="Featured image of post 将 USB 设备连接到 WSL" /&gt;&lt;p&gt;最近在尝试使用 WSL 2 作为开发 &lt;code&gt;ESP-32&lt;/code&gt; 的工具，但是 WSL 不像 VMWare 虚拟机那样可以直接访问硬件，而是一个纯虚拟环境，无法直接访问 USB 设备，所以需要一些额外的工具来实现 USB 设备的共享。&lt;/p&gt;
+        <guid>https://keinestudio.cn/posts/wsl-connect-usb/</guid>
+        <description>&lt;img src="https://keinestudio.cn/posts/wsl-connect-usb/ESP32-Devkit.jpg" alt="Featured image of post 将 USB 设备连接到 WSL" /&gt;&lt;p&gt;最近在尝试使用 WSL 2 作为开发 &lt;code&gt;ESP-32&lt;/code&gt; 的工具，但是 WSL 不像 VMWare 虚拟机那样可以直接访问硬件，而是一个纯虚拟环境，无法直接访问 USB 设备，所以需要一些额外的工具来实现 USB 设备的共享。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;参考资料：&lt;a class=&#34;link&#34; href=&#34;https://learn.microsoft.com/zh-cn/windows/wsl/connect-usb&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;WSL/连接 USB 设备 - Microsoft Learn&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+    &gt;WSL/连接 USB 设备 - Microsoft Learn&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;2024.1.10 更新：usbipd 更新到了 4.0.0 版本，指令有所变化，本文已更新。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;2024.1.10 更新：usbipd 更新到了 4.0.0 版本，指令有所变化，本文已更新。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;先决条件&#34;&gt;先决条件
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Windows 11（内部版本 22000 或更高版本）&lt;/li&gt;
@@ -1283,10 +1276,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;然后就成功显示到了开发板：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/lsusb.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://keinestudio.cn/posts/wsl-connect-usb/lsusb.png&#34;
 	width=&#34;1368&#34;
 	height=&#34;706&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/lsusb_hu12073167362876060912.png 480w, https://maxwelljay256.github.io/posts/wsl-connect-usb/lsusb_hu8139109600019241623.png 1024w&#34;
+	srcset=&#34;https://keinestudio.cn/posts/wsl-connect-usb/lsusb_hu_f9d4560bc4ad70ea.png 480w, https://keinestudio.cn/posts/wsl-connect-usb/lsusb_hu_eeedbbdfcf9ec6f2.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;lsusb&#34;
@@ -1310,10 +1303,10 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;idf.py -p /dev/ttyUSB0 flash
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/flash.png&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://keinestudio.cn/posts/wsl-connect-usb/flash.png&#34;
 	width=&#34;2559&#34;
 	height=&#34;1370&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/flash_hu8153679681754840267.png 480w, https://maxwelljay256.github.io/posts/wsl-connect-usb/flash_hu16283364085413314644.png 1024w&#34;
+	srcset=&#34;https://keinestudio.cn/posts/wsl-connect-usb/flash_hu_aaaa7dedafe651e7.png 480w, https://keinestudio.cn/posts/wsl-connect-usb/flash_hu_b8fa476eff5d1ad.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;flash&#34;
@@ -1361,10 +1354,10 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;idf.py -p /dev/ttyUSB0 monitor
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/serial-monitor.png&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://keinestudio.cn/posts/wsl-connect-usb/serial-monitor.png&#34;
 	width=&#34;2559&#34;
 	height=&#34;1370&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/serial-monitor_hu970333143923218422.png 480w, https://maxwelljay256.github.io/posts/wsl-connect-usb/serial-monitor_hu5232447567352773199.png 1024w&#34;
+	srcset=&#34;https://keinestudio.cn/posts/wsl-connect-usb/serial-monitor_hu_10cf7ae06197ceef.png 480w, https://keinestudio.cn/posts/wsl-connect-usb/serial-monitor_hu_2c81136424babed5.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;serial-monitor&#34;
@@ -1394,10 +1387,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;实际操作下来，使用命令断开 WSL 的 USB 连接后，Windows 上的设备管理器中又显示出了设备。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/device-manager.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://keinestudio.cn/posts/wsl-connect-usb/device-manager.png&#34;
 	width=&#34;1110&#34;
 	height=&#34;786&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/wsl-connect-usb/device-manager_hu17960443237697698989.png 480w, https://maxwelljay256.github.io/posts/wsl-connect-usb/device-manager_hu7068249135142502991.png 1024w&#34;
+	srcset=&#34;https://keinestudio.cn/posts/wsl-connect-usb/device-manager_hu_fe0fb0742458aeb2.png 480w, https://keinestudio.cn/posts/wsl-connect-usb/device-manager_hu_f6ae6d08d82adff5.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;device-manager&#34;
@@ -1455,11 +1448,11 @@
         </item>
         <item>
         <title>一种实用的 C/C&#43;&#43;/C# 代码注释方法</title>
-        <link>https://maxwelljay256.github.io/posts/a-useful-code-annotation/</link>
+        <link>https://keinestudio.cn/posts/a-useful-code-annotation/</link>
         <pubDate>Tue, 28 Nov 2023 11:04:03 +0800</pubDate>
         
-        <guid>https://maxwelljay256.github.io/posts/a-useful-code-annotation/</guid>
-        <description>&lt;img src="https://maxwelljay256.github.io/posts/a-useful-code-annotation/screenshot.png" alt="Featured image of post 一种实用的 C/C&#43;&#43;/C# 代码注释方法" /&gt;&lt;p&gt;刚考完复变函数与积分变换，有一个星期可以喘息一下了。
+        <guid>https://keinestudio.cn/posts/a-useful-code-annotation/</guid>
+        <description>&lt;img src="https://keinestudio.cn/posts/a-useful-code-annotation/screenshot.png" alt="Featured image of post 一种实用的 C/C&#43;&#43;/C# 代码注释方法" /&gt;&lt;p&gt;刚考完复变函数与积分变换，有一个星期可以喘息一下了。
 我闲得没事干，就开始在 &lt;a class=&#34;link&#34; href=&#34;https://learn.microsoft.com/zh-cn/training&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Microsoft Learn&lt;/a&gt; 上学习 C#。&lt;/p&gt;
 &lt;h2 id=&#34;普通的注释方法怎么你了&#34;&gt;普通的注释方法怎么你了？
@@ -1618,10 +1611,10 @@
 &lt;p&gt;在 C/C++/C# 中，&lt;code&gt;//&lt;/code&gt; 之后的内容都会被视为注释，直到&lt;strong&gt;这一行&lt;/strong&gt;的结尾。
 而 &lt;code&gt;/*&lt;/code&gt; 之后的内容都会被视为注释，直到遇到 &lt;code&gt;*/&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;所以只需要一张图就可以解释这种注释方法的原理：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/a-useful-code-annotation/principle.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://keinestudio.cn/posts/a-useful-code-annotation/principle.png&#34;
 	width=&#34;632&#34;
 	height=&#34;177&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/a-useful-code-annotation/principle_hu3331345941120808242.png 480w, https://maxwelljay256.github.io/posts/a-useful-code-annotation/principle_hu9311936970735580337.png 1024w&#34;
+	srcset=&#34;https://keinestudio.cn/posts/a-useful-code-annotation/principle_hu_83b20d2033a26cac.png 480w, https://keinestudio.cn/posts/a-useful-code-annotation/principle_hu_8e099f4b946aa580.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;principle&#34;
@@ -1801,10 +1794,10 @@
         </item>
         <item>
         <title>你好，世界！</title>
-        <link>https://maxwelljay256.github.io/posts/hello-world/</link>
+        <link>https://keinestudio.cn/posts/hello-world/</link>
         <pubDate>Fri, 17 Nov 2023 16:22:12 +0800</pubDate>
         
-        <guid>https://maxwelljay256.github.io/posts/hello-world/</guid>
+        <guid>https://keinestudio.cn/posts/hello-world/</guid>
         <description>&lt;p&gt;2023 年 11 月 17 日，Maxwell Jay 的幻想乡正式建成。&lt;/p&gt;
 </description>
         </item>

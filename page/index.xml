@@ -2,50 +2,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Pages on Keine Studio</title>
-        <link>https://maxwelljay256.github.io/page/</link>
+        <link>https://keinestudio.cn/page/</link>
         <description>Recent content in Pages on Keine Studio</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>MaxwellJay256</copyright>
-        <lastBuildDate>Sat, 02 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://maxwelljay256.github.io/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 02 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://keinestudio.cn/page/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>关于</title>
-        <link>https://maxwelljay256.github.io/about/</link>
-        <pubDate>Sat, 02 Dec 2023 00:00:00 +0000</pubDate>
+        <link>https://keinestudio.cn/about/</link>
+        <pubDate>Sun, 02 Mar 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://maxwelljay256.github.io/about/</guid>
-        <description>&lt;img src="https://maxwelljay256.github.io/about/103323667_p2.jpg" alt="Featured image of post 关于" /&gt;&lt;iframe frameborder=&#34;no&#34; border=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; width=440 height=86 src=&#34;//music.163.com/outchain/player?type=2&amp;id=464647026&amp;auto=1&amp;height=66&#34;&gt;&lt;/iframe&gt;
-&lt;p&gt;博客的文章大多使用中文写作，但是有些特殊的文章可能会使用英文。
-感兴趣的话，不妨把语言切换为 English 看看有些什么。&lt;/p&gt;
-&lt;h2 id=&#34;基本信息&#34;&gt;基本信息
+        <guid>https://keinestudio.cn/about/</guid>
+        <description>&lt;img src="https://keinestudio.cn/about/103323667_p2.jpg" alt="Featured image of post 关于" /&gt;&lt;h2 id=&#34;基本信息&#34;&gt;基本信息
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;就读于 &lt;a class=&#34;link&#34; href=&#34;https://www.hitsz.edu.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;哈尔滨工业大学（深圳）&lt;/a&gt;，22 级本科自动化专业&lt;/li&gt;
-&lt;li&gt;平时自称「大扑棱蛾子」，这个人设来自 &lt;a class=&#34;link&#34; href=&#34;https://arcaea.lowiro.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Arcaea&lt;/a&gt; 中的角色 &lt;a class=&#34;link&#34; href=&#34;https://arcwiki.mcd.blue/%E5%BD%A9%E6%A2%A6&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;哈尔滨工业大学（深圳）&lt;/a&gt;，本科自动化专业&lt;/li&gt;
+&lt;li&gt;自称「大扑棱蛾子」，这个人设来自 &lt;a class=&#34;link&#34; href=&#34;https://arcaea.lowiro.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Arcaea&lt;/a&gt;的角色 &lt;a class=&#34;link&#34; href=&#34;https://arcwiki.mcd.blue/%E5%BD%A9%E6%A2%A6&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;strong&gt;Ayu&lt;/strong&gt;&lt;/a&gt;（其实她是蝙蝠）&lt;/li&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/HITSZ-OpenAuto&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;HITSZ OpenAuto&lt;/a&gt; 组织的发起者之一和成员&lt;/li&gt;
-&lt;li&gt;理想是成为能帮助到大家的开源开发者&lt;/li&gt;
-&lt;li&gt;目前点亮的技能树：&lt;code&gt;C/C++&lt;/code&gt;，&lt;code&gt;Python&lt;/code&gt;，Linux，$LaTeX$，SolidWorks，ROS / ROS2，Arduino，ESP32&lt;/li&gt;
-&lt;li&gt;正在学习：&lt;code&gt;C#&lt;/code&gt;，STM32，电路设计&lt;/li&gt;
+&lt;li&gt;目前点亮的技能树：&lt;code&gt;C/C++&lt;/code&gt;，&lt;code&gt;Python&lt;/code&gt;，Linux，LaTeX，SolidWorks，ROS / ROS2，Arduino，ESP32&lt;/li&gt;
+&lt;li&gt;正在学习：STM32，高速 / 数模混合 PCB 设计，日本語&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;在计算机领域我确实没有什么专精的东西，我觉得我反而更适合写文档、管理文件、维护网站这样的事情。&lt;/p&gt;
+&lt;p&gt;在计算机领域我确实没有什么专精的东西，我觉得我适合画板子、写文档、管理文件、打螺丝。&lt;/p&gt;
 &lt;p&gt;至于自动化专业，这是我儿时以来的梦想，因此我会&lt;strong&gt;不惜一切代价&lt;/strong&gt;学习我想学的知识。&lt;/p&gt;
 &lt;h2 id=&#34;个人经历&#34;&gt;个人经历
-&lt;/h2&gt;&lt;h3 id=&#34;2022-年-8-月&#34;&gt;2022 年 8 月
+&lt;/h2&gt;&lt;h3 id=&#34;20228&#34;&gt;2022.8
 &lt;/h3&gt;&lt;p&gt;进入哈尔滨工业大学（深圳）自动化专业本科就读。&lt;/p&gt;
-&lt;h3 id=&#34;2022-年-9-月&#34;&gt;2022 年 9 月
-&lt;/h3&gt;&lt;p&gt;加入 HITSZ-VEX 机器人战队，曾担任控制组组长，专职开发对电子设备的控制程序，包括机器人底盘驱动、电机调速器等。
+&lt;h3 id=&#34;20229&#34;&gt;2022.9
+&lt;/h3&gt;&lt;p&gt;加入 HITSZ-VEX 机器人战队，曾担任控制组组长，开发对电子设备的控制程序，机器人底盘驱动、电机调速器等。
 2023 年 4 月后停止在战队的活动。&lt;/p&gt;
-&lt;h3 id=&#34;2023-年-10-月&#34;&gt;2023 年 10 月
+&lt;h3 id=&#34;202310&#34;&gt;2023.10
 &lt;/h3&gt;&lt;p&gt;开始与同学合作建设 &lt;a class=&#34;link&#34; href=&#34;https://github.com/HITSZ-OpenAuto&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;HITSZ-OpenAuto&lt;/a&gt; 组织，目前主要负责文档的编写和文件的管理。
 2023 年 12 月 2 日，HITSZ OpenAuto 2.0 正式发布。&lt;/p&gt;
+&lt;h3 id=&#34;202410&#34;&gt;2024.10
+&lt;/h3&gt;&lt;p&gt;向嵌入式硬件方向深造。&lt;/p&gt;
 &lt;h2 id=&#34;工作习惯&#34;&gt;工作习惯
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;🧙‍♂️ 独来独往，很少求人帮忙&lt;/li&gt;
 &lt;li&gt;⏰ Morning bird🐦 而不是 night owl🦉。一般 22:00 后就不会做任何和学习工作有关的事情了（你这个年纪怎么睡得着觉的）&lt;/li&gt;
-&lt;li&gt;💻 VS Code 写一切；Windows 11 + WSL2 + NUC11 with Ubuntu&lt;/li&gt;
+&lt;li&gt;💻 VS Code 写一切；Windows 11 + WSL2&lt;/li&gt;
 &lt;li&gt;🎧 工作时几乎都会听音乐&lt;/li&gt;
 &lt;li&gt;📧 MS Office 365 工作流，OneDrive，OneNote，Outlook&lt;/li&gt;
 &lt;/ul&gt;
@@ -55,55 +53,54 @@
 &lt;li&gt;电影，一年基本上只看一两部。确实不喜欢看电影。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;说完了。&lt;/p&gt;
-&lt;h3 id=&#34;音游&#34;&gt;音游
-&lt;/h3&gt;&lt;p&gt;音游基本上是我从高中直到今天唯一的游戏类型，其他类型的游戏几乎不碰，或者只玩了很短的时间后就放弃了。&lt;/p&gt;
-&lt;p&gt;受音游的影响，我在 2023 年暑假入坑了&lt;strong&gt;东方 Project&lt;/strong&gt;，以欣赏二创为主。2023 年了还有人入坑东方😹）&lt;/p&gt;
-&lt;p&gt;几乎玩过所有的移动端音游并且脱离新手期，但现在只有 &lt;a class=&#34;link&#34; href=&#34;https://osu.ppy.sh/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;osu!mania&lt;/a&gt; 还在活跃。
-近段时间玩音游的时候减少了。&lt;/p&gt;
-&lt;!---
-可以到 [这里](/posts/music-games-2023/) 看我的音游经历。
----&gt;
+&lt;h3 id=&#34;游戏&#34;&gt;游戏
+&lt;/h3&gt;&lt;h4 id=&#34;音游&#34;&gt;音游
+&lt;/h4&gt;&lt;p&gt;几乎玩过所有的移动端音游并且脱离新手期，玩过十几个小时的 CHUNITHM 和 WACCA，&lt;a class=&#34;link&#34; href=&#34;https://osu.ppy.sh/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;osu!mania&lt;/a&gt; 常规 4 段。&lt;/p&gt;
+&lt;p&gt;受音游的影响，我在 2023 年暑假入坑了&lt;strong&gt;东方 Project&lt;/strong&gt;。2023 年了还有人入坑东方😹）&lt;/p&gt;
+&lt;p&gt;近段时间处于淡坑状态。&lt;/p&gt;
+&lt;h4 id=&#34;fps&#34;&gt;FPS
+&lt;/h4&gt;&lt;p&gt;Team Fortress 2 600 h+。&lt;/p&gt;
 &lt;h3 id=&#34;电子音乐&#34;&gt;电子音乐
 &lt;/h3&gt;&lt;p&gt;几乎所有的时间都在听音乐。&lt;/p&gt;
-&lt;p&gt;风格以日系的 &lt;strong&gt;Trance&lt;/strong&gt; 和 &lt;strong&gt;Drum &amp;amp; Bass&lt;/strong&gt; 为主。
+&lt;p&gt;风格以日系 &lt;strong&gt;Trance&lt;/strong&gt; 和 &lt;strong&gt;Drum &amp;amp; Bass&lt;/strong&gt; 为主。
 大多是来自
 &lt;a class=&#34;link&#34; href=&#34;https://otographicmusic.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Otographic Music&lt;/a&gt;
 和 &lt;a class=&#34;link&#34; href=&#34;https://diverse.jp/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Diverse System&lt;/a&gt;
-系的曲师。&lt;/p&gt;
+系的制作人。&lt;/p&gt;
 &lt;p&gt;欢迎和我交流音乐收藏，你绝对不会失望。网易云音乐：&lt;a class=&#34;link&#34; href=&#34;https://music.163.com/#/user/home?id=1302912138&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;CleverBlock123&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;体育运动&#34;&gt;体育运动
+    &gt;CleverBlock123&lt;/a&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;体育&#34;&gt;体育
 &lt;/h3&gt;&lt;p&gt;从 2020 年开始爱看 F1 一级方程式赛车，但没有特别粉的车队和车手，只是喜欢看比赛。&lt;/p&gt;
-&lt;p&gt;平时喜欢到外面散步，有大片的时间就会去逛公园或者爬山。
+&lt;p&gt;平时常到外面散步或者骑车，有大片的时间会逛公园或者爬山。
 我也喜欢跟着 EDM 音乐跳舞，不过一般人没有机会看到。&lt;/p&gt;
 &lt;p&gt;打音游，尤其是街机音游算不算运动啊🤭&lt;/p&gt;
 </description>
         </item>
         <item>
         <title>归档</title>
-        <link>https://maxwelljay256.github.io/archives/</link>
+        <link>https://keinestudio.cn/archives/</link>
         <pubDate>Fri, 17 Nov 2023 00:00:00 +0000</pubDate>
         
-        <guid>https://maxwelljay256.github.io/archives/</guid>
+        <guid>https://keinestudio.cn/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>链接</title>
-        <link>https://maxwelljay256.github.io/links/</link>
+        <link>https://keinestudio.cn/links/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://maxwelljay256.github.io/links/</guid>
+        <guid>https://keinestudio.cn/links/</guid>
         <description></description>
         </item>
         <item>
         <title>搜索</title>
-        <link>https://maxwelljay256.github.io/search/</link>
+        <link>https://keinestudio.cn/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://maxwelljay256.github.io/search/</guid>
+        <guid>https://keinestudio.cn/search/</guid>
         <description></description>
         </item>
         

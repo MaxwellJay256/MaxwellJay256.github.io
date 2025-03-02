@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>胡思乱想 on Keine Studio</title>
-        <link>https://maxwelljay256.github.io/categories/thoughts/</link>
+        <link>https://keinestudio.cn/categories/thoughts/</link>
         <description>Recent content in 胡思乱想 on Keine Studio</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>MaxwellJay256</copyright>
-        <lastBuildDate>Thu, 16 Jan 2025 00:00:00 +0800</lastBuildDate><atom:link href="https://maxwelljay256.github.io/categories/thoughts/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 16 Jan 2025 00:00:00 +0800</lastBuildDate><atom:link href="https://keinestudio.cn/categories/thoughts/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>21</title>
-        <link>https://maxwelljay256.github.io/posts/21/</link>
+        <link>https://keinestudio.cn/posts/21/</link>
         <pubDate>Thu, 16 Jan 2025 00:00:00 +0800</pubDate>
         
-        <guid>https://maxwelljay256.github.io/posts/21/</guid>
-        <description>&lt;img src="https://maxwelljay256.github.io/posts/21/61269686_p0.jpg" alt="Featured image of post 21" /&gt;&lt;p&gt;又是一岁生日，例行回顾一下呗。&lt;/p&gt;
+        <guid>https://keinestudio.cn/posts/21/</guid>
+        <description>&lt;img src="https://keinestudio.cn/posts/21/61269686_p0.jpg" alt="Featured image of post 21" /&gt;&lt;p&gt;又是一岁生日，例行回顾一下呗。&lt;/p&gt;
 &lt;h2 id=&#34;深造&#34;&gt;深造
 &lt;/h2&gt;&lt;p&gt;上半年，因为感兴趣所以开始学着用嘉立创 EDA，正好大二下上课要学模拟电子技术基础和数字电子技术基础。
 我做的第一个 PCB 诞生于 2024 年 5 月 9 日，其实就是一个 LCD 屏幕的转接板，没有电路。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/21/MXDS001.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://keinestudio.cn/posts/21/MXDS001.png&#34;
 	width=&#34;1920&#34;
 	height=&#34;1080&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/21/MXDS001_hu5187122513791137858.png 480w, https://maxwelljay256.github.io/posts/21/MXDS001_hu11336282101719672701.png 1024w&#34;
+	srcset=&#34;https://keinestudio.cn/posts/21/MXDS001_hu_a673b3e3f21f3003.png 480w, https://keinestudio.cn/posts/21/MXDS001_hu_b8941dbf3593042e.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;MXDS001&#34;
@@ -32,13 +32,13 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;第 2 个 PCB 诞生于 6 月 1 日，是一个模拟调光的陶瓷 LED 灯板。
-灵感嘛，就是想整点东方prject 有关的创作。
+灵感嘛，就是想整点东方project 有关的创作。
 这个电路除了电池电源管理用的成品模块，其他的电路均从零开始设计，也没有任何现成的参考。
 其中最费时间的其实是 LED 的升压驱动芯片的选型，至少用了两个星期。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/21/MXDS002.JPG&#34;
+&lt;p&gt;&lt;img src=&#34;https://keinestudio.cn/posts/21/MXDS002.JPG&#34;
 	width=&#34;4592&#34;
 	height=&#34;2584&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/21/MXDS002_hu7872007238468828863.JPG 480w, https://maxwelljay256.github.io/posts/21/MXDS002_hu16507369301555990524.JPG 1024w&#34;
+	srcset=&#34;https://keinestudio.cn/posts/21/MXDS002_hu_f9425d7876ab321b.JPG 480w, https://keinestudio.cn/posts/21/MXDS002_hu_d969102b8f46d770.JPG 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;MXDS002&#34;
@@ -59,10 +59,10 @@
 &lt;p&gt;2025 年我计划学会高速 PCB 的设计，也许还会接触 FPGA 开发。&lt;/p&gt;
 &lt;h2 id=&#34;唱吧跳吧&#34;&gt;唱吧，跳吧
 &lt;/h2&gt;&lt;p&gt;2024 年，去了两场 Touhou Only，两场东方乐典 Live 演出。 🥰&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/21/202407_shenzhen_THO.JPG&#34;
+&lt;p&gt;&lt;img src=&#34;https://keinestudio.cn/posts/21/202407_shenzhen_THO.JPG&#34;
 	width=&#34;4592&#34;
 	height=&#34;2584&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/21/202407_shenzhen_THO_hu3537508503676636062.JPG 480w, https://maxwelljay256.github.io/posts/21/202407_shenzhen_THO_hu12405362384563056569.JPG 1024w&#34;
+	srcset=&#34;https://keinestudio.cn/posts/21/202407_shenzhen_THO_hu_4d1c04236d0175ab.JPG 480w, https://keinestudio.cn/posts/21/202407_shenzhen_THO_hu_f24ffa0d9b8b3eed.JPG 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;2024.7 深圳 THO 上的绯想天则赛&#34;
@@ -73,10 +73,10 @@
 		data-flex-basis=&#34;426px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://maxwelljay256.github.io/posts/21/202408_touhou_live.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://keinestudio.cn/posts/21/202408_touhou_live.jpg&#34;
 	width=&#34;4080&#34;
 	height=&#34;3060&#34;
-	srcset=&#34;https://maxwelljay256.github.io/posts/21/202408_touhou_live_hu6156928984708042948.jpg 480w, https://maxwelljay256.github.io/posts/21/202408_touhou_live_hu5891243651536235553.jpg 1024w&#34;
+	srcset=&#34;https://keinestudio.cn/posts/21/202408_touhou_live_hu_a1692d3f64740ec9.jpg 480w, https://keinestudio.cn/posts/21/202408_touhou_live_hu_74f914f6beb5aad2.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;2024.8 上海东方乐典&#34;
@@ -102,10 +102,10 @@
         </item>
         <item>
         <title>往地上看</title>
-        <link>https://maxwelljay256.github.io/posts/look-down/</link>
+        <link>https://keinestudio.cn/posts/look-down/</link>
         <pubDate>Sun, 26 May 2024 19:05:12 +0800</pubDate>
         
-        <guid>https://maxwelljay256.github.io/posts/look-down/</guid>
+        <guid>https://keinestudio.cn/posts/look-down/</guid>
         <description>&lt;p&gt;我小时候，有一个习惯，那就是往地上看。
 看地上有什么稀奇的小玩意，还会把它们捡起来。&lt;/p&gt;
 &lt;p&gt;我那时候还没有近视，地上的东西我看得很清楚；身高也不高，因此地面对我来说非常近，轻轻一蹲就能够着地面。&lt;/p&gt;
@@ -136,10 +136,10 @@
         </item>
         <item>
         <title>20</title>
-        <link>https://maxwelljay256.github.io/posts/20/</link>
+        <link>https://keinestudio.cn/posts/20/</link>
         <pubDate>Tue, 16 Jan 2024 00:00:00 +0800</pubDate>
         
-        <guid>https://maxwelljay256.github.io/posts/20/</guid>
+        <guid>https://keinestudio.cn/posts/20/</guid>
         <description>&lt;p&gt;大概离生日前一个月就有写这篇博客的想法了。
 这一个月里，各种各样的念头在脑中闪现，有些是一些自己觉得很有意思的句子，然而我很快就把它们给忘掉了；能想起来的那部分，也不知道该放在文章的哪一节。&lt;/p&gt;
 &lt;p&gt;所以这篇文章看起来就像不肯在一张完整的稿纸上写字，而是非要把纸先撕碎，然后再在每一小片上写字一样。
@@ -219,8 +219,7 @@
 &lt;p&gt;人类社会一切不完美的存在，都可以归因于一句 “人会死”。&lt;/p&gt;
 &lt;p&gt;在 19 岁的最后几天，我在脑海中生成了这样一段文字：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;人的意义在于留下了什么，而不在于拥有过什么。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;人的意义在于留下了什么，而不在于拥有过什么。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;这是我在年龄以 &amp;ldquo;1&amp;rdquo; 开头时，对这个世界予我的审讯的回答。
 我要用它来反驳长辈“为活而活”，用它来反驳同龄人的零和博弈，用它来反驳社会加以所有纯洁的人的迫害。&lt;/p&gt;
 &lt;p&gt;如果你不喜欢这样的说法，那就随你便吧，这是我在年龄以 &amp;ldquo;1&amp;rdquo; 开头时说的，小孩子说的话不算数。&lt;/p&gt;

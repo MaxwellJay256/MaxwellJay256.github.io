@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>音乐 on Keine Studio</title>
-        <link>https://maxwelljay256.github.io/categories/music/</link>
+        <link>https://keinestudio.cn/categories/music/</link>
         <description>Recent content in 音乐 on Keine Studio</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <copyright>MaxwellJay256</copyright><atom:link href="https://maxwelljay256.github.io/categories/music/index.xml" rel="self" type="application/rss+xml" />
+        <copyright>MaxwellJay256</copyright><atom:link href="https://keinestudio.cn/categories/music/index.xml" rel="self" type="application/rss+xml" />
     </channel>
 </rss>

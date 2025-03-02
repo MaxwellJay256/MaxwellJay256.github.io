@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Development on Keine Studio</title>
-        <link>https://maxwelljay256.github.io/en/categories/dev/</link>
+        <link>https://keinestudio.cn/en/categories/dev/</link>
         <description>Recent content in Development on Keine Studio</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <copyright>MaxwellJay256</copyright><atom:link href="https://maxwelljay256.github.io/en/categories/dev/index.xml" rel="self" type="application/rss+xml" />
+        <copyright>MaxwellJay256</copyright><atom:link href="https://keinestudio.cn/en/categories/dev/index.xml" rel="self" type="application/rss+xml" />
     </channel>
 </rss>
