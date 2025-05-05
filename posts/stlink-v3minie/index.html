@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="2024 年年底那段时间遇到了需要自己画 PCB 的 STM32 开发需求，但手头还没有任何适合 STM32 MCU 的调试工具。 我在 DAPLink、STLINK、JTAG 等工具里挑了很久，包括网友们 DIY 的那些硬件，最后选了这个又贵销量又少的 STLINK-V3MINIE。\n">
+<title>玩一玩 STLINK-V3MINIE</title>
+
+<link rel='canonical' href='https://keinestudio.cn/posts/stlink-v3minie/'>
+
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="玩一玩 STLINK-V3MINIE">
+<meta property='og:description' content="2024 年年底那段时间遇到了需要自己画 PCB 的 STM32 开发需求，但手头还没有任何适合 STM32 MCU 的调试工具。 我在 DAPLink、STLINK、JTAG 等工具里挑了很久，包括网友们 DIY 的那些硬件，最后选了这个又贵销量又少的 STLINK-V3MINIE。\n">
+<meta property='og:url' content='https://keinestudio.cn/posts/stlink-v3minie/'>
+<meta property='og:site_name' content='Keine Studio'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-03-02T10:47:00&#43;08:00'/><meta property='article:modified_time' content='2025-03-02T10:47:00&#43;08:00'/><meta property='og:image' content='https://keinestudio.cn/posts/stlink-v3minie/image.PF271415.en.feature-description-include-personalized-no-cpn-large.webp' />
+<meta name="twitter:title" content="玩一玩 STLINK-V3MINIE">
+<meta name="twitter:description" content="2024 年年底那段时间遇到了需要自己画 PCB 的 STM32 开发需求，但手头还没有任何适合 STM32 MCU 的调试工具。 我在 DAPLink、STLINK、JTAG 等工具里挑了很久，包括网友们 DIY 的那些硬件，最后选了这个又贵销量又少的 STLINK-V3MINIE。\n"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://keinestudio.cn/posts/stlink-v3minie/image.PF271415.en.feature-description-include-personalized-no-cpn-large.webp' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-CRZGE8R8FX"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-CRZGE8R8FX');
+        }
+      </script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_161cdd59125ceef7.png" width="300"
+                            height="316" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🎶</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Keine Studio</a></h1>
+            <h2 class="site-description">慧音工作室 Maxwell Jay 个人博客</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://keinestudio.cn/en/" >English</option>
+                                
+                                    <option value="https://keinestudio.cn/" selected>简体中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#开箱体验">开箱体验</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/posts/stlink-v3minie/">
+                <img src="/posts/stlink-v3minie/image.PF271415.en.feature-description-include-personalized-no-cpn-large_hu_a7d6669b5aadcf7e.webp"
+                        srcset="/posts/stlink-v3minie/image.PF271415.en.feature-description-include-personalized-no-cpn-large_hu_a7d6669b5aadcf7e.webp 800w, /posts/stlink-v3minie/image.PF271415.en.feature-description-include-personalized-no-cpn-large_hu_65bc5825550802a5.webp 1600w"
+                        width="800" 
+                        height="633" 
+                        loading="lazy"
+                        alt="Featured image of post 玩一玩 STLINK-V3MINIE" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/dev/" style="background-color: #2a9d8f; color: #fff;">
+                技术分享
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/stlink-v3minie/">玩一玩 STLINK-V3MINIE</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025-03-02</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 2 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>2024 年年底那段时间遇到了需要自己画 PCB 的 STM32 开发需求，但手头还没有任何适合 STM32 MCU 的调试工具。
+我在 DAPLink、STLINK、JTAG 等工具里挑了很久，包括网友们 DIY 的那些硬件，最后选了这个又贵销量又少的 STLINK-V3MINIE。</p>
+<p>为什么呢？</p>
+<p><strong>首先是开发环境</strong>。我用的是 STM32CubeMX + VS Code + CMake 的工具链，配合 ST 官方的
+<a class="link" href="https://marketplace.visualstudio.com/items?itemName=stmicroelectronics.stm32-vscode-extension"  target="_blank" rel="noopener"
+    >STM32 VS Code Extension</a>，这套工具链相对来说很新也挺好用，摆脱了对 Keil 和 STM32CubeIDE 的依赖。
+但我担心非官方的调试器与这套工具链不兼容，所以我希望第一次买调试工具先挑选 “血统纯正” 的硬件。</p>
+<p><strong>其次是性能</strong>。我上面提到的这个工具链使用了 Ninja，编译速度非常快，下载自然不能拖后腿。
+STLINK-V3 的传输速度（理论 480 Mbit/s）比 V2（12 Mbit/s USB 2.0）快了许多，能节省不少调试时间。</p>
+<p>最后就是在
+<a class="link" href="https://www.st.com.cn/zh/development-tools/stlink-v3minie.html"  target="_blank" rel="noopener"
+    >STLINK-V3MINIE</a>、
+<a class="link" href="https://www.st.com.cn/zh/development-tools/stlink-v3set.html"  target="_blank" rel="noopener"
+    >STLINK-V3SET</a>、
+<a class="link" href="https://www.st.com.cn/zh/development-tools/stlink-v3pwr.html"  target="_blank" rel="noopener"
+    >STLINK-V3PWR</a>、
+<a class="link" href="https://www.st.com.cn/zh/development-tools/stlink-v3mods.html"  target="_blank" rel="noopener"
+    >STLINK-V3MODS</a>
+里挑选了。V3SET 和 V3PWR 太贵，V3MODS 需要单独做载板，V3MINIE 刚好够用。</p>
+<h2 id="开箱体验">开箱体验
+</h2><p>STLINK-V3MINIE 官网售价是 11 美元，国内的零售价大概在 90 - 110 元间，比满天飞的十几块钱的 V2 贵不少。</p>
+<p>STLINK V2 之所以便宜是因为它的固件在网上流通，因此存在大量的仿制品。官网上在售的
+<a class="link" href="https://www.st.com.cn/zh/development-tools/st-link-v2.html"  target="_blank" rel="noopener"
+    >ST-LINK/V2</a> 其实仍然很贵。</p>
+<p>这是 STLINK-V3MINIE 的包装和内容物：</p>
+<p><img src="/posts/stlink-v3minie/package.jpg"
+	width="4000"
+	height="3000"
+	srcset="/posts/stlink-v3minie/package_hu_2059c87719e2e441.jpg 480w, /posts/stlink-v3minie/package_hu_da4da86a5802529a.jpg 1024w"
+	loading="lazy"
+	
+		alt="STLINK-V3MINIE 开箱"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="133"
+		data-flex-basis="320px"
+	
+></p>
+<p>包装内含有 STLINK-V3MINIE 本体即一块 PCB，一根 1.27mm 14pin 的 FFC 接口排线，以及一份说明书（提示相关文档的地址）。</p>
+<p>我在这里放一张用户手册上提供的 STLINK-V3MINIE 的放大图片：</p>
+<p><img src="/posts/stlink-v3minie/figure1.png"
+	width="650"
+	height="552"
+	srcset="/posts/stlink-v3minie/figure1_hu_c34a4325723c4de5.png 480w, /posts/stlink-v3minie/figure1_hu_81e3c064b74c853f.png 1024w"
+	loading="lazy"
+	
+		alt="STLINK-V3MINIE top, bottom, and cable views"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="117"
+		data-flex-basis="282px"
+	
+></p>
+<p>从 Type-C 接口占整板的比例不难看出，STLINK-V3MINIE 的尺寸非常小，为
+15.24mm x 43.47mm，和常规 USB 闪存盘的尺寸差不多。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>LICENSED UNDER CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/posts/stm32g474-dma/">
+        
+        
+            <div class="article-image">
+                <img src="/posts/stm32g474-dma/osc-gpio.b52a84a28dbcc4d9d46ce6ada468a396_hu_e5441a89928aa610.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post STM32G474 定时器触发 DMA 高速翻转 GPIO"
+                        data-key="stm32g474-dma" 
+                        data-hash="md5-tSqEoo28xNnUbOatpGijlg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">STM32G474 定时器触发 DMA 高速翻转 GPIO</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/ssh-github/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">使用 SSH 连接 GitHub</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/posts/wsl-setup/">
+        
+        
+            <div class="article-image">
+                <img src="/posts/wsl-setup/neofetch.10efd061240ac11102eb27729ce8f3f8_hu_fc20208a097ab46f.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post WSL 快速配置自查手册"
+                        data-key="wsl-setup" 
+                        data-hash="md5-EO/QYSQKwREC6ydynOjz&#43;A==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">WSL 快速配置自查手册</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/posts/wsl-connect-usb/">
+        
+        
+            <div class="article-image">
+                <img src="/posts/wsl-connect-usb/ESP32-Devkit.8ca36a26a9d106d57f46d49ff15e3c81_hu_72eff9fbf6616a24.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 将 USB 设备连接到 WSL"
+                        data-key="wsl-connect-usb" 
+                        data-hash="md5-jKNqJqnRBtV/RtSf8V48gQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">将 USB 设备连接到 WSL</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/posts/a-useful-code-annotation/">
+        
+        
+            <div class="article-image">
+                <img src="/posts/a-useful-code-annotation/screenshot.870d678c2b1802a1d9fac8bf610d270b_hu_5cc0f2138426b6a8.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 一种实用的 C/C&#43;&#43;/C# 代码注释方法"
+                        data-key="a-useful-code-annotation" 
+                        data-hash="md5-hw1njCsYAqHZ&#43;si/YQ0nCw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">一种实用的 C/C&#43;&#43;/C# 代码注释方法</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 MaxwellJay256
+    </section>
+    
+    <section class="powerby">
+        
+            Maxwell Jay at his most tender. <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

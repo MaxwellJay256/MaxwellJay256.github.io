@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="配置 STM32 的开发环境是一门大学问">
+<title>浅谈 STM32 开发环境，以及个人开发环境分享</title>
+
+<link rel='canonical' href='http://localhost:1313/posts/%E6%B5%85%E8%B0%88-stm32-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%BB%A5%E5%8F%8A%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%88%86%E4%BA%AB/'>
+
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="浅谈 STM32 开发环境，以及个人开发环境分享">
+<meta property='og:description' content="配置 STM32 的开发环境是一门大学问">
+<meta property='og:url' content='http://localhost:1313/posts/%E6%B5%85%E8%B0%88-stm32-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%BB%A5%E5%8F%8A%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%88%86%E4%BA%AB/'>
+<meta property='og:site_name' content='Keine Studio'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='VS Code' /><meta property='article:tag' content='STM32' /><meta property='article:tag' content='Keil' /><meta property='article:tag' content='OpenOCD' /><meta property='article:tag' content='ARM' /><meta property='article:tag' content='STM32CubeMX' /><meta property='article:published_time' content='2024-04-02T15:57:00&#43;08:00'/><meta property='article:modified_time' content='2024-04-02T15:57:00&#43;08:00'/>
+<meta name="twitter:title" content="浅谈 STM32 开发环境，以及个人开发环境分享">
+<meta name="twitter:description" content="配置 STM32 的开发环境是一门大学问">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-CRZGE8R8FX"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-CRZGE8R8FX');
+        }
+      </script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_161cdd59125ceef7.png" width="300"
+                            height="316" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🎶</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Keine Studio</a></h1>
+            <h2 class="site-description">慧音工作室 Maxwell Jay 个人博客</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/en/" >English</option>
+                                
+                                    <option value="http://localhost:1313/" selected>简体中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#stm32-开发环境的组成">STM32 开发环境的组成</a>
+      <ol>
+        <li><a href="#代码生成工具">代码生成工具</a></li>
+        <li><a href="#文本编辑器">文本编辑器</a></li>
+        <li><a href="#编译器">编译器</a></li>
+        <li><a href="#烧录--调试工具">烧录 / 调试工具</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/dev/" style="background-color: #2a9d8f; color: #fff;">
+                技术分享
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/%E6%B5%85%E8%B0%88-stm32-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%BB%A5%E5%8F%8A%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%88%86%E4%BA%AB/">浅谈 STM32 开发环境，以及个人开发环境分享</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            配置 STM32 的开发环境是一门大学问
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2024-04-02</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 4 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="前言">前言
+</h2><p>STM32 的开发环境之所以相当难配置，是因为从代码编写到编译到烧录调试，可选的工具琳琅满目，用法各异。
+这导致咱们电类专业学生上手 STM32 之初，发现每一个视频、每一篇博客都在介绍不同的路线，让人不知所措。
+更糟的是，新人在并不了解工具链、编译器、烧录仿真等等概念的情况下，无法在熟悉开发环境使用之前了解这些开发环境孰优孰劣。</p>
+<p>比如我这种希望电脑上的 IDE 越少越好的人来说，就非常不愿意安装一个 GUI 看上去十分落后的 Keil。
+之前还尝试过 STM32CubeIDE，但是它的代码提示和自动补全很难搞，运行也很吃内存。
+结果我很长一段时间虽然手上有 STM32 开发板，但始终不想去动它。</p>
+<p>最近因为要准备竞赛，我又不得不开始啃 STM32 这个硬骨头。
+经过几天的研究，我尝试了数套开发环境，最终找到了 <strong>VS Code + arm-none-eabi-gcc + OpenOCD</strong> 的组合。
+这套环境有 4 大优势：</p>
+<ol>
+<li>使用 VS Code C/C++ 的 IntelliSense 实现代码提示和补全，几乎不用担心函数、文件名下的红波浪线。</li>
+<li>除了必须用 STM32CubeMX 生成代码外，不需要打开任何其他的窗口，即可完成工程的编译、烧录、调试。</li>
+<li>跨平台，Windows 和 Linux 下都能使用。</li>
+<li>全部免费，免去破解 Keil 的步骤，适合有许可证洁癖的宝宝。</li>
+</ol>
+<p>本文并不单纯是配置这套环境的教程。
+我想在这篇长文中详细讲解一下 STM32 的几种常见开发环境是什么、怎么用的，总结一下自己对 STM32 的软件生态的了解。</p>
+<p>接下来请出本文的嘉宾：<a class="link" href="https://www.st.com/zh/evaluation-tools/nucleo-u575zi-q"  target="_blank" rel="noopener"
+    >NUCLEO-U575ZI-Q</a>。
+这块 ST 官方的开发板搭载 <a class="link" href="https://www.st.com/zh/microcontrollers-microprocessors/stm32u575zi.html"  target="_blank" rel="noopener"
+    >STM32U575ZIT6Q</a> 芯片（LQFP144 封装），同时板上自带 ST-LINK 调试器。
+本文中出现的硬件实验都是基于这块开发板进行的。</p>
+<img src="NUCLEO-U575ZI-Q.jpg" alt="NUCLEO-U575ZI-Q" style="zoom:20%;" />
+<h2 id="stm32-开发环境的组成">STM32 开发环境的组成
+</h2><p>我们按照给 STM32 单片机编写工程的完整流程，看看 STM32 的开发都用到了哪些东西。</p>
+<p>我想通过罗列这些工具，对比一下 STM32 相比其他单片机的开发有什么区别。</p>
+<h3 id="代码生成工具">代码生成工具
+</h3><p>如果你之前使用过 Arduino 或者 ESP32，你会注意到给它们创建一个新工程并不困难。</p>
+<p>创建一个 Arduino 工程，本质上只需要新建一个 <code>.ino</code> 文件。
+如果要使用多文件，则可以把所有头文件和源文件放在 <code>.ino</code> 文件的同一个目录下，Arduino 会自动链接和编译所有的文件。</p>
+<p>ESP32（如果基于 ESP-IDF 而不是 Arduino 开发）则是从 esp-idf 的 examples 中复制一个 <code>sample-project</code> 文件夹，然后编辑其中的 <code>CMakeLists.txt</code> 文件，再开始写代码。
+ESP-IDF 的工程是基于 CMake 构建的，因此 <code>sample-project</code> 的文件结构如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sample-project
+</span></span><span class="line"><span class="cl">├── main
+</span></span><span class="line"><span class="cl">│   ├── CMakeLists.txt
+</span></span><span class="line"><span class="cl">│   ├── component.mk
+</span></span><span class="line"><span class="cl">│   └── main.c
+</span></span><span class="line"><span class="cl">├── CMakeLists.txt
+</span></span><span class="line"><span class="cl">├── Makefile
+</span></span><span class="line"><span class="cl">└── README.md
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果要为其添加新的头文件和源文件，需要在 <code>main/CMakeLists.txt</code> 中作出对应的修改。</p>
+<p>而 STM32 就远比以上二者复杂了。
+STM32 的 MCU 型号众多，外设配置不尽相同，并且 STM32 的库文件相当地底层，仅仅关于配置 IO 的代码就相当复杂，靠手搓文件基本上是不可能的。</p>
+<p>因此，抛开标准库不谈，基于 HAL 库的 STM32 开发甚至需要专门的工具
+<a class="link" href="https://www.st.com/zh/development-tools/stm32cubemx.html"  target="_blank" rel="noopener"
+    ><strong>STM32CubeMX</strong></a>
+来生成具有完整配置的工程。</p>
+<h3 id="文本编辑器">文本编辑器
+</h3><p>文本编辑器没有什么多说的，还是那句话，文本编辑器的本质工作就是编辑文本，用记事本，用 Vim，理论上也不是不行。
+IDE 只是在文本编辑的基础上融合了其他的功能。</p>
+<p>针对 STM32，最常用的 IDE 就是 Keil 了，当前几乎每一个 STM32 入门教程的前几章中必定提到 Keil 的下载和使用。</p>
+<p>ST 也在 2019 年推出了基于 Eclipse 的
+<a class="link" href="https://www.st.com/zh/development-tools/stm32cubeide.html"  target="_blank" rel="noopener"
+    >STM32CubeIDE</a>，
+将 STM32 的代码生成工具和 IDE 集成在一起，可以说是目前集成度最高的 STM32 开发环境。</p>
+<h3 id="编译器">编译器
+</h3><p>用来编译 STM32 工程的编译器有很多，比如 Keil 内置的编译器
+<a class="link" href="https://developer.arm.com/Tools%20and%20Software/Arm%20Compiler%20for%20Embedded"  target="_blank" rel="noopener"
+    >ARMCC</a>、
+IAR 的编译器 <a class="link" href="https://www.iar.com/zh/product/architectures/arm/iar-embedded-workbench-for-arm/"  target="_blank" rel="noopener"
+    >IAR Embedded Workbench</a>、
+GNU 的编译器 <a class="link" href="https://developer.arm.com/Tools%20and%20Software/GNU%20Toolchain"  target="_blank" rel="noopener"
+    >arm-none-eabi-gcc</a> 等等。</p>
+<p>这里面 ARMCC 既集成在 Keil MDK 中，也可以独立使用；
+IAR 仅随其 IDE 一起发行；
+GCC for ARM 则是开源的，独立发行。</p>
+<p>那么第一个问题来了，我怎么知道我的工程该用谁家的编译器编译呢？</p>
+<p>关于这一点，STM32CubeMX 会帮你解决。</p>
+<p><img src="/cubemx-project.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="CubeMX 上的 Project Manager"
+	
+	
+></p>
+<p>上图的 Project Manager 界面中，有一个选项叫做 “Toolchain / IDE”，由用户来选择自己的工程之后由哪个工具链来编译。
+可以看到，CubeMX 提供了 5 个选项：</p>
+<ol>
+<li><strong>EWARM</strong>：使用 IAR Embedded Workbench</li>
+<li><strong>MDK-ARM</strong>：使用 Keil MDK</li>
+<li><strong>STM32CubeIDE</strong>：使用 CubeIDE</li>
+<li><strong>Makefile</strong>：工程目录下会生成 <code>Makefile</code> 文件，由用户使用 GNU Make 链接和编译</li>
+<li><strong>CMake</strong>：工程目录下会生成 <code>CMakeLists.txt</code> 文件，由用户使用 CMake 生成 <code>Makefile</code>，再由 Make 编译</li>
+</ol>
+<p>其中第 4 和第 5 个选项看上去并没有指定编译器，但是由 CubeMX 生成的 <code>Makefile</code> 中会有这么一段：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="line"><span class="cl"><span class="c">#######################################
+</span></span></span><span class="line"><span class="cl"><span class="c"># binaries
+</span></span></span><span class="line"><span class="cl"><span class="c">#######################################
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nv">PREFIX</span> <span class="o">=</span> arm-none-eabi-
+</span></span><span class="line"><span class="cl"><span class="c"># The gcc compiler bin path can be either defined in make command via GCC_PATH variable (&gt; make GCC_PATH=xxx)
+</span></span></span><span class="line"><span class="cl"><span class="c"># either it can be added to the PATH environment variable.
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">ifdef</span> <span class="err">GCC_PATH</span>
+</span></span><span class="line"><span class="cl"><span class="nv">CC</span> <span class="o">=</span> <span class="k">$(</span>GCC_PATH<span class="k">)</span>/<span class="k">$(</span>PREFIX<span class="k">)</span>gcc
+</span></span><span class="line"><span class="cl"><span class="nv">AS</span> <span class="o">=</span> <span class="k">$(</span>GCC_PATH<span class="k">)</span>/<span class="k">$(</span>PREFIX<span class="k">)</span>gcc -x assembler-with-cpp
+</span></span><span class="line"><span class="cl"><span class="nv">CP</span> <span class="o">=</span> <span class="k">$(</span>GCC_PATH<span class="k">)</span>/<span class="k">$(</span>PREFIX<span class="k">)</span>objcopy
+</span></span><span class="line"><span class="cl"><span class="nv">SZ</span> <span class="o">=</span> <span class="k">$(</span>GCC_PATH<span class="k">)</span>/<span class="k">$(</span>PREFIX<span class="k">)</span>size
+</span></span><span class="line"><span class="cl"><span class="err">else</span>
+</span></span><span class="line"><span class="cl"><span class="nv">CC</span> <span class="o">=</span> <span class="k">$(</span>PREFIX<span class="k">)</span>gcc
+</span></span><span class="line"><span class="cl"><span class="nv">AS</span> <span class="o">=</span> <span class="k">$(</span>PREFIX<span class="k">)</span>gcc -x assembler-with-cpp
+</span></span><span class="line"><span class="cl"><span class="nv">CP</span> <span class="o">=</span> <span class="k">$(</span>PREFIX<span class="k">)</span>objcopy
+</span></span><span class="line"><span class="cl"><span class="nv">SZ</span> <span class="o">=</span> <span class="k">$(</span>PREFIX<span class="k">)</span>size
+</span></span><span class="line"><span class="cl"><span class="err">endif</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这里的 <code>PREFIX = arm-none-eabi-</code> 就是 GNU ARM 编译器的前缀。
+也就是说，CubeMX 是默认我们使用 arm-none-eabi-gcc 来编译工程的。</p>
+<p>如果我们采用 GNU ARM Toolchain，那么我们就应该在 CubeMX 中选择 “Makefile” 或者 “CMake” 作为工程的生成方式。</p>
+<h3 id="烧录--调试工具">烧录 / 调试工具
+</h3><p>STM32 代码的烧录和调试又是一个大坑。</p>
+<p>CubeMX 通过可视化的方式让用户配置 MCU 上的外设、时钟等。</p>
+<p><img src="/posts/%E6%B5%85%E8%B0%88-stm32-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%BB%A5%E5%8F%8A%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%88%86%E4%BA%AB/cubemx-pinout.png"
+	width="2560"
+	height="1381"
+	srcset="/posts/%E6%B5%85%E8%B0%88-stm32-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%BB%A5%E5%8F%8A%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%88%86%E4%BA%AB/cubemx-pinout_hu_6a62ac1aa41d267f.png 480w, /posts/%E6%B5%85%E8%B0%88-stm32-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%BB%A5%E5%8F%8A%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%88%86%E4%BA%AB/cubemx-pinout_hu_460f833c2137203b.png 1024w"
+	loading="lazy"
+	
+		alt="CubeMX 上的 Pinout & Configuration"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="185"
+		data-flex-basis="444px"
+	
+></p>
+<p>在 “Project Manager” 界面，还有若干个选项可以配置工程的生成方式。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/vs-code/">VS Code</a>
+        
+            <a href="/tags/stm32/">STM32</a>
+        
+            <a href="/tags/keil/">Keil</a>
+        
+            <a href="/tags/openocd/">OpenOCD</a>
+        
+            <a href="/tags/arm/">ARM</a>
+        
+            <a href="/tags/stm32cubemx/">STM32CubeMX</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>CC-BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/posts/stm32g474-dma/">
+        
+        
+            <div class="article-image">
+                <img src="/posts/stm32g474-dma/osc-gpio.b52a84a28dbcc4d9d46ce6ada468a396_hu_e5441a89928aa610.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post STM32G474 定时器触发 DMA 高速翻转 GPIO"
+                        data-key="stm32g474-dma" 
+                        data-hash="md5-tSqEoo28xNnUbOatpGijlg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">STM32G474 定时器触发 DMA 高速翻转 GPIO</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/posts/stlink-v3minie/">
+        
+        
+            <div class="article-image">
+                <img src="/posts/stlink-v3minie/image.PF271415.en.feature-description-include-personalized-no-cpn-large.2fdf9b4255073bb4d8884c96d57a4276_hu_a4bf43f2c16d1217.webp" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 玩一玩 STLINK-V3MINIE"
+                        data-key="stlink-v3minie" 
+                        data-hash="md5-L9&#43;bQlUHO7TYiEyW1XpCdg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">玩一玩 STLINK-V3MINIE</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/ssh-github/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">使用 SSH 连接 GitHub</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/ros-notes/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ROS 命令与代码笔记</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/posts/wsl-setup/">
+        
+        
+            <div class="article-image">
+                <img src="/posts/wsl-setup/neofetch.10efd061240ac11102eb27729ce8f3f8_hu_fc20208a097ab46f.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post WSL 快速配置自查手册"
+                        data-key="wsl-setup" 
+                        data-hash="md5-EO/QYSQKwREC6ydynOjz&#43;A==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">WSL 快速配置自查手册</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 MaxwellJay256
+    </section>
+    
+    <section class="powerby">
+        
+            Maxwell Jay at his most tender. <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.3e0968727afafb04cf2077894dd8072a696d213776d340cbb27fb641af392930.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

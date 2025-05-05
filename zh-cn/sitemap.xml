@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://keinestudio.cn/</loc>
-    <lastmod>2025-03-02T00:00:00+00:00</lastmod>
+    <lastmod>2025-05-05T10:40:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -14,6 +14,86 @@
                 hreflang="zh-cn"
                 href="https://keinestudio.cn/"
                 />
+  </url><url>
+    <loc>https://keinestudio.cn/categories/</loc>
+    <lastmod>2025-05-05T10:40:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://keinestudio.cn/en/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://keinestudio.cn/categories/"
+                />
+  </url><url>
+    <loc>https://keinestudio.cn/tags/dizzymart/</loc>
+    <lastmod>2025-05-05T10:40:00+08:00</lastmod>
+  </url><url>
+    <loc>https://keinestudio.cn/post/</loc>
+    <lastmod>2025-05-05T10:40:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://keinestudio.cn/en/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://keinestudio.cn/post/"
+                />
+  </url><url>
+    <loc>https://keinestudio.cn/tags/</loc>
+    <lastmod>2025-05-05T10:40:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://keinestudio.cn/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://keinestudio.cn/tags/"
+                />
+  </url><url>
+    <loc>https://keinestudio.cn/tags/%E7%94%B5%E5%88%99%E5%B8%82%E5%9C%BA/</loc>
+    <lastmod>2025-05-05T10:40:00+08:00</lastmod>
+  </url><url>
+    <loc>https://keinestudio.cn/categories/life/</loc>
+    <lastmod>2025-05-05T10:40:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://keinestudio.cn/en/categories/life/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://keinestudio.cn/categories/life/"
+                />
+  </url><url>
+    <loc>https://keinestudio.cn/posts/dizzymart02-repo/</loc>
+    <lastmod>2025-05-05T10:40:00+08:00</lastmod>
+  </url><url>
+    <loc>https://keinestudio.cn/tags/%E9%9F%B3%E4%B9%90/</loc>
+    <lastmod>2025-05-05T10:40:00+08:00</lastmod>
+  </url><url>
+    <loc>https://keinestudio.cn/categories/dev/</loc>
+    <lastmod>2025-03-02T10:47:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://keinestudio.cn/en/categories/dev/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://keinestudio.cn/categories/dev/"
+                />
+  </url><url>
+    <loc>https://keinestudio.cn/posts/stlink-v3minie/</loc>
+    <lastmod>2025-03-02T10:47:00+08:00</lastmod>
   </url><url>
     <loc>https://keinestudio.cn/page/</loc>
     <lastmod>2025-03-02T00:00:00+00:00</lastmod>
@@ -41,66 +121,14 @@
                 href="https://keinestudio.cn/about/"
                 />
   </url><url>
-    <loc>https://keinestudio.cn/categories/</loc>
-    <lastmod>2025-02-26T22:06:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://keinestudio.cn/en/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://keinestudio.cn/categories/"
-                />
-  </url><url>
     <loc>https://keinestudio.cn/tags/dma/</loc>
     <lastmod>2025-02-26T22:06:00+08:00</lastmod>
-  </url><url>
-    <loc>https://keinestudio.cn/post/</loc>
-    <lastmod>2025-02-26T22:06:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://keinestudio.cn/en/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://keinestudio.cn/post/"
-                />
   </url><url>
     <loc>https://keinestudio.cn/tags/stm32/</loc>
     <lastmod>2025-02-26T22:06:00+08:00</lastmod>
   </url><url>
     <loc>https://keinestudio.cn/posts/stm32g474-dma/</loc>
     <lastmod>2025-02-26T22:06:00+08:00</lastmod>
-  </url><url>
-    <loc>https://keinestudio.cn/tags/</loc>
-    <lastmod>2025-02-26T22:06:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://keinestudio.cn/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://keinestudio.cn/tags/"
-                />
-  </url><url>
-    <loc>https://keinestudio.cn/categories/dev/</loc>
-    <lastmod>2025-02-26T22:06:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://keinestudio.cn/en/categories/dev/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://keinestudio.cn/categories/dev/"
-                />
   </url><url>
     <loc>https://keinestudio.cn/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/</loc>
     <lastmod>2025-02-26T22:06:00+08:00</lastmod>
@@ -126,19 +154,6 @@
   </url><url>
     <loc>https://keinestudio.cn/tags/hoa/</loc>
     <lastmod>2024-10-28T00:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://keinestudio.cn/categories/life/</loc>
-    <lastmod>2024-10-28T00:00:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://keinestudio.cn/en/categories/life/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://keinestudio.cn/categories/life/"
-                />
   </url><url>
     <loc>https://keinestudio.cn/posts/sharing-knowledge/</loc>
     <lastmod>2024-10-28T00:00:00+08:00</lastmod>

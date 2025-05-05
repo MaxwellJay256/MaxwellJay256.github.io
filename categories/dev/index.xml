@@ -7,13 +7,78 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>MaxwellJay256</copyright>
-        <lastBuildDate>Wed, 26 Feb 2025 22:06:00 +0800</lastBuildDate><atom:link href="https://keinestudio.cn/categories/dev/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 02 Mar 2025 10:47:00 +0800</lastBuildDate><atom:link href="https://keinestudio.cn/categories/dev/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>玩一玩 STLINK-V3MINIE</title>
+        <link>https://keinestudio.cn/posts/stlink-v3minie/</link>
+        <pubDate>Sun, 02 Mar 2025 10:47:00 +0800</pubDate>
+        
+        <guid>https://keinestudio.cn/posts/stlink-v3minie/</guid>
+        <description>&lt;img src="https://keinestudio.cn/posts/stlink-v3minie/image.PF271415.en.feature-description-include-personalized-no-cpn-large.webp" alt="Featured image of post 玩一玩 STLINK-V3MINIE" /&gt;&lt;p&gt;2024 年年底那段时间遇到了需要自己画 PCB 的 STM32 开发需求，但手头还没有任何适合 STM32 MCU 的调试工具。
+我在 DAPLink、STLINK、JTAG 等工具里挑了很久，包括网友们 DIY 的那些硬件，最后选了这个又贵销量又少的 STLINK-V3MINIE。&lt;/p&gt;
+&lt;p&gt;为什么呢？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;首先是开发环境&lt;/strong&gt;。我用的是 STM32CubeMX + VS Code + CMake 的工具链，配合 ST 官方的
+&lt;a class=&#34;link&#34; href=&#34;https://marketplace.visualstudio.com/items?itemName=stmicroelectronics.stm32-vscode-extension&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;STM32 VS Code Extension&lt;/a&gt;，这套工具链相对来说很新也挺好用，摆脱了对 Keil 和 STM32CubeIDE 的依赖。
+但我担心非官方的调试器与这套工具链不兼容，所以我希望第一次买调试工具先挑选 “血统纯正” 的硬件。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;其次是性能&lt;/strong&gt;。我上面提到的这个工具链使用了 Ninja，编译速度非常快，下载自然不能拖后腿。
+STLINK-V3 的传输速度（理论 480 Mbit/s）比 V2（12 Mbit/s USB 2.0）快了许多，能节省不少调试时间。&lt;/p&gt;
+&lt;p&gt;最后就是在
+&lt;a class=&#34;link&#34; href=&#34;https://www.st.com.cn/zh/development-tools/stlink-v3minie.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;STLINK-V3MINIE&lt;/a&gt;、
+&lt;a class=&#34;link&#34; href=&#34;https://www.st.com.cn/zh/development-tools/stlink-v3set.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;STLINK-V3SET&lt;/a&gt;、
+&lt;a class=&#34;link&#34; href=&#34;https://www.st.com.cn/zh/development-tools/stlink-v3pwr.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;STLINK-V3PWR&lt;/a&gt;、
+&lt;a class=&#34;link&#34; href=&#34;https://www.st.com.cn/zh/development-tools/stlink-v3mods.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;STLINK-V3MODS&lt;/a&gt;
+里挑选了。V3SET 和 V3PWR 太贵，V3MODS 需要单独做载板，V3MINIE 刚好够用。&lt;/p&gt;
+&lt;h2 id=&#34;开箱体验&#34;&gt;开箱体验
+&lt;/h2&gt;&lt;p&gt;STLINK-V3MINIE 官网售价是 11 美元，国内的零售价大概在 90 - 110 元间，比满天飞的十几块钱的 V2 贵不少。&lt;/p&gt;
+&lt;p&gt;STLINK V2 之所以便宜是因为它的固件在网上流通，因此存在大量的仿制品。官网上在售的
+&lt;a class=&#34;link&#34; href=&#34;https://www.st.com.cn/zh/development-tools/st-link-v2.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ST-LINK/V2&lt;/a&gt; 其实仍然很贵。&lt;/p&gt;
+&lt;p&gt;这是 STLINK-V3MINIE 的包装和内容物：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://keinestudio.cn/posts/stlink-v3minie/package.jpg&#34;
+	width=&#34;4000&#34;
+	height=&#34;3000&#34;
+	srcset=&#34;https://keinestudio.cn/posts/stlink-v3minie/package_hu_2059c87719e2e441.jpg 480w, https://keinestudio.cn/posts/stlink-v3minie/package_hu_da4da86a5802529a.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;STLINK-V3MINIE 开箱&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;包装内含有 STLINK-V3MINIE 本体即一块 PCB，一根 1.27mm 14pin 的 FFC 接口排线，以及一份说明书（提示相关文档的地址）。&lt;/p&gt;
+&lt;p&gt;我在这里放一张用户手册上提供的 STLINK-V3MINIE 的放大图片：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://keinestudio.cn/posts/stlink-v3minie/figure1.png&#34;
+	width=&#34;650&#34;
+	height=&#34;552&#34;
+	srcset=&#34;https://keinestudio.cn/posts/stlink-v3minie/figure1_hu_c34a4325723c4de5.png 480w, https://keinestudio.cn/posts/stlink-v3minie/figure1_hu_81e3c064b74c853f.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;STLINK-V3MINIE top, bottom, and cable views&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;117&#34;
+		data-flex-basis=&#34;282px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;从 Type-C 接口占整板的比例不难看出，STLINK-V3MINIE 的尺寸非常小，为
+15.24mm x 43.47mm，和常规 USB 闪存盘的尺寸差不多。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>STM32G474 定时器触发 DMA 高速翻转 GPIO</title>
         <link>https://keinestudio.cn/posts/stm32g474-dma/</link>
         <pubDate>Wed, 26 Feb 2025 22:06:00 +0800</pubDate>
         
         <guid>https://keinestudio.cn/posts/stm32g474-dma/</guid>
-        <description>&lt;p&gt;本文是对 &lt;a class=&#34;link&#34; href=&#34;https://www.analog.com/cn/products/max14808.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+        <description>&lt;img src="https://keinestudio.cn/posts/stm32g474-dma/osc-gpio.jpg" alt="Featured image of post STM32G474 定时器触发 DMA 高速翻转 GPIO" /&gt;&lt;p&gt;本文是对 &lt;a class=&#34;link&#34; href=&#34;https://www.analog.com/cn/products/max14808.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;MAX14808&lt;/a&gt;
 进行驱动测试时 STM32G474 定时器触发 DMA 高速翻转 GPIO 的实现过程。&lt;/p&gt;
 &lt;h2 id=&#34;硬件准备&#34;&gt;硬件准备

@@ -13,7 +13,7 @@
         <pubDate>Wed, 26 Feb 2025 22:06:00 +0800</pubDate>
         
         <guid>https://keinestudio.cn/posts/stm32g474-dma/</guid>
-        <description>&lt;p&gt;本文是对 &lt;a class=&#34;link&#34; href=&#34;https://www.analog.com/cn/products/max14808.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+        <description>&lt;img src="https://keinestudio.cn/posts/stm32g474-dma/osc-gpio.jpg" alt="Featured image of post STM32G474 定时器触发 DMA 高速翻转 GPIO" /&gt;&lt;p&gt;本文是对 &lt;a class=&#34;link&#34; href=&#34;https://www.analog.com/cn/products/max14808.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;MAX14808&lt;/a&gt;
 进行驱动测试时 STM32G474 定时器触发 DMA 高速翻转 GPIO 的实现过程。&lt;/p&gt;
 &lt;h2 id=&#34;硬件准备&#34;&gt;硬件准备

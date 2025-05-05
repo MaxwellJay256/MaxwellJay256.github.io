@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Music on Keine Studio</title>
+        <link>http://localhost:1313/tags/music/</link>
+        <description>Recent content in Music on Keine Studio</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>MaxwellJay256</copyright>
+        <lastBuildDate>Fri, 17 Nov 2023 18:22:12 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/music/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>专辑海淘：Diverse Direct 买碟经历分享</title>
+        <link>http://localhost:1313/posts/shopping-on-diverse-direct/</link>
+        <pubDate>Fri, 17 Nov 2023 18:22:12 +0800</pubDate>
+        
+        <guid>http://localhost:1313/posts/shopping-on-diverse-direct/</guid>
+        <description>&lt;img src="http://localhost:1313/posts/shopping-on-diverse-direct/diverse_direct.png" alt="Featured image of post 专辑海淘：Diverse Direct 买碟经历分享" /&gt;&lt;p&gt;作为日系电子音乐的老听友，最近奖学金到手有了点小钱，正好 M3 秋 2023 也来了，于是趁机在 Diverse Direct 上买了一些专辑。&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
